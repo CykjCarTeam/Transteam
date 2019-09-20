@@ -38,7 +38,6 @@
     <url-pattern>*.action</url-pattern>
   </servlet-mapping>
 
-
     <!--中文乱码 过滤器-->
     <filter>
         <filter-name>CharacterEncodingFilter</filter-name>
