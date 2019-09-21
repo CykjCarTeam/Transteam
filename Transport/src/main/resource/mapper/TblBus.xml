@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!--绑定动态sql映射接口-->
+<mapper namespace="cn.bus.mapper.">
+<!--    后台用户登录验证-->
+    <resultMap id="map1" type="cn.bus.entity.Bus">
+        <id column="bid" property="bid"/>
+        <result column="bus" property="bus"/>
+        <result column="protector" property="protector"/>
+        <result column="bus" property="bus"/>
+        <association property="params" javaType="cn.bus.entity.Params">
+            <id column="pid" property="sid"/>
+            <result column="param" property="sname"/>
+        </association>
+    </resultMap>
+    <select id="find" parameterType="cn.bus.entity.Bus" resultMap="map1">
+        select b.*,p.sname from tb_bus b,tb_properties p
+    </select>
+</mapper>
