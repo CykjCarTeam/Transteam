@@ -3,7 +3,9 @@ package cn.bus.web;
 import cn.bus.biz.BusBiz;
 import cn.bus.biz.IAdminBiz;
 import cn.bus.entity.Admin;
+import cn.bus.entity.Bus;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
@@ -20,21 +22,36 @@ import java.util.Map;
 @Controller
 @RequestMapping("/bus/")
 public class BusHandle {
+    private Map map=new HashMap();
 
     @Resource
     private BusBiz busBiz;
 
     @RequestMapping("busList")
-    public ModelAndView login(Admin admin){
-
-
+    public ModelAndView login(Model model,Bus bus){
+        busBiz.find(model,bus);
         return new ModelAndView("admin/Main");
     }
     //
     @RequestMapping("aa")
     @ResponseBody
-    public Map aa(Admin admin){
-        Map map=new HashMap();
+    public Map aa(Bus bus){
+
+        return map;
+    }
+    @RequestMapping("change")
+    public String change(Bus bus){
+        System.out.println("修改");
+        return "redirect:/admin/BusList";//重定向
+    }
+    @RequestMapping("delete")//删除
+    @ResponseBody
+    public Map delete(Bus bus){
+        return map;
+    }
+    @RequestMapping("stop")//报废
+    @ResponseBody
+    public Map stop(Bus bus){
         return map;
     }
 }
