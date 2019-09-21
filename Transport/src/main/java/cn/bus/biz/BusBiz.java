@@ -2,6 +2,7 @@ package cn.bus.biz;
 
 import cn.bus.entity.Bus;
 import org.springframework.ui.Model;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
 
@@ -11,5 +12,5 @@ import java.util.List;
 * @Date:上午 9:53 2019/9/19 0019
 */
 public interface BusBiz {
-    public void find(Model model, Bus bus);
+    public void find(ModelAndView model, Bus bus);
 }

@@ -28,9 +28,10 @@ public class BusHandle {
     private BusBiz busBiz;
 
     @RequestMapping("busList")
-    public ModelAndView login(Model model,Bus bus){
+    public ModelAndView login(ModelAndView model,Bus bus){
         busBiz.find(model,bus);
-        return new ModelAndView("admin/Main");
+        model.setViewName("admin/Main");
+        return model;
     }
     //
     @RequestMapping("aa")

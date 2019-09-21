@@ -16,6 +16,6 @@
         </association>
     </resultMap>
     <select id="find" parameterType="cn.bus.entity.Bus" resultMap="map1">
-        select b.*,p.sname from tb_bus b,tb_properties p
+        select b.*,p.sname from tb_bus b,tb_properties p where b.status=p.pid
     </select>
 </mapper>

@@ -6,6 +6,7 @@ import cn.bus.mapper.BusMapper;
 import cn.bus.mapper.IAdminMapper;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -22,8 +23,8 @@ public class BusBizImp implements BusBiz {
     private BusMapper busMapper;
 
     @Override
-    public void find(Model model, Bus bus) {
+    public void find(ModelAndView model, Bus bus) {
         List list = busMapper.find(bus);
-        model.addAttribute("proList",list);
+        model.addObject("proList",list);
     }
 }
