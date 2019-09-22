@@ -15,5 +15,6 @@ import java.util.Map;
 */
 public interface BusBiz {
     void findCity(ModelAndView model);
-    public void findBus(Map map, Bus bus);
+    void findBus(Map map, Bus bus);
+    void change(Bus bus);
 }

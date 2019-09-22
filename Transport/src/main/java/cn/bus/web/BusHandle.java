@@ -49,10 +49,13 @@ public class BusHandle {
         busBiz.findBus(map,bus);
         return map;
     }
+    //修改车辆信息
     @RequestMapping("change")
-    public String change(Bus bus){
-        System.out.println("修改");
-        return "redirect:/admin/BusList";//重定向
+    public ModelAndView change(ModelAndView model,Bus bus){
+        System.out.println(bus.getProtector());
+        busBiz.change(bus);
+        model.setViewName("admin/BusList");//重定向
+        return model;
     }
     @RequestMapping("delete")//删除
     @ResponseBody

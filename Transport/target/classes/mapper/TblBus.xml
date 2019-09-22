@@ -9,7 +9,7 @@
         select * from tb_city
     </select>
 
-<!--    查询车辆-->
+<!-- 查询车辆-->
     <resultMap id="map1" type="cn.bus.entity.Bus">
         <id column="bid" property="bid"/>
         <result column="bus" property="bus"/>
@@ -26,7 +26,14 @@
     <select id="findBus" parameterType="cn.bus.entity.Bus" resultType="cn.bus.entity.Bus">
         <include refid="sql1"/> limit #{page},3
     </select>
+<!-- 查询车辆总数-->
     <select id="busTotal" parameterType="cn.bus.entity.Bus" resultType="java.lang.Integer">
         select count(*) from ( <include refid="sql1"/> )t
+    </select>
+
+<!--查询所有 可用状态 司机-->
+    <select id="findDriver" parameterType="cn.bus.entity.Bus" resultType="cn.bus.entity.Admin">
+        select aid,aname* from tb_admin where rid=3 and and state!='删除' area=
+        (select city from tb_city where cid=#{cid})
     </select>
 </mapper>

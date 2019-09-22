@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html;"
     pageEncoding="utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%pageContext.setAttribute("path",request.getContextPath()); %>
+<%pageContext.setAttribute("path",request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+request.getContextPath()); %>
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -9,76 +9,48 @@
     <link href="${path}/layui/css/layui.css" rel="stylesheet"  media="all"/>
 	<script type="text/javascript" src="${path}/js/jquery.min.js"></script>
     <script type="text/javascript" src="${path}/layui/layui.js"></script>
+	<script type="text/javascript" src="${path}/layui/layui.all.js"></script>
+	<script type="text/javascript" src="${path}/layui/lay/modules/form.js"></script>
 <script type="text/javascript">
 
-	function del(uid){
-		if (uid=="+a1+") {
-			alert("管理员不能被删除");
-			return false;
-		}
-		if (confirm("确定删除？")) {
-			return true;
-		}
-		return false;
-	}
-	function forbid(uid){
-		if (uid=="+a1+") {
-			alert("管理员不能被禁用");
-			return false;
-		}
-		if (confirm("确定禁用？")) {
-			return true;
-		}
-		return false;
-	}
-	function allow(){
-		if (confirm("确定启用？")) {
-			return true;
-		}
-		return false;
-	}
-	function reset(){
-		if (confirm("确定重置？")) {
-			return true;
-		}
-		return false;
-	}
+
 </script>
 </head>
 
 <body>
 <%--修改的弹框--%>
 <form class="layui-form layui-form-pane1" id="form1" name="form1" style="display: none;" action="${path}/bus/change.action" method="post" lay-filter="first1">
-	<div class="layui-form-item" style="display: none">
-		<label class="layui-form-label">id</label>
-		<div class="layui-input-inline">
-			<input type="text" name="id" id="id" lay-verify="required|title" required  autocomplete="off" class="layui-input">
-		</div>
-	</div>
+
+<%--	<div class="layui-form-item">--%>
+<%--		<label class="layui-form-label">id</label>--%>
+<%--		<div class="layui-input-inline">--%>
+<%--			<input type="text" name="bus" id="bus" lay-verify="required|title" required readonly="readonly" autocomplete="off" class="layui-input">--%>
+<%--		</div>--%>
+<%--	</div>--%>
 	<div class="layui-form-item">
 		<label class="layui-form-label">车牌</label>
 		<div class="layui-input-inline">
-			<input type="text" name="bus" id="bus" lay-verify="required|title" required readonly="readonly" autocomplete="off" class="layui-input">
+			<input type="text" name="bus" id="bus" lay-verify="required" class="layui-input">
 		</div>
 	</div>
 
 	<div class="layui-form-item">
 		<label class="layui-form-label">维护人</label>
 		<div class="layui-input-inline">
-			<input type="text" name="protector" id="protector" lay-verify="required|pass" placeholder="" autocomplete="off" class="layui-input">
+			<input type="text" name="protector" id="protector" required="required"  class="layui-input">
 		</div>
 	</div>
 
 	<div class="layui-form-item">
 		<label class="layui-form-label">年限</label>
 		<div class="layui-input-inline">
-			<input type="text" name="year" id="year" lay-verify="required|pass" placeholder="" autocomplete="off" class="layui-input">
+			<input type="text" name="year" id="year" lay-verify="required|number"  class="layui-input">
 		</div>
 	</div>
 
 	<div class="layui-form-item">
 		<div class="layui-input-block">
-			<button class="layui-btn" lay-submit lay-filter="*">修改</button>
+			<button class="layui-btn" type="submit">修改</button>
 		</div>
 	</div>
 </form>
@@ -166,6 +138,19 @@
                 }
                 if(obj.event === 'change'){
                 	//修改
+					$.ajax({
+						type:"post",
+						url:"${path}/bus/findDriver.action",//查询所有司机
+						dataType:"text",
+						data:data,
+						success:function(res){
+							//执行重载
+							table.reload('docReload', {
+
+							});
+						},
+
+					})
 					$("#bus").val(data.bus);
 					$("#protector").val(data.protector);
 					$("#year").val(data.year);

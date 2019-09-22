@@ -48,12 +48,13 @@ public class BusBizImp implements BusBiz {
     @Override
     public void findBus(Map map, Bus bus) {
         List list = busMapper.findBus(bus);
-        System.out.println(list);
         total=busMapper.busTotal(bus);
         System.out.println("total--->"+total);
         map.put("count", total);
         map.put("data",list);
-
-        System.out.println(map);
+    }
+    @Override
+    public void change(Bus bus) {
+        int num = busMapper.change(bus);
     }
 }

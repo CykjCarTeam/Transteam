@@ -5,6 +5,7 @@ public class Bus {
     private String bus;//几路车
     private String protector;
     private String status;
+    private int year;
     private int page;
 
     private Params params;
@@ -12,6 +13,14 @@ public class Bus {
     private int cid;
 
     public Bus() {
+    }
+
+    public int getYear() {
+        return year;
+    }
+
+    public void setYear(int year) {
+        this.year = year;
     }
 
     public int getPage() {

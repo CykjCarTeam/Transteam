@@ -9,15 +9,16 @@
         select * from tb_city
     </select>
 
-<!--    查询车辆-->
+<!-- 查询车辆-->
     <resultMap id="map1" type="cn.bus.entity.Bus">
         <id column="bid" property="bid"/>
         <result column="bus" property="bus"/>
         <result column="protector" property="protector"/>
         <result column="bus" property="bus"/>
     </resultMap>
+    <!-- 查询 可用 车辆-->
     <sql id="sql1">
-        SELECT * from tb_bus WHERE bid in
+        SELECT * from tb_bus WHERE status != '删除' and bid in
         (SELECT bid from tb_bus_line WHERE lid in
         (SELECT sl.lid FROM tb_station_line sl WHERE sl.sid in
         (select sc.sid from tb_city c, tb_station_city sc
@@ -26,7 +27,26 @@
     <select id="findBus" parameterType="cn.bus.entity.Bus" resultType="cn.bus.entity.Bus">
         <include refid="sql1"/> limit #{page},3
     </select>
+<!-- 查询车辆总数-->
     <select id="busTotal" parameterType="cn.bus.entity.Bus" resultType="java.lang.Integer">
         select count(*) from ( <include refid="sql1"/> )t
     </select>
+
+<!--查询所有 可用状态 司机-->
+    <select id="findDriver" parameterType="cn.bus.entity.Bus" resultType="cn.bus.entity.Admin">
+        select aid,aname* from tb_admin where rid=3 and and state!='删除' area=
+        (select city from tb_city where cid=#{cid})
+    </select>
+    <!--修改车辆信息-->
+    <update id="change" parameterType="cn.bus.entity.Bus">
+        update tb_bus set
+    </update>
+    <!--删除-->
+    <delete id="delBus" parameterType="cn.bus.entity.Bus">
+         update tb_bus set state=(select param from tb_properties where pid=4)
+    </delete>
+    <!--新增-->
+    <insert id="addBus" parameterType="cn.bus.entity.Bus">
+         insert into tb_bus values ()
+    </insert>
 </mapper>

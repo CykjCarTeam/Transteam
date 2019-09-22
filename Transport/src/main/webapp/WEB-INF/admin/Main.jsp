@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html;"
     pageEncoding="utf-8" import="java.util.*,cn.bus.entity.*"%>
-<%pageContext.setAttribute("path",request.getContextPath()); %>
+<%pageContext.setAttribute("path",request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+request.getContextPath()); %>
+
+<%pageContext.setAttribute("basePath",request.getContextPath()); %>
 <%String path=request.getContextPath(); %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
