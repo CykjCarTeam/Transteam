@@ -24,6 +24,7 @@ import java.util.Map;
 @Service
 public class BusBizImp implements BusBiz {
 
+    private int total=0;
     @Resource
     private BusMapper busMapper;
 
@@ -31,7 +32,7 @@ public class BusBizImp implements BusBiz {
     public void findCity(ModelAndView model) {
         List list = busMapper.findCity();
         Map <String,List<City>>map=new <String,List<City>>HashMap();
-        for (int i=0;i<=list.size();i++){
+        for (int i=0;i<list.size();i++){
             City city=(City)list.get(i);
             String province=city.getProvince();
             if (!map.containsKey(province)){
@@ -42,12 +43,17 @@ public class BusBizImp implements BusBiz {
                 map.get(province).add(city);
             }
         }
-        System.out.println(map);
         model.addObject("proMap",map);
     }
     @Override
-    public void find(ModelAndView model, Bus bus) {
-        List list = busMapper.find(bus);
-        model.addObject("busList",list);
+    public void findBus(Map map, Bus bus) {
+        List list = busMapper.findBus(bus);
+        System.out.println(list);
+        total=busMapper.busTotal(bus);
+        System.out.println("total--->"+total);
+        map.put("count", total);
+        map.put("data",list);
+
+        System.out.println(map);
     }
 }

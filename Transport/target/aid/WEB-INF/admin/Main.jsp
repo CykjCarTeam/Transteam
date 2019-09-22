@@ -1,17 +1,16 @@
 <%@ page language="java" contentType="text/html;"
     pageEncoding="utf-8" import="java.util.*,cn.bus.entity.*"%>
 <%pageContext.setAttribute("path",request.getContextPath()); %>
+<%String path=request.getContextPath(); %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>文件共享</title>
-<link href="${path}/a_css/Main.css" rel="stylesheet"/>
-	<link href="${path}/a_css/layui.css" rel="stylesheet"  media="all"/>
-<script type="text/javascript" src="${path}/a_js/jquery.min.js"></script>
-<%--	<script type="text/javascript" src="${path}/a_js/layui.all.js"></script>--%>
+<title>公交管理</title>
+	<link href="${path}/layui/css/layui.css" rel="stylesheet"  media="all"/>
+	<script type="text/javascript" src="${path}/js/jquery.min.js"></script>
 	<script type="text/javascript" src="${path}/layui/layui.js"></script>
 <style type="text/css">
 
@@ -40,8 +39,8 @@
 						<a class="" >${m.key}</a>
 						<dl class="layui-nav-child">
 							<c:forEach items="${m.value}" var="v" varStatus="a">
-								<c:if test="${v.cityname!=null}">
-									<dd><a href="${path}/bus/busList.action?cid=${v.cid}" target="content">${v.cityname}</a></dd>
+								<c:if test="${v.city!=null}">
+									<dd><a href="${path}/bus/busList.action?cid=${v.cid}" target="content">${v.city}</a></dd>
 								</c:if>
 							</c:forEach>
 						</dl>

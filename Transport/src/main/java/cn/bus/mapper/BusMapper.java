@@ -16,5 +16,6 @@ public interface BusMapper {
     //所有省市
     List findCity();
     //某一个市所有公交
-    public List find(Bus bus);
+    List findBus(Bus bus);
+    int busTotal(Bus bus);
 }

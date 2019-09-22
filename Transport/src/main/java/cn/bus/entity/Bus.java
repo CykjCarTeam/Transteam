@@ -1,10 +1,11 @@
 package cn.bus.entity;
 
 public class Bus {
-    private int bid;
-    private String bus;
+    private String bid;//车牌
+    private String bus;//几路车
     private String protector;
-    private String state;
+    private String status;
+    private int page;
 
     private Params params;
 
@@ -13,12 +14,28 @@ public class Bus {
     public Bus() {
     }
 
-    public int getBid() {
+    public int getPage() {
+        return page;
+    }
+
+    public void setPage(int page) {
+        this.page = page-1;
+    }
+
+    public String getBid() {
         return bid;
     }
 
-    public void setBid(int bid) {
+    public void setBid(String bid) {
         this.bid = bid;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 
     public String getBus() {
@@ -35,14 +52,6 @@ public class Bus {
 
     public void setProtector(String protector) {
         this.protector = protector;
-    }
-
-    public String getState() {
-        return state;
-    }
-
-    public void setState(String state) {
-        this.state = state;
     }
 
     public int getCid() {

@@ -4,22 +4,29 @@
 
 <!--绑定动态sql映射接口-->
 <mapper namespace="cn.bus.mapper.BusMapper">
-<!--    查询搜有的省市-->
-    <select id="findCity" parameterType="" resultType="cn.bus.entity.City">
+<!--    查询所有的省市-->
+    <select id="findCity" resultType="cn.bus.entity.City">
         select * from tb_city
     </select>
 
+<!--    查询车辆-->
     <resultMap id="map1" type="cn.bus.entity.Bus">
         <id column="bid" property="bid"/>
         <result column="bus" property="bus"/>
         <result column="protector" property="protector"/>
         <result column="bus" property="bus"/>
-        <association property="params" javaType="cn.bus.entity.Params">
-            <id column="pid" property="sid"/>
-            <result column="param" property="sname"/>
-        </association>
     </resultMap>
-    <select id="find" parameterType="cn.bus.entity.Bus" resultMap="map1">
-        select b.*,p.param from tb_bus b,tb_properties p where b.status=p.pid and b.cid
+    <sql id="sql1">
+        SELECT * from tb_bus WHERE bid in
+        (SELECT bid from tb_bus_line WHERE lid in
+        (SELECT sl.lid FROM tb_station_line sl WHERE sl.sid in
+        (select sc.sid from tb_city c, tb_station_city sc
+        where c.cid=sc.cid and c.cid=#{cid})))
+    </sql>
+    <select id="findBus" parameterType="cn.bus.entity.Bus" resultType="cn.bus.entity.Bus">
+        <include refid="sql1"/> limit #{page},3
+    </select>
+    <select id="busTotal" parameterType="cn.bus.entity.Bus" resultType="java.lang.Integer">
+        select count(*) from ( <include refid="sql1"/> )t
     </select>
 </mapper>

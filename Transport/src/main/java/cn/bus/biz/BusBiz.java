@@ -6,6 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
+import java.util.Map;
 
 /**
 * @Author:小星
@@ -14,5 +15,5 @@ import java.util.List;
 */
 public interface BusBiz {
     void findCity(ModelAndView model);
-    public void find(ModelAndView model, Bus bus);
+    public void findBus(Map map, Bus bus);
 }

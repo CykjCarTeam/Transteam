@@ -6,7 +6,7 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<title>公交系统</title>
-    <link href="${path}/layui/layui.css" rel="stylesheet"  media="all"/>
+    <link href="${path}/layui/css/layui.css" rel="stylesheet"  media="all"/>
 	<script type="text/javascript" src="${path}/js/jquery.min.js"></script>
     <script type="text/javascript" src="${path}/layui/layui.js"></script>
 <script type="text/javascript">
@@ -65,7 +65,14 @@
 	<div class="layui-form-item">
 		<label class="layui-form-label">维护人</label>
 		<div class="layui-input-inline">
-			<input type="text" name="protector" id="protector" lay-verify="required|pass" placeholder="请输入密码" autocomplete="off" class="layui-input">
+			<input type="text" name="protector" id="protector" lay-verify="required|pass" placeholder="" autocomplete="off" class="layui-input">
+		</div>
+	</div>
+
+	<div class="layui-form-item">
+		<label class="layui-form-label">年限</label>
+		<div class="layui-input-inline">
+			<input type="text" name="year" id="year" lay-verify="required|pass" placeholder="" autocomplete="off" class="layui-input">
 		</div>
 	</div>
 
@@ -102,12 +109,13 @@
             <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
         </script>
 	<script type="text/html" id="status">
-		{{# if(d.state != 9 ){ }}
+		{{# if(d.status != '报废停用' ){ }}
 		<a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="use">排班</a>
+		<a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="stop">报废停用</a>
 		 {{# }}}
 		<a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="change">修改</a>
 		<a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
-		<a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="stop">报废停用</a>
+
 <%--	    {{# if(d.uname != 'a1' ){ }}--%>
 <%--                {{# if(d.state === '0' ){ }}--%>
 <%--    <button type="button" class="layui-btn" lay-event="close">禁用</button>--%>
@@ -122,23 +130,24 @@
 <%--			{{# }}}--%>
 	</script>
     <script>
-        layui.use(['table', 'form', 'layer'],function () {
-            var table=layui.table,
-				layer=layui.layer,
+		layui.use('table',function () {
+			var table=layui.table,
+				// layer=layui.layer,
                 form = layui.form;
             table.render({
                 elem:'#list',
                 height:250,
-                url:'userList.action',
+                url:'${path}/bus/findBus.action?cid=${bus.cid}',
                 page:true,//开启分页
 				limit:3,
                 id:'reload',
                 cols:[[//表头
-                    {field:'bid',title:'序号',width:80,sort:true},
-                    {field:'bus',title:'车牌',width:80,sort:true},
-                    {field:'protector',title:'维护人',width:80,sort:true},
-                    {field:'state',title:'状态',width:80,sort:true},
-                    {field:'down',title:'全天工作时间',width:80,sort:true},
+                    {field:'bid',title:'序号',width:80,align:'center',sort:true},
+                    {field:'bus',title:'车牌',width:80,align:'center',sort:true},
+                    {field:'protector',title:'维护人',align:'center',width:80},
+                    {field:'status',title:'状态',align:'center',width:120},
+                    {field:'down',title:'全天工作时间',align:'center',sort:true},
+					{field:'year',title:'可用年限',align:'center',width:120,sort:true},
                     <%--{field:'event',title:'操作',width:80,sort:true,templet:function (d) {--%>
                     <%--        return d.state=='0'?"<a onclick='return forbid(''+${d.uname}+'')' href='${path}/user/changeState.action?state=${d.state}&uname=${d.uname}&start=${nowPage}'>禁用</a>":--%>
                     <%--            "<a onclick='return allow()' href='${path}/user/changeState.action?state=${d.state}&uname=${d.uname}&start=${nowPage}'>启用</a>"--%>
@@ -146,6 +155,7 @@
 					// {field:'change',title:'启禁',width:80,templet: '#switchTpl', unresize: true,align:'center'},
 					{field:'change',title:'操作',templet:"#status", unresize: true,align:'center'},
                 ]]
+
             });
 
             table.on('tool(test)', function(obj){
@@ -158,6 +168,7 @@
                 	//修改
 					$("#bus").val(data.bus);
 					$("#protector").val(data.protector);
+					$("#year").val(data.year);
 					//弹出修改窗口
 					layer.open({
 						type: 1,
@@ -210,71 +221,7 @@
         })
     </script>
 
-<div id="table">
-   <ul>
-       <li>姓名</li>
-       <li style="width:22%">注册时间</li>
-       <li >积分</li>
-       <li>上传文档数</li>
-	   <li>下载文档数</li>
-	   <li style="width:10%">状态</li>
-       <li style="">操作</li>
-   </ul>
 
-   <c:forEach items="${userList}" var="u" varStatus="s">
-       			<ul style="">
-        			<li>${u.name}</li>
-        			<li style="width:22%">${u.addtime}</li>
-        			<li>${u.score}</li>
-					<li>${u.up}</li>
-					<li>${u.down}</li>
-        			<c:if test="${u.state=='0'}">
-        				<li style="width:10%">可用</li>
-        			</c:if>
-        			<c:if test="${u.state=='1'}">
-        				<li style="width:10%">不可用</li>
-        			</c:if>
-        			<li style="">
-        			<c:if test="${u.state=='0'}">
-				       	<a onclick="return forbid('+${u.uname}+');" href="${path}/user/changeState.action?state=${u.state}&uname=${u.uname}&start=${nowPage}"
-				       	 >禁用</a>
-			       	</c:if>
-			       	<c:if test="${u.state=='1'}">
-				       	<a href="${path}/user/changeState.action?state=${u.state}&uname=${u.uname}&start=${nowPage}"
-				       	 onclick="return allow();">启用</a>
-		       		</c:if>
-<%--		       			<a onclick="return reset();" href="${path}/user/reset!reset.action?user.uname=${u.uname}&user.start=${nowPage}"--%>
-<%--		       			 >重置密码</a>--%>
-				       	<a onclick="return del('+${u.uname}+');" href="${path}/user/delete.action?uname=${u.uname}&start=${nowPage}"
-				       	 >删除</a>
-				    </li>
-       			</ul>
-       			<div style="clear:both"></div>
-    </c:forEach>
-
-    <!-- 底部分页栏 -->
-    <div id="rec">
-        <div id="rectext_1">
-            共${total}条
-        </div>
-        <div id="rectext_1">
-            当前页数
-        </div>
-        <div id="rectext_1">
-            ${nowPage+1}/${totalPage}
-        </div>
-        <div id="rectext_1">
-           <a href="${path}/user/uLast.action?nowPage=${nowPage}">上一页</a>
-        </div>
-        <div id="rectext_1">
-           <a href="${path}/user/uNext.action?nowPage=${nowPage}">下一页</a>
-        </div>
-        
-    </div>
-
-<%--    <div id="button">--%>
-<%--    	<a href="/www/UserAction?method=add&nowPage=${nowPage}">新增</a>--%>
-<%--    </div>    	--%>
 </div>
 </body>
 </html>

@@ -29,16 +29,24 @@ public class BusHandle {
     private BusBiz busBiz;
 
     @RequestMapping("allProvince")
-    public ModelAndView allProvince(ModelAndView model,Bus bus){
-        busBiz.find(model,bus);
+    public ModelAndView allProvince(ModelAndView model){
+        busBiz.findCity(model);
         model.setViewName("admin/Main");
         return model;
     }
+    @RequestMapping("busList")
+    public ModelAndView busList(ModelAndView model,Bus bus){
+        model.addObject("bus",bus);
+        model.setViewName("admin/BusList");
+        return model;
+    }
     //
-    @RequestMapping("aa")
+    @RequestMapping("findBus")
     @ResponseBody
-    public Map aa(Bus bus){
-
+    public Map findBus(Bus bus){
+        map.put("msg","");
+        map.put("code",0);
+        busBiz.findBus(map,bus);
         return map;
     }
     @RequestMapping("change")
@@ -51,6 +59,7 @@ public class BusHandle {
     public Map delete(Bus bus){
         return map;
     }
+
     @RequestMapping("stop")//报废
     @ResponseBody
     public Map stop(Bus bus){
