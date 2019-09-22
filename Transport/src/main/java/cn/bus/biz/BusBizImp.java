@@ -4,6 +4,7 @@ import cn.bus.entity.Admin;
 import cn.bus.entity.Bus;
 import cn.bus.mapper.BusMapper;
 import cn.bus.mapper.IAdminMapper;
+import org.junit.jupiter.api.Test;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 import org.springframework.web.servlet.ModelAndView;

@@ -1,6 +1,7 @@
 package cn.bus.biz;
 
 import cn.bus.entity.Bus;
+import org.springframework.stereotype.Repository;
 import org.springframework.ui.Model;
 import org.springframework.web.servlet.ModelAndView;
 

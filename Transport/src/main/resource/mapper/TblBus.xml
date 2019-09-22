@@ -3,7 +3,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <!--绑定动态sql映射接口-->
-<mapper namespace="cn.bus.mapper.">
+<mapper namespace="cn.bus.mapper.BusMapper">
 <!--    后台用户登录验证-->
     <resultMap id="map1" type="cn.bus.entity.Bus">
         <id column="bid" property="bid"/>

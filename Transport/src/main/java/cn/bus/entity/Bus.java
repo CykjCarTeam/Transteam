@@ -52,4 +52,12 @@ public class Bus {
     public void setCid(int cid) {
         this.cid = cid;
     }
+
+    public Params getParams() {
+        return params;
+    }
+
+    public void setParams(Params params) {
+        this.params = params;
+    }
 }

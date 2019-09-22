@@ -4,6 +4,7 @@ import cn.bus.biz.BusBiz;
 import cn.bus.biz.IAdminBiz;
 import cn.bus.entity.Admin;
 import cn.bus.entity.Bus;
+import org.junit.jupiter.api.Test;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -27,8 +28,8 @@ public class BusHandle {
     @Resource
     private BusBiz busBiz;
 
-    @RequestMapping("busList")
-    public ModelAndView login(ModelAndView model,Bus bus){
+    @RequestMapping("allProvince")
+    public ModelAndView allProvince(ModelAndView model,Bus bus){
         busBiz.find(model,bus);
         model.setViewName("admin/Main");
         return model;
