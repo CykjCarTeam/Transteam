@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html;"
     pageEncoding="utf-8" import="java.util.*,cn.bus.entity.*"%>
-<%pageContext.setAttribute("path",request.getContextPath()); %> 
+<%pageContext.setAttribute("path",request.getContextPath()); %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <!DOCTYPE html>
@@ -34,7 +34,7 @@
 		<div class="layui-side-scroll">
 			<!-- 左侧导航区域（可配合layui已有的垂直导航） -->
 			<ul class="layui-nav layui-nav-tree"  lay-filter="test">
-				<c:forEach items="${proList}" var="m" varStatus="s">
+				<c:forEach items="${proMap}" var="m" varStatus="s">
 <%--					<li class="layui-nav-item layui-nav-itemed">--%>
 					<li class="layui-nav-item">
 						<a class="" >${m.key}</a>

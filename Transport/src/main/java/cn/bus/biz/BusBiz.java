@@ -13,5 +13,6 @@ import java.util.List;
 * @Date:上午 9:53 2019/9/19 0019
 */
 public interface BusBiz {
+    void findCity(ModelAndView model);
     public void find(ModelAndView model, Bus bus);
 }

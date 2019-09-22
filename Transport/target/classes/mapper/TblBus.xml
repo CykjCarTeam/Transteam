@@ -4,7 +4,11 @@
 
 <!--绑定动态sql映射接口-->
 <mapper namespace="cn.bus.mapper.BusMapper">
-<!--    后台用户登录验证-->
+<!--    查询搜有的省市-->
+    <select id="findCity" parameterType="" resultType="cn.bus.entity.City">
+        select * from tb_city
+    </select>
+
     <resultMap id="map1" type="cn.bus.entity.Bus">
         <id column="bid" property="bid"/>
         <result column="bus" property="bus"/>
@@ -16,6 +20,6 @@
         </association>
     </resultMap>
     <select id="find" parameterType="cn.bus.entity.Bus" resultMap="map1">
-        select b.*,p.sname from tb_bus b,tb_properties p where b.status=p.pid
+        select b.*,p.param from tb_bus b,tb_properties p where b.status=p.pid and b.cid
     </select>
 </mapper>

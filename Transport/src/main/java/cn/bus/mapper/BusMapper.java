@@ -13,5 +13,8 @@ import java.util.List;
 @Repository
 public interface BusMapper {
 
+    //所有省市
+    List findCity();
+    //某一个市所有公交
     public List find(Bus bus);
 }
