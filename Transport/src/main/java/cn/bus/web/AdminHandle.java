@@ -30,8 +30,4 @@ public class AdminHandle {
 
         return new ModelAndView("admin/index");
     }
-    @RequestMapping("site_list")
-    public ModelAndView site_list(){
-        return new ModelAndView("admin/site-list");
-    }
 }

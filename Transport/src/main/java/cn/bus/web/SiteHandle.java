@@ -8,7 +8,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
 @Controller
-@RequestMapping("/SiteHandle/")
+@RequestMapping("/siteHandle/")
 public class SiteHandle
 {
 
@@ -18,7 +18,9 @@ public class SiteHandle
         return new ModelAndView("admin/site-list");
     }
     @RequestMapping("site_addpage")
-    public ModelAndView site_addpage(){
-        return new ModelAndView("admin/sitesetup");
+    public ModelAndView site_addpage(String city){
+        ModelAndView  model=new ModelAndView("admin/sitesetup");
+        model.addObject("city",city);
+        return model;
     }
 }

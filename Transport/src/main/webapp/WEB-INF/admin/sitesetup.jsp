@@ -30,20 +30,21 @@
 <input type="button" class="layui-btn" value="新增站点" onClick="selectStyle()" />
 <input type="button" class="layui-btn" value="关闭新增站点" onClick="mkrTool.close()" />
 <div>
-    <form>
-        <table>
+    <form id="myform" class="layui-form">
+        <table align="center">
             <tr>
-                <td>站点所属城市：<input type="text" disabled="disabled" id="addname"/></td>
+                <td>站点所属城市：<input class="layui-input" type="text" disabled="disabled" id="addname" value="${requestScope.city}"/></td>
             </tr>
             <tr>
-                <td>站点名称：<input type="text" id="sitename"/></td>
+                <td>站点名称：<input class="layui-input" type="text" id="sitename"/></td>
             </tr>
             <tr>
-                <td>坐标X：<input type="text" id="addrx"  disabled="disabled"/></td>
+                <td>坐标X：<input class="layui-input" type="text" id="addrx"  disabled="disabled"/></td>
             </tr>
             <tr>
-                <td>坐标Y：<input type="text" id="addry"  disabled="disabled"/></td>
+                <td>坐标Y：<input class="layui-input" type="text" id="addry"  disabled="disabled"/></td>
             </tr>
+            <
         </table>
     </form>
 </div>
@@ -52,7 +53,7 @@
 <script type="text/javascript">
     var map = new BMap.Map("container");
     var point= new BMap.Point(116.404, 39.915);
-    var city="厦门";
+    var city=$("#addname").val();
     map.centerAndZoom(city,16);
     map.enableScrollWheelZoom();
     var mkrTool = new BMapLib.MarkerTool(map, {autoClose: false, followText: "新增站点"});

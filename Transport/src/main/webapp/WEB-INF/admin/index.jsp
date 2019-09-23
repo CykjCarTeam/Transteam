@@ -69,7 +69,7 @@
         <ul class="sub-menu">
 <%--          子级菜单--%>
         <li>
-            <a href = '<%=basePath%>adminHandle/site_list.action' target = "content">
+            <a href = '<%=basePath%>siteHandle/site_list.action' target = "content">
                 <cite>城市站点信息</cite></a>
         </li>
         </ul>
