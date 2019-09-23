@@ -17,7 +17,7 @@
   </head>
   
   <body>
-   <form action="<%=path%>adminHandle/login.action" method="get">
+   <form action="<%=path%>adminHandle/login.action" method="post">
    	用户名：<input type="text" name="anum" /><br/>
    	密码：<input type="password" name="apwd" /><br/>
    	<input type="submit" value="登录" />

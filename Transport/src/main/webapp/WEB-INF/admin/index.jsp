@@ -64,13 +64,13 @@
       <li>
         <a href="javascript:;">
           <i class="iconfont left-nav-li" lay-tips="hygl">&#xe6b8;</i>
-          <cite>用户管理</cite>
+          <cite>城市站点配置</cite>
           <i class="iconfont nav_right">&#xe697;</i></a>
         <ul class="sub-menu">
 <%--          子级菜单--%>
         <li>
-            <a href = '<%=basePath%>welcome.jsp' target = "content">
-                <cite>后台用户管理</cite></a>
+            <a href = '<%=basePath%>adminHandle/site_list.action' target = "content">
+                <cite>城市站点信息</cite></a>
         </li>
         </ul>
       </li>

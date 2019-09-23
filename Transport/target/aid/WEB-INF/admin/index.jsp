@@ -50,7 +50,7 @@
         <dd>
           <a onclick="xadmin.open('个人信息','http://www.baidu.com')">个人信息</a></dd>
         <dd>
-          <a href="<%=basePath%>/login.jsp">退出</a></dd>
+          <a href="<%=basePath%>login.jsp">退出</a></dd>
       </dl>
     </li>
   </ul>
@@ -63,18 +63,14 @@
     <ul id="nav">
       <li>
         <a href="javascript:;">
-          <i class="iconfont left-nav-li">&#xe6b8;</i>
-          <cite>用户管理</cite>
+          <i class="iconfont left-nav-li" lay-tips="hygl">&#xe6b8;</i>
+          <cite>城市站点配置</cite>
           <i class="iconfont nav_right">&#xe697;</i></a>
         <ul class="sub-menu">
 <%--          子级菜单--%>
-          <li>
-            <a onclick="xadmin.add_tab('用户查询','<%=basePath%>welcome.jsp')">
-              <cite>用户查询</cite></a>
-          </li>
         <li>
-            <a href = '<%=basePath%>welcome.jsp' target = "content">
-                <cite>keh</cite></a>
+            <a href = '<%=basePath%>adminHandle/site_list.action' target = "content">
+                <cite>城市站点信息</cite></a>
         </li>
         </ul>
       </li>
