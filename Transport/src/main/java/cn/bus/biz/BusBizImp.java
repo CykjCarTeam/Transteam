@@ -1,13 +1,10 @@
 package cn.bus.biz;
 
-import cn.bus.entity.Admin;
 import cn.bus.entity.Bus;
 import cn.bus.entity.City;
 import cn.bus.mapper.BusMapper;
-import cn.bus.mapper.IAdminMapper;
 import org.junit.jupiter.api.Test;
 import org.springframework.stereotype.Service;
-import org.springframework.ui.Model;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
@@ -45,16 +42,65 @@ public class BusBizImp implements BusBiz {
         }
         model.addObject("proMap",map);
     }
+
+
     @Override
     public void findBus(Map map, Bus bus) {
         List list = busMapper.findBus(bus);
         total=busMapper.busTotal(bus);
-        System.out.println("total--->"+total);
         map.put("count", total);
         map.put("data",list);
     }
     @Override
+    public void findProtector(ModelAndView model){
+        model.addObject("protectors",busMapper.findProtector()) ;//前台条件查询下拉框需要
+    }
+
+    @Override
+    public void findLine(ModelAndView model,Bus bus) {
+        model.addObject("lineList",busMapper.findLine(bus));
+    }
+
+    @Override
+    public void findState(ModelAndView model) {
+        model.addObject("stateList",busMapper.findState()) ;
+    }
+
+    @Override
+    public void findallBus(ModelAndView model, Bus bus) {
+        model.addObject("allBus",busMapper.findBus(bus)) ;
+    }
+
+    @Override
+    public void findCityByid(ModelAndView model, Bus bus) {
+        model.addObject("city",busMapper.findCityByid(bus));
+    }
+
+    @Override
     public void change(Bus bus) {
         int num = busMapper.change(bus);
+        System.out.println("change-------"+num);
+    }
+    //新增
+    @Override
+    public void add(Bus bus) {
+        busMapper.addBus(bus);
+    }
+//删除
+    @Override
+    public void delete(Bus bus) {
+        busMapper.delBus(bus);
+    }
+//报废
+    @Override
+    public void stop(Bus bus) {
+        busMapper.stop(bus);
+    }
+
+    @Test
+    public void check(){
+        Bus bus=new Bus();
+        bus.setCid(1);
+        busMapper.findBus(bus);
     }
 }

@@ -1,6 +1,7 @@
 package cn.bus.mapper;
 
 import cn.bus.entity.Bus;
+import cn.bus.entity.City;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -18,5 +19,20 @@ public interface BusMapper {
     //某一个市所有公交
     List findBus(Bus bus);
     int busTotal(Bus bus);
+//所有维护人
+    List findProtector();
+
+    List findLine(Bus bus);
+
+    List findState();
+
+    City findCityByid(Bus bus);
+
     int change(Bus bus);
+
+    int delBus(Bus bus);
+
+    int addBus(Bus bus);
+
+    int stop(Bus bus);
 }

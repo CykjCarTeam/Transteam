@@ -1,11 +1,8 @@
 package cn.bus.biz;
 
 import cn.bus.entity.Bus;
-import org.springframework.stereotype.Repository;
-import org.springframework.ui.Model;
 import org.springframework.web.servlet.ModelAndView;
 
-import java.util.List;
 import java.util.Map;
 
 /**
@@ -16,5 +13,15 @@ import java.util.Map;
 public interface BusBiz {
     void findCity(ModelAndView model);
     void findBus(Map map, Bus bus);
+    void findProtector(ModelAndView model);
+    void findLine(ModelAndView model,Bus bus);
+    void findState(ModelAndView model);
+    void findallBus(ModelAndView model,Bus bus);
+    void findCityByid(ModelAndView model,Bus bus);
+
     void change(Bus bus);
+    void add(Bus bus);
+
+    void delete(Bus bus);
+    void stop(Bus bus);
 }

@@ -16,12 +16,24 @@
         <result column="protector" property="protector"/>
         <result column="bus" property="bus"/>
     </resultMap>
+    <!-- 查询 可用 车辆-->
     <sql id="sql1">
-        SELECT * from tb_bus WHERE bid in
-        (SELECT bid from tb_bus_line WHERE lid in
-        (SELECT sl.lid FROM tb_station_line sl WHERE sl.sid in
-        (select sc.sid from tb_city c, tb_station_city sc
-        where c.cid=sc.cid and c.cid=#{cid})))
+        SELECT * from tb_bus WHERE status != '删除'
+        <if test="null!=online"> and online=#{online}</if><!-- 是否固定线路-->
+        <if test="null!=status"> and status =#{status}</if><!-- 车辆状态-->
+        <if test="null!=bid"> and bid=#{bid}</if><!-- 指定车牌-->
+        <if test="null==bid"><!-- 所有车牌-->
+         and bid in
+        (SELECT bid from tb_bus_line WHERE
+            <if test="null!=lid and lid>0"> lid=#{lid}</if><!-- 指定线路-->
+            <if test="null!=lid and lid!='' or lid==0"><!-- 所有线路-->
+                lid in
+                (SELECT sl.lid FROM tb_station_line sl WHERE sl.sid in
+                (select sc.sid from tb_city c, tb_station_city sc
+                where c.cid=sc.cid and c.cid=#{cid}))
+             </if><!-- 所有线路-->
+        </if><!-- 所有车牌-->
+        )<if test="null!=protector"> and protector>=#{protector}</if><!-- 维护人-->
     </sql>
     <select id="findBus" parameterType="cn.bus.entity.Bus" resultType="cn.bus.entity.Bus">
         <include refid="sql1"/> limit #{page},3
@@ -31,9 +43,34 @@
         select count(*) from ( <include refid="sql1"/> )t
     </select>
 
-<!--查询所有 可用状态 司机-->
-    <select id="findDriver" parameterType="cn.bus.entity.Bus" resultType="cn.bus.entity.Admin">
-        select aid,aname* from tb_admin where rid=3 and and state!='删除' area=
-        (select city from tb_city where cid=#{cid})
+<!--查询所有 维护人-->
+    <select id="findProtector" resultType="cn.bus.entity.Params">
+        select * from tb_properties where fid=32
     </select>
+    <!--根据车辆列表所有bid 查询 tb_bus_line 所有 线路-->
+    <select id="findLine"  parameterType="cn.bus.entity.Bus" resultType="cn.bus.entity.Line">
+        select line from tb_line where lid in
+        (select lid from tb_bus_line where bid in (select bid from ( <include refid="sql1"/> )t1))
+    </select>
+    <!--参数表所有 车辆状态-->
+    <select id="findState" resultType="cn.bus.entity.Params">
+        select * from tb_properties where fid=5
+    </select>
+    <!--根据id查询城市-->
+    <select id="findCityByid"  parameterType="cn.bus.entity.Bus" resultType="cn.bus.entity.City">
+        select * from tb_city where cid=#{cid}
+    </select>
+
+    <!--修改车辆信息-->
+    <update id="change" parameterType="cn.bus.entity.Bus">
+        update tb_bus set bid=#{bid,jdbcType=VARCHAR},protector=#{protector,jdbcType=VARCHAR} where bid=#{oldbid}
+    </update>
+    <!--删除-->
+    <delete id="delBus" parameterType="cn.bus.entity.Bus">
+         update tb_bus set state=(select param from tb_properties where pid=4)
+    </delete>
+    <!--新增-->
+    <insert id="addBus" parameterType="cn.bus.entity.Bus">
+         insert into tb_bus values #{bid},#{bus},(select param from tb_properties where pid=6),#{protector},#{year},'是'
+    </insert>
 </mapper>

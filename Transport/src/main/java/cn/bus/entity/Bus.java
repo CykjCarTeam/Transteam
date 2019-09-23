@@ -6,13 +6,51 @@ public class Bus {
     private String protector;
     private String status;
     private int year;
+    private String online;//是否固定线路
+    private int lid;//线路id
+
     private int page;
 
     private Params params;
 
     private int cid;
+    private String city;
+
+    private String oldbid;//修改之前的车牌
 
     public Bus() {
+    }
+
+    public int getLid() {
+        return lid;
+    }
+
+    public void setLid(int lid) {
+        this.lid = lid;
+    }
+
+    public String getOnline() {
+        return online;
+    }
+
+    public void setOnline(String online) {
+        this.online = online;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public String getOldbid() {
+        return oldbid;
+    }
+
+    public void setOldbid(String oldbid) {
+        this.oldbid = oldbid;
     }
 
     public int getYear() {

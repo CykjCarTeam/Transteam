@@ -1,17 +1,14 @@
 package cn.bus.web;
 
 import cn.bus.biz.BusBiz;
-import cn.bus.biz.IAdminBiz;
-import cn.bus.entity.Admin;
 import cn.bus.entity.Bus;
-import org.junit.jupiter.api.Test;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -24,6 +21,7 @@ import java.util.Map;
 @RequestMapping("/bus/")
 public class BusHandle {
     private Map map=new HashMap();
+    private int cid;//城市
 
     @Resource
     private BusBiz busBiz;
@@ -34,9 +32,20 @@ public class BusHandle {
         model.setViewName("admin/Main");
         return model;
     }
+    //车辆列表
     @RequestMapping("busList")
     public ModelAndView busList(ModelAndView model,Bus bus){
-        model.addObject("bus",bus);
+        if(bus.getCid()==0){
+            bus.setCid(cid);
+        }
+        //前台表格初始化需要发送bid请求，以及显示城市名
+        busBiz.findCityByid(model,bus);
+        busBiz.findProtector(model);//所有维护人
+        busBiz.findLine(model,bus);//该城市已配车的所有线路
+        busBiz.findState(model);//所有状态
+        busBiz.findallBus(model,bus);//所有车牌
+
+        cid=bus.getCid();//保存,之后重载表格数据需要
         model.setViewName("admin/BusList");
         return model;
     }
@@ -52,14 +61,24 @@ public class BusHandle {
     //修改车辆信息
     @RequestMapping("change")
     public ModelAndView change(ModelAndView model,Bus bus){
-        System.out.println(bus.getProtector());
         busBiz.change(bus);
         model.setViewName("admin/BusList");//重定向
         return model;
     }
+
+    //新增车辆
+    @RequestMapping("add")
+    public ModelAndView add(ModelAndView model, HttpServletRequest request, Bus bus){
+
+        busBiz.change(bus);
+        model.setViewName("admin/BusList");//重定向
+        return model;
+    }
+
     @RequestMapping("delete")//删除
     @ResponseBody
     public Map delete(Bus bus){
+
         return map;
     }
 
