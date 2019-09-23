@@ -27,7 +27,6 @@ public class AdminHandle {
         System.out.println("anum" + admin.getAnum());
         Admin admins = iAdminBiz.login(admin.getAnum(), admin.getApwd());
 
-
         return new ModelAndView("admin/index");
     }
 }

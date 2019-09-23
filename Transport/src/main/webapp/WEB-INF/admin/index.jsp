@@ -27,7 +27,7 @@
   <meta http-equiv="Cache-Control" content="no-siteapp" />
   <link rel="stylesheet" href="<%=basePath%>css/font.css">
   <link rel="stylesheet" href="<%=basePath%>css/xadmin.css">
-  <link rel="stylesheet" href="<%=basePath%>layui/css/layui.css">
+  <link rel="stylesheet" href="<%=basePath%>lib/layui/css/layui.css">
   <!-- <link rel="stylesheet" href="./css/theme5.css"> -->
   <script src="<%=basePath%>lib/layui/layui.js" charset="utf-8"></script>
   <script type="text/javascript" src="<%=basePath%>js/xadmin.js" charset="utf-8"></script>
@@ -64,13 +64,13 @@
       <li>
         <a href="javascript:;">
           <i class="iconfont left-nav-li" lay-tips="hygl">&#xe6b8;</i>
-          <cite>用户管理</cite>
+          <cite>城市路线配置</cite>
           <i class="iconfont nav_right">&#xe697;</i></a>
         <ul class="sub-menu">
 <%--          子级菜单--%>
         <li>
-            <a href = '<%=basePath%>welcome.jsp' target = "content">
-                <cite>后台用户管理</cite></a>
+            <a href = '<%=basePath%>lineHandle/skip.action' target = "content">
+                <cite>配置城市路线</cite></a>
         </li>
         </ul>
       </li>
