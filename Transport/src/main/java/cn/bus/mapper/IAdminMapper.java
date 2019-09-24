@@ -12,6 +12,6 @@ import java.util.Map;
 public interface IAdminMapper {
 
     public Admin queryUser(Admin user);
-    public List<Station> station_list(Map map);
-    public List<Station> station_listpage(Map map);
+//    public List<Station> station_list(Map map);
+//    public List<Station> station_listpage(Map map);
 }

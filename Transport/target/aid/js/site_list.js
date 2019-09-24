@@ -1,23 +1,55 @@
-function addmap(city) {
+    var path=$("#utable").attr("title");
     var map = new BMap.Map("container");
     var point= new BMap.Point(116.404, 39.915);
-    // alert(city);
-    map.centerAndZoom(city,16);
+    function addmap(city) {
+    map.centerAndZoom(city,10);
+    map.enableScrollWheelZoom();//启用滚轮放大缩小
 }
+    addmap(point);
+    var val;//城市下拉框文本
+    var cid;//城市下拉框id
+    function cityselect() {
+        layui.use('form', function () {
+               var form = layui.form,
+                $ = layui.$;
+            $.ajax({
+                url: path + "siteHandle/stationcity.action",
+                type: "post",
+                dataType:"json",
+                success: function (redata) {
+                    $.each(redata,function (i,u) {
+
+                        $("#citys").append
+                        (
+                            "<option value="+u.cid+">"+u.city+"</option>"
+
+                        )
+                        form.render();
+                    })
+
+                },
+
+            });
+        });
+
+    }
+
 layui.use(['table','form'], function () {
     var table = layui.table,
         form=layui.form,
         $=layui.$;
-    var val=$("#citys").val();
-    form.on('select(city)',function (cityva) {
-        val=cityva.value;
 
+    form.on('select(city)',function (cityva) {
+        val=cityva.elem[cityva.elem.selectedIndex].text;
+        cid=cityva.value;
     });
-    var path=$("#utable").attr("title");
+
+
     table.render({
         elem: '#utable'
         , height: 600
-        , url: path+'siteHandle/stationlist.action' //数据接口
+        , method:"post"
+        , url: path+'siteHandle/stationlist.action'//数据接口
         , page: true //开启分页
         , limit: 10
         , id: 'testReload'
@@ -124,6 +156,11 @@ layui.use(['table','form'], function () {
             }, 'data');
         },
         add:function () {
+            if(cid==null||cid=="")
+            {
+                layer.msg("请先选择城市",{icon:5,time:1500,title:"提示"})
+            }else
+            {
             layer.open({
                 type: 2
                 ,title: "用户修改" //不显示标题栏
@@ -142,6 +179,7 @@ layui.use(['table','form'], function () {
                     });
                 }
             });
+            }
         }
     };
 
@@ -149,4 +187,5 @@ layui.use(['table','form'], function () {
         var type = $(this).data('type');
         active[type] ? active[type].call(this) : '';
     })
+
 });

@@ -2,6 +2,7 @@ package cn.bus.web;
 
 import cn.bus.biz.IAdminBiz;
 import cn.bus.entity.Admin;
+import cn.bus.entity.City;
 import cn.bus.entity.Station;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,7 +16,7 @@ import java.util.List;
 import java.util.Map;
 
 @Controller
-@RequestMapping("/siteHandle/")
+@RequestMapping("/siteHandle")
 public class SiteHandle
 {
     @Resource
@@ -32,11 +33,12 @@ public class SiteHandle
         model.addObject("city",city);
         return model;
     }
-    @RequestMapping(value="/stationlist.action", method= RequestMethod.GET, produces="application/json;charset=utf-8")
+    @RequestMapping(value="/stationlist.action", method= RequestMethod.POST, produces="application/json;charset=utf-8")
     public @ResponseBody
     Map stationlist(String city, Integer page, String station, Integer limit)
     {
 
+        System.out.println(city);
         stationlist=AdminBizImp.station_list(city,station,page,limit);
 
         Integer pagecount=AdminBizImp.station_listpage(city,station,page);
@@ -47,5 +49,14 @@ public class SiteHandle
         stationmap.put("count",pagecount);
 
         return stationmap;
+    }
+    @RequestMapping(value="/stationcity.action", method= RequestMethod.POST, produces="application/json;charset=utf-8")
+    public @ResponseBody
+    List<City> stationcity()
+    {
+
+        List<City> cityList=AdminBizImp.station_city();
+
+        return cityList;
     }
 }

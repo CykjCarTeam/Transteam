@@ -26,10 +26,12 @@
     <script type="text/javascript" src="<%=basePath%>js/jquery.min.js"></script>
 </head>
 <body>
+<div align="center">
 <div al style="width:800px;height:600px;border:1px solid gray" id="container"></div>
 <input type="button" class="layui-btn" value="新增站点" onClick="selectStyle()" />
 <input type="button" class="layui-btn" value="关闭新增站点" onClick="mkrTool.close()" />
-<div>
+</div>
+<div align="center">
     <form id="myform" class="layui-form">
         <table align="center">
             <tr>
@@ -44,7 +46,9 @@
             <tr>
                 <td>坐标Y：<input class="layui-input" type="text" id="addry"  disabled="disabled"/></td>
             </tr>
-            <
+            <tr>
+                <td><button class="layui-btn">提交</button></td>
+            </tr>
         </table>
     </form>
 </div>

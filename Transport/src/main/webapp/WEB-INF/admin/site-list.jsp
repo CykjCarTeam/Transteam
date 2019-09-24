@@ -16,26 +16,29 @@
     <link rel="stylesheet" href="<%=basePath%>css/font.css">
     <link rel="stylesheet" href="<%=basePath%>css/xadmin.css">
     <script src="<%=basePath%>js/jquery.min.js"></script>
-    <script src="<%=basePath%>lib/layui/layui.js" charset="utf-8"></script>
     <script type="text/javascript" src="<%=basePath%>js/xadmin.js"></script>
     <script type="text/javascript" src="http://api.map.baidu.com/api?v=3.0&ak=eB3UC9RiYf7GGhjGC7XBAuk3WRKZitTG"></script>
     <script type="text/javascript" src="http://api.map.baidu.com/library/MarkerTool/1.2/src/MarkerTool_min.js"></script>
 </head>
 
-<body>
+<body onload="cityselect()">
 <div class="layui-fluid">
     <div class="layui-row layui-col-space15">
         <div class="layui-col-md12">
             <div class="layui-card">
-                <div class="demoTable">
-
-                    <div class="layui-form layui-input-inline">
+                <div class="demoTable" >
+                    <div class="layui-form-pane">
+                        <label class="layui-form-label">选择城市：</label>
+                    </div>
+                    <div class="layui-form layui-input-inline ">
                         <select id="citys" name="city" lay-filter="city"  >
-                            <option></option>
-                            <option>厦门</option>
-                            <option>泉州</option>
-                            <option>福州</option>
+                            <option ></option>
+
                         </select>
+                    </div>
+
+                    <div class="layui-form-pane">
+                        <label class="layui-form-label">站点名称：</label>
                     </div>
                     <div class="layui-inline ">
                         <input type="text"  id="stiename" name="station" placeholder="请输入站点名称" autocomplete="off"
@@ -46,11 +49,11 @@
                     </div>
 
                 </div>
-                <div class="layui-card-body" align="center">
+                <div  class="layui-card-body" align="center" >
                     <table title="<%=basePath%>" class="layui-table" lay-filter="test" id="utable" align="center">
                     </table>
                     <%--                地图--%>
-                    <div  style="width:800px;height:600px;border:1px solid gray" id="container">
+                    <div  style="width:800px;height:600px;border:1px solid gray;" id="container">
                     </div>
                 </div>
 
@@ -63,7 +66,7 @@
     <a class="layui-btn layui-btn-xs " lay-event="edit">修改</a>
     <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="Del">删除</a>
 </script>
+
 <script src="<%=basePath%>lib/layui/layui.js"></script>
 <script src="<%=basePath%>js/site_list.js"></script>
-
 </html>

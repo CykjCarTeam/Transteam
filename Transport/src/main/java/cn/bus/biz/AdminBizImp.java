@@ -1,8 +1,10 @@
 package cn.bus.biz;
 
 import cn.bus.entity.Admin;
+import cn.bus.entity.City;
 import cn.bus.entity.Station;
 import cn.bus.mapper.IAdminMapper;
+import cn.bus.mapper.IStationMapper;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -15,6 +17,8 @@ public class AdminBizImp implements IAdminBiz {
 
     @Resource
     private IAdminMapper iAdminMapper;
+    @Resource
+    private IStationMapper iStationMapper;
     @Override
     public Admin login(String anum, String apwd) {
         return iAdminMapper.queryUser(new Admin(anum, apwd));
@@ -30,7 +34,7 @@ public class AdminBizImp implements IAdminBiz {
         map.put("station",station);
         map.put("start",start);
         map.put("end",end);
-        return iAdminMapper.station_list(map);
+        return iStationMapper.station_list(map);
     }
 
     @Override
@@ -39,8 +43,14 @@ public class AdminBizImp implements IAdminBiz {
         Map<String,Object> map2=new HashMap<String, Object>();
         map2.put("city",city);
         map2.put("station",station);
-        List<Station> stationList=iAdminMapper.station_listpage(map2);
+        List<Station> stationList=iStationMapper.station_listpage(map2);
         Integer count=stationList.size();
         return count;
+    }
+
+    @Override
+    public List<City> station_city()
+    {
+        return iStationMapper.station_city();
     }
 }
