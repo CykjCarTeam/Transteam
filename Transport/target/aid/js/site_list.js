@@ -11,19 +11,19 @@ layui.use(['table','form'], function () {
     var val=$("#citys").val();
     form.on('select(city)',function (cityva) {
         val=cityva.value;
-        addmap(val);
+
     });
     var path=$("#utable").attr("title");
     table.render({
         elem: '#utable'
         , height: 600
-        , url: path+'admin/find.action' //数据接口
+        , url: path+'siteHandle/stationlist.action' //数据接口
         , page: true //开启分页
         , limit: 10
         , id: 'testReload'
         , parseData: function (res) {
 
-            console.log("返回值" + res);
+            console.log("返回值" + res.city);
             console.log("状态码" + res.code);
             // console.log("消息" + res.msg);
             console.log("条数" + res.count);
@@ -41,7 +41,7 @@ layui.use(['table','form'], function () {
             , {field: 'station', title: '站点名称', minWidth: 150}
             , {field: 'coor_x', title: '站点X坐标', minWidth: 80}
             , {field: 'coor_y', title: '站点Y坐标', minWidth: 80}
-            , {field: 'stationline', title: '站点经过线路', minWidth: 300}
+            , {field: 'line', title: '站点经过线路', minWidth: 300}
             , {field: 'right',fixed:'right', title: '操作', minWidth: 300, toolbar: '#barDemo'}
         ]]
     });
@@ -107,18 +107,18 @@ layui.use(['table','form'], function () {
     //触发查询按钮
     var $ = layui.$, active = {
         reload: function () {
-            var userid = $('#userid');
-            var ftime = $('#ftime');
-            var ltime = $('#ltime');
+            var station= $('#stiename');
+            var city = $('#citys');
+            addmap(val);
             //执行重载
             table.reload('testReload', {
                 page: {
                     curr: 1 //重新从第 1 页开始
                 }
                 , where: {
-                    userid: userid.val(),
-                    ftime: ftime.val(),
-                    ltime: ltime.val(),
+                    station: station.val(),
+                    city: city.val(),
+
 
                 }
             }, 'data');

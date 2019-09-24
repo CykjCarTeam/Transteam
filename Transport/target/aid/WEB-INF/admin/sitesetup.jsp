@@ -33,10 +33,10 @@
     <form id="myform" class="layui-form">
         <table align="center">
             <tr>
-                <td>站点所属城市：<input class="layui-input" type="text" disabled="disabled" id="addname" value="${requestScope.city}"/></td>
+                <td>站点所属城市：<input name="city" class="layui-input" type="text" disabled="disabled" id="addname" value="${requestScope.city}"/></td>
             </tr>
             <tr>
-                <td>站点名称：<input class="layui-input" type="text" id="sitename"/></td>
+                <td>站点名称：<input name="station" class="layui-input" type="text" id="sitename"/></td>
             </tr>
             <tr>
                 <td>坐标X：<input class="layui-input" type="text" id="addrx"  disabled="disabled"/></td>

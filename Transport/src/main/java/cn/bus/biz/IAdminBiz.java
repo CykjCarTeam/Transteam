@@ -1,12 +1,15 @@
 package cn.bus.biz;
 
 import cn.bus.entity.Admin;
-/**
-* @Author:小星
-* @Description:后台用户业务接口
-* @Date:上午 9:53 2019/9/19 0019
-*/
+import cn.bus.entity.Station;
+
+import java.util.List;
+
+
+
 public interface IAdminBiz {
 
     public Admin login(String anum, String apwd);
+    public List<Station> station_list(String city, String station, Integer page, Integer limit);
+    public Integer station_listpage(String city, String station, Integer page);
 }

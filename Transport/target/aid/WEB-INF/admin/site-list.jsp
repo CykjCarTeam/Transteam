@@ -30,14 +30,15 @@
                 <div class="demoTable">
 
                     <div class="layui-form layui-input-inline">
-                        <select id="citys" lay-filter="city"  >
+                        <select id="citys" name="city" lay-filter="city"  >
+                            <option></option>
                             <option>厦门</option>
                             <option>泉州</option>
                             <option>福州</option>
                         </select>
                     </div>
                     <div class="layui-inline ">
-                        <input type="text" id="stiename" name="stiename" placeholder="请输入站点名称" autocomplete="off"
+                        <input type="text"  id="stiename" name="station" placeholder="请输入站点名称" autocomplete="off"
                                class="layui-input"></div>
                     <div class="layui-inline">
                         <button class="layui-btn" data-type="reload">查询</button>

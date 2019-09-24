@@ -1,14 +1,17 @@
 package cn.bus.mapper;
 
 import cn.bus.entity.Admin;
+import cn.bus.entity.Station;
 import org.springframework.stereotype.Repository;
-/**
-* @Author:小星
-* @Description: 后台用户表操作接口
-* @Date:上午 9:53 2019/9/19 0019
-*/
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 @Repository
 public interface IAdminMapper {
 
     public Admin queryUser(Admin user);
+    public List<Station> station_list(Map map);
+    public List<Station> station_listpage(Map map);
 }

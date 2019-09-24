@@ -1,9 +1,5 @@
 package cn.bus.entity;
-/**
-* @Author:小星
-* @Description:后台用户
-* @Date:上午 9:52 2019/9/19 0019
-*/
+
 public class Admin {
 
   private int aid;

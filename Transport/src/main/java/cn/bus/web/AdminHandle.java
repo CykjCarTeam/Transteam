@@ -8,11 +8,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
 
-/**
-* @Author:小星
-* @Description: 后台用户访问句柄
-* @Date:上午 9:53 2019/9/19 0019
-*/
+
 @Controller
 @RequestMapping("/adminHandle/")
 public class AdminHandle {
