@@ -9,26 +9,29 @@ import java.util.List;
 */
 public class Line {
 
-    private int lid;
+    private Integer lid;
     private String line;
     private String duration;//理论时长
     private String cost;  //理论费用
     private Station origin; //起点
     private Station terminal;//终点
     private List<Station> allStations; //线路对应的站点
+    private List<Bus> allBus;//对应的车辆
 
     public Line() {
+
     }
 
-    public Line(String line) {
+    public Line(Integer lid, String line) {
+        this.lid = lid;
         this.line = line;
     }
 
-    public int getLid() {
+    public Integer getLid() {
         return lid;
     }
 
-    public void setLid(int lid) {
+    public void setLid(Integer lid) {
         this.lid = lid;
     }
 
@@ -78,5 +81,13 @@ public class Line {
 
     public void setAllStations(List<Station> allStations) {
         this.allStations = allStations;
+    }
+
+    public List<Bus> getAllBus() {
+        return allBus;
+    }
+
+    public void setAllBus(List<Bus> allBus) {
+        this.allBus = allBus;
     }
 }

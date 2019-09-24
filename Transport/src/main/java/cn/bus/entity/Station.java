@@ -6,10 +6,10 @@ package cn.bus.entity;
 */
 public class Station {
 
-    private int sid ;
+    private Integer sid ;
     private String station;
-    private String coord_x;//经度
-    private String coord_y;//纬度
+    private String coor_x;//经度
+    private String coor_y;//纬度
 
     public Station() {
     }
@@ -19,11 +19,11 @@ public class Station {
         this.station = station;
     }
 
-    public int getSid() {
+    public Integer getSid() {
         return sid;
     }
 
-    public void setSid(int sid) {
+    public void setSid(Integer sid) {
         this.sid = sid;
     }
 
@@ -35,19 +35,19 @@ public class Station {
         this.station = station;
     }
 
-    public String getCoord_x() {
-        return coord_x;
+    public String getCoor_x() {
+        return coor_x;
     }
 
-    public void setCoord_x(String coord_x) {
-        this.coord_x = coord_x;
+    public void setCoor_x(String coor_x) {
+        this.coor_x = coor_x;
     }
 
-    public String getCoord_y() {
-        return coord_y;
+    public String getCoor_y() {
+        return coor_y;
     }
 
-    public void setCoord_y(String coord_y) {
-        this.coord_y = coord_y;
+    public void setCoor_y(String coor_y) {
+        this.coor_y = coor_y;
     }
 }

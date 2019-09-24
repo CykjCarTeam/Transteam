@@ -84,6 +84,8 @@ function addLine(lid, line_name,path){
 			}
 			layer.msg("线路配置成功！点击右上角退出当前窗口！");
 			//关闭弹窗（关闭之身）
+			// $(".layui-layer-close",window.parent.document).trigger('click')
+			window.parent.document.close();
 		},
 		error:function(){
 			console.log('通讯错误');

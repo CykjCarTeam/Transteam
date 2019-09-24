@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 pageEncoding="UTF-8"%>
+<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -12,6 +13,10 @@ pageEncoding="UTF-8"%>
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <link rel="stylesheet" href="<%=basePath%>lib/layui/css/layui.css" media="all">
+  <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=ykrYFllyk7nAN0oTIWHPwdxTkRkzfPuE&callback"></script>
+  <style type="text/css">
+    body, html,#lineMap {width: 100%;height: 100%;overflow: hidden;margin:0;font-family:"微软雅黑";}
+  </style>
 </head>
 <body>
 
@@ -21,9 +26,9 @@ pageEncoding="UTF-8"%>
   <div class="layui-input-inline">
     <select lay-filter="city">
       <option value = "-1">请选择</option>
-      <option value = "1">厦门</option>
-      <option value = "2" >泉州</option>
-      <option value = "3" >莆田</option>
+      <c:forEach items="${requestScope.citys}" var = "citys">
+         <option value = "${citys.cid}">${citys.city}</option>
+      </c:forEach>
     </select>
   </div>
 </div>
@@ -44,6 +49,8 @@ pageEncoding="UTF-8"%>
   <%--表格载体--%>
   <table id="line" lay-filter="rout" title="<%=basePath%>"></table>
 </div>
+<%--地图线路载体--%>
+<div id="lineMap" style="display: none"></div>
 <%-- 必须用script标签包裹，如果用普通的div会多一对
    表格操作的工具栏
 --%>
