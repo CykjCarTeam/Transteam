@@ -15,20 +15,72 @@
 	<script type="text/javascript" src="${path}/layui/layui.all.js"></script>
 
 <script type="text/javascript">
+    function checkChange(){
+        var bid=$("#bid").val();
+        var protector=$("#protector").val();
+        var bus=$("#bus").val();
+        var year=$("#year").val();
+        if(bid==null&&bid==""){
+            alert("车牌不能为空")
+            return false;
+        }
+        if(bus==null&&bus==""){
+            alert("车名不能为空")
+            return false;
+        }
+        if(protector==null&&protector==""){
+            alert("维护人不能为空")
+            return false;
+        }
+        if(year==null&&year==""){
+            alert("上牌年份不能为空")
+            return false;
+        }
+        return true;
+    }
 
+    $("bid-add").blur(function () {//新增车牌唯一
+        var bid=$("#bid-add").val();
+        $.ajax({
+            url:"${path}/bus/checkBid.action",
+            type:"post",
+            data:{"bid":bid},
+            dataType:"text",
+            success:(function (res) {
+                if(res=="1"){
+                    alert("该车牌已存在");
+                }
+            })
+        })
+    })
 
 </script>
 </head>
 
 <body>
 <%--新增的弹框--%>
-<form class="layui-form layui-form-panel" id="form2" name="form2" style="display: none;" action="${path}/bus/change.action" method="post" lay-filter="first1">
+<form class="layui-form layui-form-panel" id="form-add" name="form2" style="display: none;">
 <%--	<input type="hidden" name="oldbid"/>--%>
+    <div class="layui-form-item">
+        <label class="layui-form-label">省</label>
+        <div class="layui-input-inline">
+            <input type="text" value="${city.province}" readonly="readonly" class="layui-input">
+        </div>
+    </div>
 
-	<label class="layui-form-label">${city.city}市</label>
-	<div class="layui-input-inline">
-		<input type="text" name="bid"  lay-verify="" readonly="readonly" class="layui-input">
-	</div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">市</label>
+        <div class="layui-input-inline">
+            <input type="text" name="city" value="${city.city}" readonly="readonly" class="layui-input">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">上牌年限</label>
+        <div class="layui-input-inline">
+            <input type="text" class="layui-input" id="year-add" name="busyear" lay-verify="required" placeholder="yyyy">
+        </div>
+    </div>
+
 	<div class="layui-form-item">
 		<label class="layui-form-label">车牌</label>
 		<div class="layui-input-inline">
@@ -54,29 +106,10 @@
 		</div>
 	</div>
 
-	<div class="layui-form-item">
-		<label class="layui-form-label">上牌年限</label>
-		<div class="layui-input-inline">
-			<input type="text" class="layui-input" id="year-add" name="year" lay-verify="required" placeholder="yyyy">
-		</div>
-	</div>
-
-	<div class="layui-form-item">
-		<div class="layui-input-block">
-			<button class="layui-btn" lay-submit lay-filter="*">确定</button>
-		</div>
-	</div>
 </form>
 
 <%--修改的弹框--%>
-<form class="layui-form layui-form-panel" id="form1" name="form1" style="display: none;" action="${path}/bus/change.action" method="post" lay-filter="first1">
-
-<%--	<div class="layui-form-item">--%>
-<%--		<label class="layui-form-label">id</label>--%>
-<%--		<div class="layui-input-inline">--%>
-<%--			<input type="text" name="bus" id="bus" lay-verify="required|title" required readonly="readonly" autocomplete="off" class="layui-input">--%>
-<%--		</div>--%>
-<%--	</div>--%>
+<form class="layui-form layui-form-panel" id="form-change" name="form1" style="display: none;" >
 	<input type="hidden" id="oldbid" name="oldbid"/>
 	<div class="layui-form-item">
 		<label class="layui-form-label">车牌</label>
@@ -92,29 +125,34 @@
 		</div>
 	</div>
 
+    <div class="layui-form-item">
+        <label class="layui-form-label">上牌年限</label>
+        <div class="layui-input-inline">
+            <input type="text" class="layui-input" id="year" name="busyear" lay-verify="required" placeholder="yyyy">
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">是否固定线路</label>
+        <div class="layui-input-inline">
+            <select name="online">
+                <option value="是">是</option>
+                <option value="否">否</option>
+            </select>
+        </div>
+    </div>
+
 	<div class="layui-form-item">
 		<label class="layui-form-label">维护人</label>
 		<div class="layui-input-inline">
 			<select id = "protector" name="protector" lay-filter = "protector">
 				<c:forEach items="${protectors}" var="p">
-					<option value="${p.pid}">${p.param}</option>
+					<option value="${p.param}">${p.param}</option>
 				</c:forEach>
 			</select>
 		</div>
 	</div>
 
-	<div class="layui-form-item">
-		<label class="layui-form-label">上牌年限</label>
-		<div class="layui-input-inline">
-			<input type="text" class="layui-input" id="year" name="year" lay-verify="required" placeholder="yyyy">
-		</div>
-	</div>
-
-	<div class="layui-form-item">
-		<div class="layui-input-block">
-			<button class="layui-btn" lay-submit lay-filter="*">修改</button>
-		</div>
-	</div>
 </form>
 <%--条件查询--%>
 <div>
@@ -125,7 +163,8 @@
 		<div class="layui-inline">
 			<label class="layui-form-label">是否固定线路</label>
 			<div class="layui-input-inline">
-				<select name="online-1" id="online-1">
+				<select name="online-1" id="online-find">
+                    <option value="">所有</option>
 					<option value="是">是</option>
 					<option value="否">否</option>
 				</select>
@@ -135,8 +174,9 @@
 			<label class="layui-form-label">车辆状态</label>
 			<div class="layui-input-inline">
 				<select name="state" id="state-find">//循环添加
+                    <option value="">所有</option>
 				<c:forEach items="${stateList}" var="s"><%--来自参数表--%>
-					<option value="${s.pid}">${s.param}</option>
+					<option value="${s.param}">${s.param}</option>
 				</c:forEach>
 				</select>
 			</div>
@@ -145,6 +185,7 @@
 			<label class="layui-form-label">线路</label>
 			<div class="layui-input-inline">
 				<select name="line" id="line-find">//循环添加下拉框所有线路
+                    <option value="">所有</option>
 					<c:forEach items="${lineList}" var="s"><%--来自参数表--%>
 						<option value="${s.lid}">${s.line}</option>
 					</c:forEach>
@@ -155,8 +196,9 @@
 			<label class="layui-form-label">维护人</label>
 			<div class="layui-input-inline">
 				<select name="protector" id="protector-find">//循环添加下拉框所有维护人
+                    <option value="">所有</option>
 					<c:forEach items="${protectors}" var="p"><%--来自参数表--%>
-						<option value="${p.pid}">${p.param}</option>
+						<option value="${p.param}">${p.param}</option>
 					</c:forEach>
 				</select>
 			</div>
@@ -165,8 +207,9 @@
 			<label class="layui-form-label">车牌</label>
 			<div class="layui-input-inline">
 				<select name="bid" id="bid-find">//循环添加下拉框所有车牌
+                    <option value="">所有</option>
 					<c:forEach items="${allBus}" var="b"><%--来自参数表--%>
-						<option value="${b.bid}">${b.bus}</option>
+						<option value="${b.bid}">${b.bid}</option>
 					</c:forEach>
 				</select>
 			</div>
@@ -181,10 +224,10 @@
 	<input type="hidden" id="cid" value="${bus.cid}">
 <%--显示数据的表格--%>
 
-        <script type="text/html" id="switchTpl">
-            <!-- 这里的 checked 的状态只是演示 -->
-            <input type="checkbox" name="sex" value="{{d.uname}}" lay-skin="switch" lay-text="禁用|启用" lay-filter="sexDemo" {{ d.state ==='0' ? 'checked' : '' }}>
-        </script>
+<%--        <script type="text/html" id="switchTpl">--%>
+<%--            <!-- 这里的 checked 的状态只是演示 -->--%>
+<%--            <input type="checkbox" name="sex" value="{{d.uname}}" lay-skin="switch" lay-text="禁用|启用" lay-filter="sexDemo" {{ d.state ==='0' ? 'checked' : '' }}>--%>
+<%--        </script>--%>
 
         <script type="text/html" id="barDemo">
             <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
@@ -204,15 +247,17 @@
 			var table=layui.table,
 				layer=layui.layer,
 			laydate=layui.laydate,
-
 			form=layui.form;
-
 			form.render();
 
 			laydate.render({
 				elem: '#year',
 				type: "year"
 			});
+            laydate.render({
+                elem: '#year-add',
+                type: "year"
+            });
             table.render({
                 elem:'#list',
                 height:350,
@@ -221,12 +266,12 @@
 				limit:3,
                 id:'reload',
                 cols:[[//表头
-                    {field:'bid',title:'序号',width:80,align:'center',sort:true},
-                    {field:'bus',title:'车牌',width:80,align:'center',sort:true},
-                    {field:'protector',title:'维护人',align:'center',width:80},
+                    {field:'bid',title:'序号',align:'center',sort:true,width:80},
+                    {field:'bus',title:'车牌',align:'center',sort:true,width:80},
+                    {field:'protector',title:'维护人',align:'center',width:120},
                     {field:'status',title:'状态',align:'center',width:120},
                     {field:'down',title:'全天工作时间',align:'center',sort:true},
-					{field:'year',title:'可用年限',align:'center',width:120,sort:true},
+					{field:'busyear',title:'使用年限',align:'center',width:120,sort:true},
                     <%--{field:'event',title:'操作',width:80,sort:true,templet:function (d) {--%>
                     <%--        return d.state=='0'?"<a onclick='return forbid(''+${d.uname}+'')' href='${path}/user/changeState.action?state=${d.state}&uname=${d.uname}&start=${nowPage}'>禁用</a>":--%>
                     <%--            "<a onclick='return allow()' href='${path}/user/changeState.action?state=${d.state}&uname=${d.uname}&start=${nowPage}'>启用</a>"--%>
@@ -255,64 +300,165 @@
 					layer.open({
 						type: 1,
 						title: "修改",
-						area: ['420px', '530px'],
-						content: $("#form1")//引用的弹出层的页面层的方式加载修改界面表单
+                        btn:['确定','取消'],
+                        btnAlign:'c',
+                        area: ['420px', '450px'],
+                        content: $("#form-change"),//引用的弹出层的页面层的方式加载修改界面表单
+                        btn1:function (index) {
+                            var form=$("#form-change");
+                            $.ajax({
+                                url:"${path}/bus/change.action",
+                                type:"post",
+                                data:form.serialize(),
+                                dataType:"text",
+                                success:(function (res) {
+                                    if(res=="1"){
+                                        layer.msg("修改成功");
+                                    }
+                                    table.reload('reload', {//重载数据
+                                        page: {
+                                            curr: 1 //重新从第 1 页开始
+                                        }
+                                    });
+                                    layer.close(index);
+                                })
+                            })
+                        },
+                        btn2:function (index) {
+                            layer.close(index);
+                        }
 					});
                 }
 
                 if(obj.event === 'del'){
 					//删除
 					layer.confirm('确定删除？', function(index){
-						var msg=[{"bid":data.bid}]
-						operation("${path}/bus/delete.action",msg);
+                        var bid=data.bid;
+                        $.ajax({
+                            type:"post",
+                            url:"${path}/bus/delete.action",
+                            dataType:"text",
+                            data:{"bid":bid},
+                            success:function(res){
+                                if(res=="1"){
+                                    layer.msg("删除成功");
+                                }
+                                //执行重载
+                                table.reload('reload', {
+                                    page: {
+                                        curr: 1 //重新从第 1 页开始
+                                    }
+                                });
+                            },
+                            error:function () {
+                                alert("fail")
+                            }
+                        })
 						layer.close(index);
 					});
                 }
 				if(obj.event === 'stop'){
 					//报废
 					layer.confirm('确定停用？', function(index){
-						var msg=[{"bid":data.bid}]
-						operation("${path}/bus/stop.action",msg);
+						var bid=data.bid;
+                        $.ajax({
+                            type:"post",
+                            url:"${path}/bus/stop.action",
+                            dataType:"text",
+                            data:{"bid":bid},
+                            success:function(res){
+                                if(res=="1"){
+                                    layer.msg("操作成功");
+                                }
+                                //执行重载
+                                table.reload('reload', {
+                                    page: {
+                                        curr: 1 //重新从第 1 页开始
+                                    }
+                                });
+                            },
+                            error:function () {
+                                alert("fail")
+                            }
+                        })
 						layer.close(index);
 					});
 				}
             });
-            //操作使用同一个方法
-			function operation(url,data){
-				$.ajax({
-					type:"post",
-					url:url,
-					dataType:"json",
-					data:data,
-					success:function(res){
-						//执行重载
-						table.reload('reload', {
-						});
-					},
 
-				})
-			}
 			var $ = layui.$, active = {
-				find: function(){
+				find: function(){//点击查询
 					//执行重载
 					table.reload('reload', {
 						page: {
 							curr: 1 //重新从第 1 页开始
 						}
 						,where: {
-							key: {
-								online: $("#online-find").val(),
-								state:$("#state-find").val(),
-								line:$("#line-find").val(),
-								protector:$("#protector-find").val(),
-								bid:$("#bid-find").val()
-							}
+						    cid:$("#cid").val(),
+                            online: $("#online-find").val(),
+                            status:$("#state-find").val(),
+                            lid:$("#line-find").val(),
+                            protector:$("#protector-find").val(),
+                            bid:$("#bid-find").val()
 						}
-					}, 'data');
-				}
+					});
+				},
+				add:function () {//点击新增
+                    //弹出新增窗口
+                    layer.open({
+                        type: 1,
+                        title: "新增",
+                        btn:['确定','取消'],
+                        btnAlign:'c',
+                        area: ['420px', '450px'],
+                        content: $("#form-add"),//加载新增界面表单
+                        btn1:function (index) {
+                            var form=$("#form-add");
+                            $.ajax({
+                                url:"${path}/bus/add.action",
+                                type:"post",
+                                data:form.serialize(),
+                                dataType:"text",
+                                success:(function (res) {
+                                    if(res=="1"){
+                                        layer.msg("新增成功");
+                                    }
+                                    table.reload('reload', {//重载数据
+                                        page: {
+                                            curr: 1 //重新从第 1 页开始
+                                        }
+                                    });
+                                    layer.close(index);
+                                }),
+                                error:function () {
+                                    alert("增加失败")
+                                }
+                            })
+                        },
+                        btn2:function (index) {
+                            layer.close(index);
+                        }
+                    });
+                },
+                <%--sureadd:function () {--%>
+                <%--    var form=$("#form-add");--%>
+                <%--    $.ajax({--%>
+                <%--        url:"${path}/bus/change.action",--%>
+                <%--        type:"post",--%>
+                <%--        data:form.serialize(),--%>
+                <%--        dataType:"text",--%>
+                <%--        success:(function (res) {--%>
+                <%--            if(res=="1"){--%>
+                <%--                alert("修改成功");--%>
+                <%--            }--%>
+                <%--            table.reload('reload', {//重载数据--%>
+                <%--            });--%>
+                <%--        })--%>
+                <%--    })--%>
+                <%--}--%>
 			};
 			//监听条件查询
-			$('.layui-form .layui-btn').on('click', function(){
+			$('.layui-form .layui-btn ').on('click', function(){
 				var type = $(this).data('type');
 				active[type] ? active[type].call(this) : '';
 			});

@@ -18,22 +18,23 @@
     </resultMap>
     <!-- 查询 可用 车辆-->
     <sql id="sql1">
-        SELECT * from tb_bus WHERE status != '删除'
-        <if test="null!=online"> and online=#{online}</if><!-- 是否固定线路-->
-        <if test="null!=status"> and status =#{status}</if><!-- 车辆状态-->
-        <if test="null!=bid"> and bid=#{bid}</if><!-- 指定车牌-->
-        <if test="null==bid"><!-- 所有车牌-->
-         and bid in
-        (SELECT bid from tb_bus_line WHERE
-            <if test="null!=lid and lid>0"> lid=#{lid}</if><!-- 指定线路-->
-            <if test="null!=lid and lid!='' or lid==0"><!-- 所有线路-->
+        SELECT * from tb_bus WHERE 1=1
+        <if test="status=='' or status==null"> and status != '删除'</if><!-- 所有状态-->
+        <if test="status!=null and status!=''"> and status=#{status}</if> <!-- 指定状态-->
+        <if test="null!=online and online!=''"> and online=#{online}</if><!-- 固定线路-->
+        <if test="null!=bid and bid!=''"> and bid=#{bid}</if><!-- 指定车牌-->
+        <if test="null==bid or bid==''"><!-- 所有车牌-->
+            and bid in
+            (SELECT bid from tb_bus_line WHERE
+            <if test="lid!=null"> lid=#{lid}</if><!-- 指定线路-->
+            <if test="lid==null or lid==''"><!-- 所有线路-->
                 lid in
                 (SELECT sl.lid FROM tb_station_line sl WHERE sl.sid in
                 (select sc.sid from tb_city c, tb_station_city sc
                 where c.cid=sc.cid and c.cid=#{cid}))
-             </if><!-- 所有线路-->
-        </if><!-- 所有车牌-->
-        )<if test="null!=protector"> and protector>=#{protector}</if><!-- 维护人-->
+             </if><!--所有线路-->
+        )</if><!-- 所有车牌-->
+        <if test="null!=protector and protector!=''"> and protector=#{protector}</if><!-- 维护人-->
     </sql>
     <select id="findBus" parameterType="cn.bus.entity.Bus" resultType="cn.bus.entity.Bus">
         <include refid="sql1"/> limit #{page},3
@@ -49,7 +50,7 @@
     </select>
     <!--根据车辆列表所有bid 查询 tb_bus_line 所有 线路-->
     <select id="findLine"  parameterType="cn.bus.entity.Bus" resultType="cn.bus.entity.Line">
-        select line from tb_line where lid in
+        select lid,line from tb_line where lid in
         (select lid from tb_bus_line where bid in (select bid from ( <include refid="sql1"/> )t1))
     </select>
     <!--参数表所有 车辆状态-->
@@ -63,14 +64,23 @@
 
     <!--修改车辆信息-->
     <update id="change" parameterType="cn.bus.entity.Bus">
-        update tb_bus set bid=#{bid,jdbcType=VARCHAR},protector=#{protector,jdbcType=VARCHAR} where bid=#{oldbid}
+        update tb_bus set bid=#{bid},online=#{online} ,
+        protector=#{protector} ,busyear=#{busyear} where bid=#{oldbid}
     </update>
     <!--删除-->
     <delete id="delBus" parameterType="cn.bus.entity.Bus">
-         update tb_bus set state=(select param from tb_properties where pid=4)
+         update tb_bus set status=(select param from tb_properties where pid=4) where bid=#{bid}
     </delete>
-    <!--新增-->
+    <!--报废-->
+    <delete id="stop" parameterType="cn.bus.entity.Bus">
+         update tb_bus set status=(select param from tb_properties where pid=10) where bid=#{bid}
+    </delete>
+    <!--根据bid查询车辆,检查新增车牌是否重复-->
+    <select id="findBusByid"  parameterType="cn.bus.entity.Bus" resultType="cn.bus.entity.Bus">
+        select * from tb_bus where bid=#{bid}
+    </select>
+    <!--新增,默认停站、固定线路-->
     <insert id="addBus" parameterType="cn.bus.entity.Bus">
-         insert into tb_bus values #{bid},#{bus},(select param from tb_properties where pid=6),#{protector},#{year},'是'
+         insert into tb_bus values (#{bid},#{bus},(select param from tb_properties where pid=7),#{protector},#{busyear},'是')
     </insert>
 </mapper>

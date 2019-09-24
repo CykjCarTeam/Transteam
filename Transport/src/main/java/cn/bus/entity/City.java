@@ -1,18 +1,18 @@
 package cn.bus.entity;
 
 public class City {
-    private int cid;
+    private Integer cid;
     private String province;
     private String city;
 
     public City() {
     }
 
-    public int getCid() {
+    public Integer getCid() {
         return cid;
     }
 
-    public void setCid(int cid) {
+    public void setCid(Integer cid) {
         this.cid = cid;
     }
 

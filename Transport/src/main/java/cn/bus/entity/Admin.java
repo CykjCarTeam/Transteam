@@ -6,7 +6,7 @@ package cn.bus.entity;
 */
 public class Admin {
 
-  private int aid;
+  private Integer aid;
   private String anum;
   private String apwd;
 
@@ -18,11 +18,11 @@ public class Admin {
         this.apwd = apwd;
     }
 
-    public int getAid() {
+    public Integer getAid() {
         return aid;
     }
 
-    public void setAid(int aid) {
+    public void setAid(Integer aid) {
         this.aid = aid;
     }
 

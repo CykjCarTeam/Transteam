@@ -1,7 +1,7 @@
 package cn.bus.entity;
 
 public class Line {
-    private int lid;
+    private Integer lid;
     private String line;
     private String origin;
     private String terminal;
@@ -12,11 +12,11 @@ public class Line {
     public Line() {
     }
 
-    public int getLid() {
+    public Integer getLid() {
         return lid;
     }
 
-    public void setLid(int lid) {
+    public void setLid(Integer lid) {
         this.lid = lid;
     }
 

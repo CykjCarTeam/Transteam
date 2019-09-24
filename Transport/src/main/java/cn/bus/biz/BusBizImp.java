@@ -3,6 +3,7 @@ package cn.bus.biz;
 import cn.bus.entity.Bus;
 import cn.bus.entity.City;
 import cn.bus.mapper.BusMapper;
+import cn.bus.tool.PageUtil;
 import org.junit.jupiter.api.Test;
 import org.springframework.stereotype.Service;
 import org.springframework.web.servlet.ModelAndView;
@@ -77,30 +78,35 @@ public class BusBizImp implements BusBiz {
     }
 
     @Override
-    public void change(Bus bus) {
+    public int change(Bus bus) {
         int num = busMapper.change(bus);
         System.out.println("change-------"+num);
+        return num;
     }
+
+    @Override
+    public Bus findBusByid(Bus bus) {
+        return busMapper.findBusByid(bus);
+    }
+
     //新增
     @Override
-    public void add(Bus bus) {
-        busMapper.addBus(bus);
+    public boolean add(Bus bus) {
+        return busMapper.addBus(bus);
     }
 //删除
     @Override
-    public void delete(Bus bus) {
-        busMapper.delBus(bus);
+    public int delete(Bus bus) {
+        return busMapper.delBus(bus);
     }
 //报废
     @Override
-    public void stop(Bus bus) {
-        busMapper.stop(bus);
+    public int stop(Bus bus) {
+        return busMapper.stop(bus);
     }
 
     @Test
     public void check(){
-        Bus bus=new Bus();
-        bus.setCid(1);
-        busMapper.findBus(bus);
+        System.out.println(PageUtil.getYear("2012"));
     }
 }

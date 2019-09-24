@@ -19,9 +19,11 @@ public interface BusBiz {
     void findallBus(ModelAndView model,Bus bus);
     void findCityByid(ModelAndView model,Bus bus);
 
-    void change(Bus bus);
-    void add(Bus bus);
+    int change(Bus bus);//修改
 
-    void delete(Bus bus);
-    void stop(Bus bus);
+    Bus findBusByid(Bus bus);
+    boolean add(Bus bus);//新增
+
+    int delete(Bus bus);//删除
+    int stop(Bus bus);//报废
 }

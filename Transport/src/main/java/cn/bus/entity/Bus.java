@@ -5,15 +5,15 @@ public class Bus {
     private String bus;//几路车
     private String protector;
     private String status;
-    private int year;
+    private String busyear;
     private String online;//是否固定线路
-    private int lid;//线路id
+    private Integer lid;//线路id
 
     private int page;
 
     private Params params;
 
-    private int cid;
+    private Integer cid;
     private String city;
 
     private String oldbid;//修改之前的车牌
@@ -21,13 +21,6 @@ public class Bus {
     public Bus() {
     }
 
-    public int getLid() {
-        return lid;
-    }
-
-    public void setLid(int lid) {
-        this.lid = lid;
-    }
 
     public String getOnline() {
         return online;
@@ -53,20 +46,12 @@ public class Bus {
         this.oldbid = oldbid;
     }
 
-    public int getYear() {
-        return year;
+    public String getBusyear() {
+        return busyear;
     }
 
-    public void setYear(int year) {
-        this.year = year;
-    }
-
-    public int getPage() {
-        return page;
-    }
-
-    public void setPage(int page) {
-        this.page = page-1;
+    public void setBusyear(String busyear) {
+        this.busyear = busyear;
     }
 
     public String getBid() {
@@ -101,19 +86,35 @@ public class Bus {
         this.protector = protector;
     }
 
-    public int getCid() {
-        return cid;
-    }
-
-    public void setCid(int cid) {
-        this.cid = cid;
-    }
-
     public Params getParams() {
         return params;
     }
 
     public void setParams(Params params) {
         this.params = params;
+    }
+
+    public Integer getLid() {
+        return lid;
+    }
+
+    public void setLid(Integer lid) {
+        this.lid = lid;
+    }
+
+    public Integer getCid() {
+        return cid;
+    }
+
+    public void setCid(Integer cid) {
+        this.cid = cid;
+    }
+
+    public int getPage() {
+        return page;
+    }
+
+    public void setPage(int page) {
+        this.page = 3*(page-1);
     }
 }

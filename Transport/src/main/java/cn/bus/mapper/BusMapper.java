@@ -32,7 +32,8 @@ public interface BusMapper {
 
     int delBus(Bus bus);
 
-    int addBus(Bus bus);
+    Bus findBusByid(Bus bus);
+    boolean addBus(Bus bus);
 
     int stop(Bus bus);
 }

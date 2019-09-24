@@ -2,13 +2,14 @@ package cn.bus.web;
 
 import cn.bus.biz.BusBiz;
 import cn.bus.entity.Bus;
+import cn.bus.tool.PageUtil;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -35,9 +36,6 @@ public class BusHandle {
     //车辆列表
     @RequestMapping("busList")
     public ModelAndView busList(ModelAndView model,Bus bus){
-        if(bus.getCid()==0){
-            bus.setCid(cid);
-        }
         //前台表格初始化需要发送bid请求，以及显示城市名
         busBiz.findCityByid(model,bus);
         busBiz.findProtector(model);//所有维护人
@@ -55,36 +53,66 @@ public class BusHandle {
     public Map findBus(Bus bus){
         map.put("msg","");
         map.put("code",0);
+        System.out.println(bus.getLid());
         busBiz.findBus(map,bus);
         return map;
     }
     //修改车辆信息
-    @RequestMapping("change")
-    public ModelAndView change(ModelAndView model,Bus bus){
-        busBiz.change(bus);
-        model.setViewName("admin/BusList");//重定向
-        return model;
+    @RequestMapping(value = "change" , method= RequestMethod.POST)
+    @ResponseBody
+    public String change(Bus bus){
+        bus.setBusyear(PageUtil.getYear(bus.getBusyear()));//换算使用年份
+        int num=busBiz.change(bus);
+        String res="0";
+        if(num>0){//修改成功
+            res="1";
+        }
+        return res;
     }
-
+    //新增车辆车牌bid是否重复
+    @RequestMapping(value="checkBid", method= RequestMethod.POST)
+    @ResponseBody
+    public String checkBid(Bus bus){
+        Bus bus1=busBiz.findBusByid(bus);
+        String res="0";
+        if(null!=bus1){//
+            res="1";
+        }
+        return res;
+    }
     //新增车辆
-    @RequestMapping("add")
-    public ModelAndView add(ModelAndView model, HttpServletRequest request, Bus bus){
-
-        busBiz.change(bus);
-        model.setViewName("admin/BusList");//重定向
-        return model;
+    @RequestMapping(value="add", method= RequestMethod.POST)
+    @ResponseBody
+    public String add(Bus bus){
+        System.out.println("========="+bus.getBusyear());
+        bus.setBusyear(PageUtil.getYear(bus.getBusyear()));//换算使用年份
+        boolean flag=busBiz.add(bus);
+        String res="0";
+        if(flag){//新增成功
+            res="1";
+        }
+        return res;
     }
 
-    @RequestMapping("delete")//删除
+    @RequestMapping(value="delete",method = RequestMethod.POST)//删除
     @ResponseBody
-    public Map delete(Bus bus){
-
-        return map;
+    public String delete(Bus bus){
+        int num=busBiz.delete(bus);
+        String res="0";
+        if(num>0){//删除成功
+            res="1";
+        }
+        return res;
     }
 
-    @RequestMapping("stop")//报废
+    @RequestMapping(value="stop",method = RequestMethod.POST)//报废
     @ResponseBody
-    public Map stop(Bus bus){
-        return map;
+    public String stop(Bus bus){
+        int num=busBiz.stop(bus);
+        String res="0";
+        if(num>0){//
+            res="1";
+        }
+        return res;
     }
 }

@@ -2,26 +2,14 @@ package cn.bus.entity;
 
 public class Params {
 
-    private int sid;
+    private Integer sid;
     private String sname;
 
-    private int pid;
+    private Integer pid;
     private String param;
-    private int fid;
+    private Integer fid;
 
     public Params() {
-    }
-
-    public int getSid() {
-        return sid;
-    }
-
-    public int getPid() {
-        return pid;
-    }
-
-    public void setPid(int pid) {
-        this.pid = pid;
     }
 
     public String getParam() {
@@ -32,23 +20,35 @@ public class Params {
         this.param = param;
     }
 
-    public int getFid() {
-        return fid;
-    }
-
-    public void setFid(int fid) {
-        this.fid = fid;
-    }
-
-    public void setSid(int sid) {
-        this.sid = sid;
-    }
-
     public String getSname() {
         return sname;
     }
 
     public void setSname(String sname) {
         this.sname = sname;
+    }
+
+    public Integer getSid() {
+        return sid;
+    }
+
+    public void setSid(Integer sid) {
+        this.sid = sid;
+    }
+
+    public Integer getPid() {
+        return pid;
+    }
+
+    public void setPid(Integer pid) {
+        this.pid = pid;
+    }
+
+    public Integer getFid() {
+        return fid;
+    }
+
+    public void setFid(Integer fid) {
+        this.fid = fid;
     }
 }
