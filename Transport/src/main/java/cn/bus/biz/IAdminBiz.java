@@ -1,6 +1,10 @@
 package cn.bus.biz;
 
 import cn.bus.entity.Admin;
+import cn.bus.entity.Menu;
+
+import java.util.List;
+
 /**
 * @Author:小星
 * @Description:后台用户业务接口
@@ -9,4 +13,7 @@ import cn.bus.entity.Admin;
 public interface IAdminBiz {
 
     public Admin login(String anum, String apwd);
+    public Admin loginjax(String anum);
+    public List<Menu> findfmenu(String anum);
+    public List<Menu> findcmenu(String anum);
 }

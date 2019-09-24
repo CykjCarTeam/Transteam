@@ -5,17 +5,24 @@ package cn.bus.entity;
 * @Date:上午 9:52 2019/9/19 0019
 */
 public class Admin {
-
   private int aid;
   private String anum;
   private String apwd;
-
+  private Menu menu;
     public Admin() {
     }
 
     public Admin(String anum, String apwd) {
         this.anum = anum;
         this.apwd = apwd;
+    }
+
+    public Menu getMenu() {
+        return menu;
+    }
+
+    public void setMenu(Menu menu) {
+        this.menu = menu;
     }
 
     public int getAid() {

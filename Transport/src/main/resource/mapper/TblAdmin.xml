@@ -8,4 +8,24 @@
     <select id="queryUser" parameterType="cn.bus.entity.Admin" resultType="cn.bus.entity.Admin">
         select * from tb_admin where anum = #{anum} and apwd = #{apwd}
     </select>
+
+<!--    登录ajax-->
+    <select id="loginjax" parameterType="java.lang.String" resultType="cn.bus.entity.Admin">
+		select * from tb_admin where anum=#{anum}
+	</select>
+
+    <!--活动菜单-->
+<!--    父类菜单-->
+    <select id="findfmenu" parameterType="java.lang.String" resultType="cn.bus.entity.Menu">
+      select a.anum,m.* from tb_admin a,tb_role_menu r1,tb_menu m where
+      a.anum=#{anum} and r1.rid=a.rid and r1.mid=m.mid and m.pid=0
+    </select>
+
+<!--    子类菜单-->
+    <select id="findcmenu" parameterType="java.lang.String" resultType="cn.bus.entity.Menu">
+      select a.anum,m.* from tb_admin a,tb_role_menu r1,tb_menu m where
+      a.anum=#{anum} and r1.rid=a.rid and r1.mid=m.mid
+    </select>
+
+
 </mapper>
