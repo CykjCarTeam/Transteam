@@ -12,9 +12,9 @@ $(function(){
 		 //提交路线
 		 $(".layui-btn").click(function(){
 			 var result = transfer.getData('line');//返回右侧值
-			 var mid = [];//提取出右侧菜单id
+			 var sid = [];//提取出右侧菜单id
 			 $.each(result, function(index,elem){
-				 mid.push(elem.value);
+				 sid.push(elem.value);
 			 });
 			 //线路名不为空验证
 			 var line_name = $("#line_info").val().trim();
@@ -22,11 +22,11 @@ $(function(){
 			 	layer.msg("请输入线路名！");
 			 	return;
 			 }
-			 if(mid.length < 2){//未配置起点和终点
+			 if(sid.length < 2){//未配置起点和终点
 			 	layer.msg("未配置线路终始点！");
 			 	return;
 			 }
-			 var str = JSON.stringify(mid);//转成json字符串
+			 var str = JSON.stringify(sid);//转成json字符串
 			 addLine(str,line_name,path);//响应给后台
 		 });
 	});
@@ -70,12 +70,12 @@ function init(stations, transfer){
 }
 
 //数据提交到后台
-function addLine(lid, line_name,path){
+function addLine(sid, line_name,path){
 
 	$.ajax({
 		type:'post',
 		url:path + 'lineHandle/commitLine.action',
-		data:{'lid':lid, 'line':line_name},
+		data:{'sid':sid, 'line':line_name},
 		dataType:'text',
 		success:function(result){
 			if(result == "-1"){

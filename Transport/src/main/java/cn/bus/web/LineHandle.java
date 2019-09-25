@@ -4,6 +4,7 @@ import cn.bus.biz.ILineBiz;
 import cn.bus.entity.City;
 import cn.bus.entity.Line;
 import cn.bus.entity.Station;
+import com.google.gson.Gson;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -58,7 +59,7 @@ public class LineHandle {
         condition.put("count", limit);//一页显示几条
 
         List<Line> allLines = lineBizImp.getLines(condition);
-        int count = lineBizImp.lineCounts(condition);
+        Integer count = lineBizImp.lineCounts(condition);
         Map<String, Object> data = new LinkedHashMap<>();//响应给前台的数据
         data.put("code", 0);
         data.put("msg", "");
@@ -82,11 +83,27 @@ public class LineHandle {
     @ResponseBody
     public String commitLine(HttpServletRequest request){
 
-        System.out.println("lid" + request.getParameter("lid"));
-        System.out.println("line" + request.getParameter("line"));
-        String msg = "1";
+        String sid = request.getParameter("sid");//该线路下的所有站点
+        String line = request.getParameter("line");//线路名
+        //由于JSON默认Integer类型是Double类型
+        Gson gson = new Gson();
+        Integer[] allStation = gson.fromJson(sid,Integer[].class);//解析成Integer类型
+        List<Integer> lidList = Arrays.asList(allStation);//所有站点
+        String duration = lidList.size() * 5 + "min";//理论时长
+        String cost = "1元";//单程费用
 
-        return msg;
+        Map<String, Object> condition = new HashMap<>();//添加的条件
+        condition.put("cid", cid);
+        condition.put("line", line);
+        condition.put("origin", lidList.get(0));
+        condition.put("terminal", lidList.get(lidList.size()-1));
+        condition.put("duration", duration);
+        condition.put("cost", cost);
+        condition.put("stations", lidList);
+
+        Boolean res = lineBizImp.createLine(condition);//业务层插入
+
+        return res ? "1" : "-1";
     }
 
     //删除线路
@@ -94,8 +111,8 @@ public class LineHandle {
     @ResponseBody
     public String delLine(Integer lid){
 
-        System.out.println("lid" + lid);
-        return "1";
+        Boolean res = lineBizImp.deleteLine(lid);
+        return res ? "1" : "-1";
     }
 
     //更新线路
@@ -103,11 +120,11 @@ public class LineHandle {
     @ResponseBody
     public String updateLine(String line, Integer lid){
 
+        //更新线路是没有返回值，那我如何知道该线路该数据更新成功了呢
         Line lines = lineBizImp.verifyLine(line);
-        String msg = "";
-        if(lines != null){
-            msg = "-1";
-        }else{
+        String msg = "-1";
+
+        if(null == lines){
             msg = "1";
             lineBizImp.modifyLine(new Line(lid, line));
         }

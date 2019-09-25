@@ -55,8 +55,55 @@
     </select>
 
 <!--    更新线路-->
-    <select id="updateLine" parameterType="cn.bus.entity.Line">
+    <select id="updateLine" parameterType="cn.bus.entity.Line" >
        update tb_line set line = #{line} where lid = #{lid}
     </select>
+
+<!--
+    线路添加步骤：1、2、3
+-->
+<!--    1.插入线路表-->
+    <insert id="addLine" parameterType="java.util.HashMap">
+        insert into tb_line(line, origin,terminal,duration,cost) values (#{line},
+        #{origin}, #{terminal}, #{duration}, #{cost})
+        <selectKey keyProperty="lid" resultType="java.lang.Integer" order="AFTER">
+            select LAST_INSERT_ID()
+        </selectKey>
+    </insert>
+<!--    2.插入线路站点关系表-->
+    <insert id = "addLineStations" parameterType="java.util.HashMap"
+    keyProperty="sort_id" useGeneratedKeys="true">
+        insert into tb_station_line(lid,sid) values(#{lid}, #{sid})
+    </insert>
+<!--    3.插入城市线路关系表-->
+    <insert id="addCityLine" parameterType="java.util.HashMap">
+        insert into tb_city_line(cid, lid) values(#{cid},#{lid})
+    </insert>
+
+<!--
+    删除线路步骤1、2、3、4、5、6
+    -->
+<!--    1.删除城市线路关系表-->
+    <delete id="delCityLine" parameterType="java.lang.Integer">
+        delete from tb_city_line where lid = #{lid}
+    </delete>
+<!--    2.删除线路站点关系表-->
+    <delete id="delLineStation" parameterType="java.lang.Integer">
+        delete from tb_station_line where lid = #{lid}
+    </delete>
+<!--    3.删除车辆线路关系表数据-->
+    <delete id="delBusLine" parameterType="java.lang.Integer">
+        delete from tb_bus_line where lid = #{lid}
+    </delete>
+<!--    4.删除司机线路关系表-->
+    <delete id = "delDriverLine" parameterType="java.lang.Integer">
+        delete from tb_driver_line where lid = #{lid}
+    </delete>
+<!--    5.删除线路时间段表-->
+
+<!--    6.删除线路-->
+    <delete id="delLine" parameterType="java.lang.Integer">
+        delete from tb_line where lid = #{lid}
+    </delete>
 
 </mapper>

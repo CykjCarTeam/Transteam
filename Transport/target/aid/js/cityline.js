@@ -38,7 +38,6 @@ function loadData(table,city_id, city) {
         ,page: true //开启分页
         ,id: 'lineTable'
         ,method:"post"
-        ,limit:3
         ,parseData:function(res){
             return {
                 "code": eval(res.code), //解析接口状态
@@ -178,47 +177,26 @@ function loadData(table,city_id, city) {
  */
 function loadMap(path, stationData, centerCity){
 
-    console.log("站点名" + stationData[0].station);
-    console.log("站点经度" + stationData[0].coor_x);
-    console.log("站点纬度" + stationData[0].coor_y);
-    console.log("中心城市" + centerCity);
     // 百度地图API功能
     var map = new BMap.Map("lineMap");
-    map.centerAndZoom(new BMap.Point(116.404, 39.915), 11);
+    map.centerAndZoom(centerCity, 11);
     map.enableScrollWheelZoom(true);
-
-    var data = [
-        [116.301934,39.977552, "厦大西村"],
-        [116.365942,39.996165, "高林街道"],
-        [116.462801,39.97694, "T4候机楼"],
-        [116.508328,39.919141, "软件园东二门"]
-    ];
 
     var station = [];//站点
     var station_info = [];//站点信息
     var pass = [];//经站点
     //真数据
     $.each(stationData, function(item,val){
-        console.log(val.station);
-        console.log(val.coor_x);
-        // var point = new BMap.Point(val.coor_x,val.coor_y);//生成地图上的点
-        // station.push(point);
-        // station_info.push(val.station);
-        // if(item != 0 && item != data.length - 1){
-        //     pass.push(point);
-        // }
-    });
-    //假数据
-    $.each(data, function(item,val){
-        var point = new BMap.Point(val[0], val[1]);//生成地图上的点
+
+        var point = new BMap.Point(val.coor_x,val.coor_y);//生成地图上的点
         station.push(point);
-        station_info.push(val[2]);
-        if(item != 0 && item != data.length - 1){
+        station_info.push(val.station);
+        if(item != 0 && item != stationData.length - 1){
             pass.push(point);
         }
     });
-    var driving = new BMap.DrivingRoute(map, {renderOptions:{map: map, autoViewport: true}});
 
+    var driving = new BMap.DrivingRoute(map, {renderOptions:{map: map, autoViewport: true}});
     driving.search(station[0],station[station.length-1],{waypoints:pass});//waypoints表示途经点
 
     for(var i = 0; i < station.length; i++){
