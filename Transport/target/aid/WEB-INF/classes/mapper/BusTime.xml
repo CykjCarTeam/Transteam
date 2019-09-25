@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!--绑定动态sql映射接口-->
+<mapper namespace="cn.bus.mapper.BusTimeMapper">
+<!--    根据bid查询 排班时段-->
+    <select id="findBusTimeByBid" parameterType="java.util.Map" resultType="cn.bus.entity.Time">
+        select times from tb_time where tid in
+        (select tid from tb_bus_time where bid = #{bid})
+    </select>
+</mapper>

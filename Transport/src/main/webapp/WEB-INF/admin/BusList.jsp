@@ -62,7 +62,7 @@
 <body>
 <%--新增的弹框--%>
 <form class="layui-form layui-form-panel" id="form-add" name="form2" style="display: none;">
-<%--	<input type="hidden" name="oldbid"/>--%>
+
     <div class="layui-form-item">
         <label class="layui-form-label">省</label>
         <div class="layui-input-inline">
@@ -75,6 +75,7 @@
         <div class="layui-input-inline">
             <input type="text" name="city" value="${city.city}" readonly="readonly" class="layui-input">
         </div>
+		<input type="hidden" name="cid" value="${city.cid}"/>
     </div>
     <div class="layui-form-item">
         <label class="layui-form-label">上牌年限</label>
@@ -223,13 +224,8 @@
 </div>
 <%--显示数据的表格--%>
     <table id="list" class="layui-table" lay-filter="test"></table>
-	<input type="hidden" id="cid" value="${bus.cid}">
+	<input type="hidden" id="cid" value="${city.cid}">
 <%--显示数据的表格--%>
-
-<%--        <script type="text/html" id="switchTpl">--%>
-<%--            <!-- 这里的 checked 的状态只是演示 -->--%>
-<%--            <input type="checkbox" name="sex" value="{{d.uname}}" lay-skin="switch" lay-text="禁用|启用" lay-filter="sexDemo" {{ d.state ==='0' ? 'checked' : '' }}>--%>
-<%--        </script>--%>
 
         <script type="text/html" id="barDemo">
             <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
@@ -274,12 +270,7 @@
                     {field:'status',title:'状态',align:'center',width:120},
                     {field:'down',title:'全天工作时间',align:'center',sort:true},
 					{field:'busyear',title:'使用年限',align:'center',width:120,sort:true},
-                    <%--{field:'event',title:'操作',width:80,sort:true,templet:function (d) {--%>
-                    <%--        return d.state=='0'?"<a onclick='return forbid(''+${d.uname}+'')' href='${path}/user/changeState.action?state=${d.state}&uname=${d.uname}&start=${nowPage}'>禁用</a>":--%>
-                    <%--            "<a onclick='return allow()' href='${path}/user/changeState.action?state=${d.state}&uname=${d.uname}&start=${nowPage}'>启用</a>"--%>
-                    <%--    }},--%>
-					// {field:'change',title:'启禁',width:80,templet: '#switchTpl', unresize: true,align:'center'},
-					{field:'change',title:'操作',templet:"#status", unresize: true,align:'center'},
+					{field:'change',title:'操作',templet:"#status", unresize: true,align:'center'}
                 ]]
 
             });
@@ -442,22 +433,6 @@
                         }
                     });
                 },
-                <%--sureadd:function () {--%>
-                <%--    var form=$("#form-add");--%>
-                <%--    $.ajax({--%>
-                <%--        url:"${path}/bus/change.action",--%>
-                <%--        type:"post",--%>
-                <%--        data:form.serialize(),--%>
-                <%--        dataType:"text",--%>
-                <%--        success:(function (res) {--%>
-                <%--            if(res=="1"){--%>
-                <%--                alert("修改成功");--%>
-                <%--            }--%>
-                <%--            table.reload('reload', {//重载数据--%>
-                <%--            });--%>
-                <%--        })--%>
-                <%--    })--%>
-                <%--}--%>
 			};
 			//监听条件查询
 			$('.layui-form .layui-btn ').on('click', function(){

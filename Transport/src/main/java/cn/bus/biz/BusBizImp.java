@@ -46,9 +46,9 @@ public class BusBizImp implements BusBiz {
 
 
     @Override
-    public void findBus(Map map, Bus bus) {
-        List list = busMapper.findBus(bus);
-        total=busMapper.busTotal(bus);
+    public void findBus(Map map) {
+        List list = busMapper.findBus(map);
+        total=busMapper.busTotal(map);
         map.put("count", total);
         map.put("data",list);
     }
@@ -58,8 +58,8 @@ public class BusBizImp implements BusBiz {
     }
 
     @Override
-    public void findLine(ModelAndView model,Bus bus) {
-        model.addObject("lineList",busMapper.findLine(bus));
+    public void findLine(ModelAndView model,Map map) {
+        model.addObject("lineList",busMapper.findLine(map));
     }
 
     @Override
@@ -68,18 +68,18 @@ public class BusBizImp implements BusBiz {
     }
 
     @Override
-    public void findallBus(ModelAndView model, Bus bus) {
-        model.addObject("allBus",busMapper.findBus(bus)) ;
+    public void findallBus(ModelAndView model, Map map) {
+        model.addObject("allBus",busMapper.findBus(map)) ;
     }
 
     @Override
-    public void findCityByid(ModelAndView model, Bus bus) {
-        model.addObject("city",busMapper.findCityByid(bus));
+    public void findCityByid(ModelAndView model, Map map) {
+        model.addObject("city",busMapper.findCityByid(map));
     }
 
     @Override
-    public int change(Bus bus) {
-        int num = busMapper.change(bus);
+    public int change(Map map) {
+        int num = busMapper.change(map);
         System.out.println("change-------"+num);
         return num;
     }
@@ -91,8 +91,8 @@ public class BusBizImp implements BusBiz {
 
     //新增
     @Override
-    public boolean add(Bus bus) {
-        return busMapper.addBus(bus);
+    public boolean add(Map map) {
+        return busMapper.addBus(map);
     }
 //删除
     @Override

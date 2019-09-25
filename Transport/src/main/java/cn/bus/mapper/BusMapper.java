@@ -5,6 +5,7 @@ import cn.bus.entity.City;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Map;
 
 /**
 * @Author:小星
@@ -17,23 +18,23 @@ public interface BusMapper {
     //所有省市
     List findCity();
     //某一个市所有公交
-    List findBus(Bus bus);
-    int busTotal(Bus bus);
+    List findBus(Map map);
+    int busTotal(Map map);
 //所有维护人
     List findProtector();
 
-    List findLine(Bus bus);
+    List findLine(Map map);
 
     List findState();
 
-    City findCityByid(Bus bus);
+    City findCityByid(Map map);
 
-    int change(Bus bus);
+    int change(Map map);
 
     int delBus(Bus bus);
 
     Bus findBusByid(Bus bus);
-    boolean addBus(Bus bus);
+    boolean addBus(Map map);
 
     int stop(Bus bus);
 }

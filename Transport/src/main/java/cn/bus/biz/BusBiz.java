@@ -12,17 +12,17 @@ import java.util.Map;
 */
 public interface BusBiz {
     void findCity(ModelAndView model);
-    void findBus(Map map, Bus bus);
+    void findBus(Map map);
     void findProtector(ModelAndView model);
-    void findLine(ModelAndView model,Bus bus);
+    void findLine(ModelAndView model,Map map);
     void findState(ModelAndView model);
-    void findallBus(ModelAndView model,Bus bus);
-    void findCityByid(ModelAndView model,Bus bus);
+    void findallBus(ModelAndView model,Map map);
+    void findCityByid(ModelAndView model,Map map);
 
-    int change(Bus bus);//修改
+    int change(Map map);//修改
 
     Bus findBusByid(Bus bus);
-    boolean add(Bus bus);//新增
+    boolean add(Map map);//新增
 
     int delete(Bus bus);//删除
     int stop(Bus bus);//报废

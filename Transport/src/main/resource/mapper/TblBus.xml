@@ -29,18 +29,17 @@
             <if test="lid!=null"> lid=#{lid}</if><!-- 指定线路-->
             <if test="lid==null or lid==''"><!-- 所有线路-->
                 lid in
-                (SELECT sl.lid FROM tb_station_line sl WHERE sl.sid in
-                (select sc.sid from tb_city c, tb_station_city sc
-                where c.cid=sc.cid and c.cid=#{cid}))
+                (SELECT lid FROM tb_city_line WHERE cid=#{cid}))
              </if><!--所有线路-->
-        )</if><!-- 所有车牌-->
+        </if><!-- 所有车牌-->
         <if test="null!=protector and protector!=''"> and protector=#{protector}</if><!-- 维护人-->
     </sql>
-    <select id="findBus" parameterType="cn.bus.entity.Bus" resultType="cn.bus.entity.Bus">
-        <include refid="sql1"/> limit #{page},3
+    <select id="findBus" parameterType="java.util.Map" resultType="cn.bus.entity.Bus">
+        <include refid="sql1"/>
+        <if test="page!=null"> limit #{page},#{limit}</if>
     </select>
 <!-- 查询车辆总数-->
-    <select id="busTotal" parameterType="cn.bus.entity.Bus" resultType="java.lang.Integer">
+    <select id="busTotal" parameterType="java.util.Map" resultType="java.lang.Integer">
         select count(*) from ( <include refid="sql1"/> )t
     </select>
 
@@ -49,7 +48,7 @@
         select * from tb_properties where fid=32
     </select>
     <!--根据车辆列表所有bid 查询 tb_bus_line 所有 线路-->
-    <select id="findLine"  parameterType="cn.bus.entity.Bus" resultType="cn.bus.entity.Line">
+    <select id="findLine"  parameterType="java.util.Map" resultType="cn.bus.entity.Line">
         select lid,line from tb_line where lid in
         (select lid from tb_bus_line where bid in (select bid from ( <include refid="sql1"/> )t1))
     </select>
@@ -58,12 +57,12 @@
         select * from tb_properties where fid=5
     </select>
     <!--根据id查询城市-->
-    <select id="findCityByid"  parameterType="cn.bus.entity.Bus" resultType="cn.bus.entity.City">
+    <select id="findCityByid"  parameterType="java.util.Map" resultType="cn.bus.entity.City">
         select * from tb_city where cid=#{cid}
     </select>
 
     <!--修改车辆信息-->
-    <update id="change" parameterType="cn.bus.entity.Bus">
+    <update id="change" parameterType="java.util.Map">
         update tb_bus set bid=#{bid},online=#{online} ,
         protector=#{protector} ,busyear=#{busyear} where bid=#{oldbid}
     </update>
@@ -80,7 +79,7 @@
         select * from tb_bus where bid=#{bid}
     </select>
     <!--新增,默认停站、固定线路-->
-    <insert id="addBus" parameterType="cn.bus.entity.Bus">
+    <insert id="addBus" parameterType="java.util.Map">
          insert into tb_bus values (#{bid},#{bus},(select param from tb_properties where pid=7),#{protector},#{busyear},'是')
     </insert>
 </mapper>
