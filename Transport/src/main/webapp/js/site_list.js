@@ -1,10 +1,23 @@
     var path=$("#utable").attr("title");
     var map = new BMap.Map("container");
     var point= new BMap.Point(116.404, 39.915);
-    function addmap(city) {
+    //地图初始化
+    function addmap(city)
+    {
     map.centerAndZoom(city,10);
     map.enableScrollWheelZoom();//启用滚轮放大缩小
-}
+    var top_left_control = new BMap.ScaleControl({anchor: BMAP_ANCHOR_TOP_LEFT});// 左上角，添加比例尺
+    var top_left_navigation = new BMap.NavigationControl();  //左上角，添加默认缩放平移控件
+    var top_right_navigation = new BMap.NavigationControl({anchor: BMAP_ANCHOR_TOP_RIGHT, type: BMAP_NAVIGATION_CONTROL_SMALL});
+    map.addControl(top_left_control);
+    map.addControl(top_left_navigation);
+    map.addControl(top_right_navigation);
+    }
+    //添加点坐标
+    function addMarker(point){
+        var marker = new BMap.Marker(point);
+        map.addOverlay(marker);
+    }
     addmap(point);
     var val;//城市下拉框文本
     var cid;//城市下拉框id
@@ -60,7 +73,11 @@ layui.use(['table','form'], function () {
             // console.log("消息" + res.msg);
             console.log("条数" + res.count);
             console.log("数据" + res.data);
-
+            map.clearOverlays();
+            $.each(res.data,function (i,u) {
+                var points=new BMap.Point(u.coor_x, u.coor_y);
+                addMarker(points);
+            })
             return {
                 "code": eval(res.code), //解析接口状态
                 // "msg": res.msg, //解析提示文本
@@ -69,7 +86,7 @@ layui.use(['table','form'], function () {
             };
         }
         , cols: [[ //表头
-            {field: 'sid', title: '序号', minWidth: 100}
+            {field: 'sid', title: '站点编号', minWidth: 100}
             , {field: 'station', title: '站点名称', minWidth: 150}
             , {field: 'coor_x', title: '站点X坐标', minWidth: 80}
             , {field: 'coor_y', title: '站点Y坐标', minWidth: 80}
@@ -81,54 +98,32 @@ layui.use(['table','form'], function () {
         var data = obj.data;
 
         if (obj.event === 'Del') {
-            layer.confirm('确定删除？ID:'+data.userid, function (index) {
-                fal("<%=path%>useman/userMana!useDel.action",data.userid);
+            layer.confirm('确定删除？站点:'+data.station, function (index) {
+
+                sdel(path+"siteHandle/stationdel.action?sid="+data.sid+"&cid="+data.cid);
                 layer.close(index);
             });
         }else if(obj.event==="edit")
         {
             layer.open({
-                type: 1
-                ,title: "用户修改" //不显示标题栏
+                type: 2
+                ,title: "站点修改" //不显示标题栏
                 ,closeBtn: false
-                ,area: '600px;'
+                ,area: ['800px', '800px']
                 ,shade: 0.8
                 ,id: 'LAY_layuipro' //设定一个id，防止重复弹出
-                ,btn: ['修改', '返回']
+                ,btn: [ '返回']
                 ,btnAlign: 'c'
                 ,moveType: 1 //拖拽模式，0或者1
-                ,content: '<div style="padding: 50px; line-height: 22px; background-color: #393D49; color: #fff; font-weight: 300;"><div class="layui-form-item">\n' +
-                    '                        <label for="L_email" class="layui-form-label">\n' +
-                    '                            <span class="x-red">*</span>邮箱</label>\n' +
-                    '                        <div class="layui-input-inline">\n' +
-                    '                            <input type="text" id="L_email" name="email" required="" lay-verify="email" autocomplete="off" class="layui-input" value="'+data.userid+'"></div>\n' +
-                    '                        <div class="layui-form-mid layui-word-aux">\n' +
-                    '                            <span class="x-red">*</span>将会成为您唯一的登入名</div></div>\n' +
-                    '                    <div class="layui-form-item">\n' +
-                    '                        <label for="L_username" class="layui-form-label">\n' +
-                    '                            <span class="x-red">*</span>昵称</label>\n' +
-                    '                        <div class="layui-input-inline">\n' +
-                    '                            <input type="text" id="L_username" name="username" required="" lay-verify="nikename" autocomplete="off" class="layui-input"></div>\n' +
-                    '                    </div>\n' +
-                    '                    <div class="layui-form-item">\n' +
-                    '                        <label for="L_pass" class="layui-form-label">\n' +
-                    '                            <span class="x-red">*</span>密码</label>\n' +
-                    '                        <div class="layui-input-inline">\n' +
-                    '                            <input type="password" id="L_pass" name="pass" required="" lay-verify="pass" autocomplete="off" class="layui-input"></div>\n' +
-                    '                        <div class="layui-form-mid layui-word-aux">6到16个字符</div></div>\n' +
-                    '                    <div class="layui-form-item">\n' +
-                    '                        <label for="L_repass" class="layui-form-label">\n' +
-                    '                            <span class="x-red">*</span>确认密码</label>\n' +
-                    '                        <div class="layui-input-inline">\n' +
-                    '                            <input type="password" id="L_repass" name="repass" required="" lay-verify="repass" autocomplete="off" class="layui-input"></div>\n' +
-                    '                    </div>' +
-                    '</div>'
+                ,content: path+'siteHandle/site_uppage.action?city='+data.city+'&sid='+data.sid
+                    +'&coor_x='+data.coor_x+'&coor_y='+data.coor_y+'&station='+data.station
                 ,success: function(layero){
                     var btn = layero.find('.layui-layer-btn');
                     btn.find('.layui-layer-btn0').attr({
-                        href: 'http://www.layui.com/'
-                        ,target: '_blank'
+
+                        target: '_blank'
                     });
+                    table.reload('testReload',{},'data');
                 }
             });
         }
@@ -163,7 +158,7 @@ layui.use(['table','form'], function () {
             {
             layer.open({
                 type: 2
-                ,title: "用户修改" //不显示标题栏
+                ,title: "站点新增" //不显示标题栏
                 ,closeBtn: false
                 ,area: ['800px', '800px']
                 ,shade: 0.8
@@ -171,7 +166,7 @@ layui.use(['table','form'], function () {
                 ,btn: ['返回']
                 ,btnAlign: 'c'
                 ,moveType: 1 //拖拽模式，0或者1
-                ,content: path+'siteHandle/site_addpage.action?city='+val
+                ,content: path+'siteHandle/site_addpage.action?city='+val+'&cid='+cid
                 ,success: function(layero){
                     var btn = layero.find('.layui-layer-btn');
                     btn.find('.layui-layer-btn0').attr({
@@ -187,5 +182,23 @@ layui.use(['table','form'], function () {
         var type = $(this).data('type');
         active[type] ? active[type].call(this) : '';
     })
+    //删除
+    function sdel(url) {
+        $.ajax({
+            url: url,
+            type: "post",
+            dataType:"text",
+            success: function (redata) {
+                if (redata=="0")
+                {
+                    layer.msg("删除成功",{icon:1,time:1500,title:"提示"});
+                    table.reload('testReload',{},'data');
+                }else
+                {
+                    layer.msg("删除失败",{icon:5,time:1500,title:"提示"});
+                }
+            },
 
+        });
+    }
 });

@@ -5,6 +5,7 @@ import cn.bus.entity.City;
 import cn.bus.entity.Station;
 import cn.bus.mapper.IAdminMapper;
 import cn.bus.mapper.IStationMapper;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -52,5 +53,51 @@ public class AdminBizImp implements IAdminBiz {
     public List<City> station_city()
     {
         return iStationMapper.station_city();
+    }
+
+    @Override
+    public Map station_add(String station, String coor_x, String coor_y)
+    {
+        Map<String,Object> stationmap=new HashMap<String, Object>();
+        stationmap.put("station",station);
+        stationmap.put("coor_x",coor_x);
+        stationmap.put("coor_y",coor_y);
+
+        iStationMapper.station_add(stationmap);
+        return stationmap;
+    }
+
+    @Override
+    public Integer station_city_add(Integer sid,String cid)
+    {
+        Map<String,Object> scnmap=new HashMap<String, Object>();
+        scnmap.put("sid",sid);
+        scnmap.put("cid",cid);
+
+        return iStationMapper.station_city_add(scnmap);
+    }
+
+    @Override
+    public Integer station_del(String sid)
+    {
+        return iStationMapper.station_del(sid);
+    }
+
+    @Override
+    public Integer station_city_del(String sid, String cid)
+    {
+        return iStationMapper.station_city_del(sid,cid);
+    }
+
+    @Override
+    public Integer stationupdate(String sid, String station, String coor_x, String coor_y)
+    {
+        Map<String,Object> supmap=new HashMap<String, Object>();
+        supmap.put("sid",sid);
+        supmap.put("station",station);
+        supmap.put("coor_x",coor_x);
+        supmap.put("coor_y",coor_y);
+
+        return iStationMapper.stationupdate(supmap);
     }
 }

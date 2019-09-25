@@ -53,6 +53,7 @@
                     <table title="<%=basePath%>" class="layui-table" lay-filter="test" id="utable" align="center">
                     </table>
                     <%--                地图--%>
+                    <h1>地图查看</h1>
                     <div  style="width:800px;height:600px;border:1px solid gray;" id="container">
                     </div>
                 </div>

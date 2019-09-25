@@ -14,4 +14,9 @@ public interface IStationMapper
     public List<Station> station_list(Map map);
     public List<Station> station_listpage(Map map);
     public List<City> station_city();
+    public Integer station_add(Map map);
+    public Integer station_city_add(Map map);
+    public Integer station_del(@Param("sid") String sid);
+    public Integer station_city_del(@Param("sid")String sid,@Param("cid")String cid);
+    public Integer stationupdate(Map map);
 }
