@@ -93,20 +93,15 @@ public class LineBizImp implements ILineBiz {
     @Override
     public Boolean deleteLine(Integer lid) {
         //那我要如何去判定我数据删除成功？
-        Integer num = iLineMapper.delCityLine(lid);     //删的条数
-        Integer num2 = iLineMapper.delLineStation(lid);
-        Integer num3 = iLineMapper.delBusLine(lid);     //关联表数据为空是返回值=0
-        Integer num4 = iLineMapper.delDriverLine(lid);
-        Integer num5 = iLineMapper.delLine(lid);
-        System.out.println("num" + num);
-        System.out.println("num2" + num2);
-        System.out.println("num3" + num3);
-        System.out.println("num4" + num4);
-        System.out.println("num5" + num5);
+        iLineMapper.delCityLine(lid);     //删的条数
+        iLineMapper.delLineStation(lid);
+        iLineMapper.delBusLine(lid);     //关联表数据为空是返回值=0
+        iLineMapper.delDriverLine(lid);
+        Integer num = iLineMapper.delLine(lid);
 
         Boolean flag = false;
 
-        if(num > 0 && num2 > 0 && num3 > 0 && num4 > 0 & num5 > 0){
+        if(num > 0){
             flag = true;
         }
 

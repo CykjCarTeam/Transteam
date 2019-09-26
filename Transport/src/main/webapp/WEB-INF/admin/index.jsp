@@ -72,6 +72,10 @@
             <a href = '<%=basePath%>lineHandle/skip.action' target = "content">
                 <cite>配置城市路线</cite></a>
         </li>
+        <li>
+          <a href = '<%=basePath%>lineHandle/imitate.action' target = "content">
+            <cite>模拟行车</cite></a>
+        </li>
         </ul>
       </li>
     </ul>

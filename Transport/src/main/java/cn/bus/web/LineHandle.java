@@ -27,12 +27,23 @@ public class LineHandle {
     @Resource
     private ILineBiz lineBizImp;
 
-    //用于访问后台jsp
+    //用于访问后台cityline.jsp
     @RequestMapping("skip")
     public ModelAndView skipPage(){
 
         List<City> allCitys = lineBizImp.getCitys();
         ModelAndView modelAndView = new ModelAndView("admin/cityline");
+        modelAndView.addObject("citys" , allCitys);
+
+        return modelAndView;
+    }
+
+    //跳转的模拟页
+    @RequestMapping("imitate")
+    public ModelAndView imitatePage(){
+
+        List<City> allCitys = lineBizImp.getCitys();
+        ModelAndView modelAndView = new ModelAndView("admin/imitatetrain");
         modelAndView.addObject("citys" , allCitys);
 
         return modelAndView;
