@@ -5,7 +5,6 @@ import cn.bus.entity.City;
 import cn.bus.entity.Station;
 import cn.bus.mapper.IAdminMapper;
 import cn.bus.mapper.IStationMapper;
-import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -13,18 +12,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@Service("iAdminBiz")
-public class AdminBizImp implements IAdminBiz {
-
-    @Resource
-    private IAdminMapper iAdminMapper;
+@Service("iStationBiz")
+public class StationBizImp implements IStationBiz {
     @Resource
     private IStationMapper iStationMapper;
-    @Override
-    public Admin login(String anum, String apwd) {
-        return iAdminMapper.queryUser(new Admin(anum, apwd));
-    }
-
     @Override
     public List<Station> station_list(String city, String station, Integer page, Integer limit)
     {
@@ -84,9 +75,15 @@ public class AdminBizImp implements IAdminBiz {
     }
 
     @Override
-    public Integer station_del(String sid)
+    public boolean station_del(String sid,String cid)
     {
-        return iStationMapper.station_del(sid);
+        Integer count=iStationMapper.station_city_del(sid,cid);
+        Integer count2=iStationMapper.station_del(sid);
+        boolean flag=false;
+        if (count>0&&count2>0){
+            flag=true;
+        }
+        return flag;
     }
 
     @Override

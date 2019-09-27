@@ -1,24 +1,37 @@
     var path=$("#utable").attr("title");
     var map = new BMap.Map("container");
     var point= new BMap.Point(116.404, 39.915);
+    var myIcon=new BMap.Icon(path+"images/zd.png",new BMap.Size(50,50));
     //地图初始化
-    function addmap(city)
-    {
-    map.centerAndZoom(city,10);
+    map.centerAndZoom(point,2);
     map.enableScrollWheelZoom();//启用滚轮放大缩小
+
     var top_left_control = new BMap.ScaleControl({anchor: BMAP_ANCHOR_TOP_LEFT});// 左上角，添加比例尺
     var top_left_navigation = new BMap.NavigationControl();  //左上角，添加默认缩放平移控件
     var top_right_navigation = new BMap.NavigationControl({anchor: BMAP_ANCHOR_TOP_RIGHT, type: BMAP_NAVIGATION_CONTROL_SMALL});
     map.addControl(top_left_control);
     map.addControl(top_left_navigation);
     map.addControl(top_right_navigation);
+    function addmap(city)
+    {
+        // map.panTo(city, 10);
+        if(city==null||city=="")
+        {
+            map.setCenter(point);
+            map.setZoom(2);
+        }else{
+            map.setCenter(city);
+            map.setZoom(13);
+        }
+
     }
     //添加点坐标
     function addMarker(point){
-        var marker = new BMap.Marker(point);
+
+        var marker = new BMap.Marker(point,{icon:myIcon});
         map.addOverlay(marker);
     }
-    addmap(point);
+    // addmap(point);
     var val;//城市下拉框文本
     var cid;//城市下拉框id
     function cityselect() {
@@ -86,12 +99,12 @@ layui.use(['table','form'], function () {
             };
         }
         , cols: [[ //表头
-            {field: 'sid', title: '站点编号', minWidth: 100}
-            , {field: 'station', title: '站点名称', minWidth: 150}
-            , {field: 'coor_x', title: '站点X坐标', minWidth: 80}
-            , {field: 'coor_y', title: '站点Y坐标', minWidth: 80}
-            , {field: 'line', title: '站点经过线路', minWidth: 300}
-            , {field: 'right',fixed:'right', title: '操作', minWidth: 300, toolbar: '#barDemo'}
+            {field: 'sid', title: '站点编号'}
+            , {field: 'station', title: '站点名称'}
+            , {field: 'coor_x', title: '站点X坐标'}
+            , {field: 'coor_y', title: '站点Y坐标'}
+            , {field: 'line', title: '站点经过线路'}
+            , {field: 'right',fixed:'right', title: '操作', toolbar: '#barDemo'}
         ]]
     });
     table.on('tool(test)', function(obj) {
@@ -126,16 +139,34 @@ layui.use(['table','form'], function () {
                     table.reload('testReload',{},'data');
                 }
             });
+        }else if (obj.event==="query"){
+            layer.open({
+                type: 2
+                ,title: "站点查看" //不显示标题栏
+                ,closeBtn: false
+                ,area: ['600px', '600px']
+                ,shade: 0.8
+                ,id: 'LAY_layuipro' //设定一个id，防止重复弹出
+                ,btn: [ '返回']
+                ,btnAlign: 'c'
+                ,moveType: 1 //拖拽模式，0或者1
+                ,content: path+'siteHandle/site_querypage.action?station='+data.station
+                    +'&coor_x='+data.coor_x+'&coor_y='+data.coor_y+'&city='+data.city
+                ,success: function(layero){
+                    var btn = layero.find('.layui-layer-btn');
+                    btn.find('.layui-layer-btn0').attr({
+                        target: '_blank'
+                    });
+                }
+            });
         }
     });
-    /* function fal(url,data) {
-
-     }*/
     //触发查询按钮
     var $ = layui.$, active = {
         reload: function () {
             var station= $('#stiename');
             var city = $('#citys');
+
             addmap(val);
             //执行重载
             table.reload('testReload', {

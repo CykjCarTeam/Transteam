@@ -57,7 +57,8 @@
     var  coor_x=$("#addrx").val();
     var  coor_y=$("#addry").val();
     var point= new BMap.Point(coor_x, coor_y);
-    var marker = new BMap.Marker(point);// 创建标注
+    var myIcon=new BMap.Icon("<%=basePath%>images/zd.png",new BMap.Size(50,50));
+    var marker = new BMap.Marker(point,{icon:myIcon});// 创建标注
     var adx;
     var ady;
     map.centerAndZoom(point,16);
@@ -70,12 +71,6 @@
         $("#addry").val(e.point.lat); //纬度
 
     });
-    //选择样式
-    function selectStyle(){
-        mkrTool.open(); //打开工具
-        var icon =new BMap.Icon("<%=basePath%>images/zd.png",new BMap.Size(50,50)); //设置工具样式
-        mkrTool.setIcon(icon);
-    }
     //验证
     function test() {
         var sitename=document.getElementById("sitename").value;

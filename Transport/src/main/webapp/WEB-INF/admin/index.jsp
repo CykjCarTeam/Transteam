@@ -74,7 +74,21 @@
         </li>
         </ul>
       </li>
+      <li>
+        <a href="javascript:;">
+          <i class="iconfont left-nav-li" lay-tips="hygl">&#xe6b8;</i>
+          <cite>统计</cite>
+          <i class="iconfont nav_right">&#xe697;</i></a>
+        <ul class="sub-menu">
+          <%--          子级菜单--%>
+          <li>
+            <a href = '<%=basePath%>siteHandle/cashier_statistics.action' target = "content">
+              <cite>收银统计</cite></a>
+          </li>
+        </ul>
+      </li>
     </ul>
+
   </div>
 </div>
 <!-- <div class="x-slide_left"></div> -->
@@ -87,7 +101,7 @@
         <iframe src = "" frameborder="0" scrolling="yes"  class="x-iframe" name = "content"></iframe>
       </div>
     </div>
-    <div id="tab_show"></div>
+<%--    <div id="tab_show"></div>--%>
   </div>
 </div>
 <div class="page-content-bg"></div>

@@ -1,6 +1,7 @@
 package cn.bus.web;
 
 import cn.bus.biz.IAdminBiz;
+import cn.bus.biz.IStationBiz;
 import cn.bus.entity.City;
 import cn.bus.entity.Station;
 import org.springframework.stereotype.Controller;
@@ -19,12 +20,16 @@ import java.util.Map;
 public class SiteHandle
 {
     @Resource
-    private IAdminBiz AdminBizImp;
+    private IStationBiz StationBizImp;
     private List<Station> stationlist;
     private Map<String,Object> stationmap=new HashMap<String, Object>();
     @RequestMapping("site_list")
     public ModelAndView site_list(){
         return new ModelAndView("admin/site-list");
+    }
+    @RequestMapping("cashier_statistics")
+    public ModelAndView cashier_statistics(){
+        return new ModelAndView("admin/cashier_statistics");
     }
     @RequestMapping("site_addpage")
     public ModelAndView site_addpage(String city,String cid){
@@ -33,15 +38,24 @@ public class SiteHandle
         model.addObject("cid",cid);
         return model;
     }
+    @RequestMapping("site_querypage")
+    public ModelAndView site_querypage(String station,String coor_x,String coor_y,String city){
+        ModelAndView  model=new ModelAndView("admin/sitesetquery");
+        model.addObject("station",station);
+        model.addObject("coor_x",coor_x);
+        model.addObject("coor_y",coor_y);
+        model.addObject("city",city);
+        return model;
+    }
     @RequestMapping(value="/stationlist.action", method= RequestMethod.POST, produces="application/json;charset=utf-8")
     public @ResponseBody
     Map stationlist(String city, Integer page, String station, Integer limit)
     {
 
 
-        stationlist=AdminBizImp.station_list(city,station,page,limit);
+        stationlist=StationBizImp.station_list(city,station,page,limit);
 
-        Integer pagecount=AdminBizImp.station_listpage(city,station,page);
+        Integer pagecount=StationBizImp.station_listpage(city,station,page);
         stationmap.put("code",0);
         stationmap.put("data",stationlist);
         stationmap.put("city",city);
@@ -55,7 +69,7 @@ public class SiteHandle
     List<City> stationcity()
     {
 
-        List<City> cityList=AdminBizImp.station_city();
+        List<City> cityList=StationBizImp.station_city();
 
         return cityList;
     }
@@ -65,9 +79,9 @@ public class SiteHandle
     {
 
         String mes=null;
-        Map map=AdminBizImp.station_add(station,coor_x,coor_y);
-        Integer count2=AdminBizImp.station_city_add((Integer) map.get("sid"),cid);
-        if (count2>0)
+        boolean flag=StationBizImp.station_add(station,coor_x,coor_y,cid);
+
+        if (flag)
         {
             mes="0";
         }else
@@ -83,9 +97,8 @@ public class SiteHandle
     {
 
         String mes=null;
-        Integer count=AdminBizImp.station_city_del(sid,cid);
-        Integer count2=AdminBizImp.station_del(sid);
-        if (count>0&&count2>0)
+        boolean flag=StationBizImp.station_del(sid,cid);
+        if (flag)
         {
             mes="0";
         }else
@@ -111,7 +124,7 @@ public class SiteHandle
     {
 
         String mes=null;
-        Integer count=AdminBizImp.stationupdate(sid,station,coor_x,coor_y);
+        Integer count=StationBizImp.stationupdate(sid,station,coor_x,coor_y);
         if (count>0)
         {
             mes="0";

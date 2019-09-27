@@ -66,6 +66,7 @@
 <script id="barDemo" type="text/html">
     <a class="layui-btn layui-btn-xs " lay-event="edit">修改</a>
     <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="Del">删除</a>
+    <a class="layui-btn layui-btn-warm layui-btn-xs " lay-event="query">查看</a>
 </script>
 
 <script src="<%=basePath%>lib/layui/layui.js"></script>
