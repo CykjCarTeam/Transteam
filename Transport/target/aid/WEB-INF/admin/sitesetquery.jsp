@@ -39,7 +39,7 @@
     var myIcon=new BMap.Icon("<%=basePath%>images/zd.png",new BMap.Size(50,50));
     var marker = new BMap.Marker(point,{icon:myIcon});// 创建标注
     map.centerAndZoom(point,20);
-    map.addOverlay(marker);             // 将标注添加到地图中
+    map.addOverlay(marker);             // 将标注添加到地图
     var inforwin=new BMap.InfoWindow(
         "<h2 style='margin:0 0 5px 0;padding:0.2em 0'>站点名称:${requestScope.station}</h2><br/>"+
             "<h4>站点所属城市：${requestScope.city}<h4>"+

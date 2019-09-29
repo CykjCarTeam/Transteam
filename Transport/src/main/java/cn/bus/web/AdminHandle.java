@@ -11,7 +11,7 @@ import javax.annotation.Resource;
 
 @Controller
 @RequestMapping("/adminHandle/")
-public class AdminHandle {
+public class AdminHandle{
 
     @Resource
     private IAdminBiz iAdminBiz;

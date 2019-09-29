@@ -43,61 +43,125 @@ layui.use(['table','form'], function () {
             layer.msg("请先选择城市",{icon:5,time:1500,title:"提示",weight:600});
         }
         else{
-        option = {
-            xAxis: {
-                type: 'category',
-                data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
-            },
-            yAxis: {
-                type: 'value'
-            },
-            series: [{
-                data: [120, 200, 150, 80, 70, 110, 130],
-                type: 'bar'
-            }]
-        };
+            $.ajax({
+                url: path+"statisticsHandle/statisticsline.action?cid="+cid,
+                type: "post",
+                dataType:"json",
 
-        var data=[{value:335,name:"11路"},{value:331,name:"12路"}];
-        option1 = {
-            tooltip: {
-                trigger: 'item',
-                formatter: "{a} <br/>{b}: {c} ({d}%)"
-            },
-            legend: {
-                orient: 'vertical',
-                x: 'left',
-                data:['11路','12路']
-            },
-            series: [
-                {
-                    name:'访问来源',
-                    type:'pie',
-                    radius: ['50%', '70%'],
-                    avoidLabelOverlap: false,
-                    label: {
-                        normal: {
-                            show: false,
-                            position: 'center'
+                success: function (redata) {
+                    var data2=[];
+                    // var mes={};
+                    var data=[];
+                    var mcount=0;
+                    $.each(redata,function (i,u) {
+                        data2.push(u.line);
+                        var count=(u.psum/3)*u.money;
+                        mcount+=count;
+                      var mes={value:count,name:u.line};
+                        data.push(mes);
+
+                    })
+
+                    option1 = {
+                        title: {
+                            text: '线路收银统计',
+                            subtext:'总计：'+mcount,
+                            x:'center'
                         },
-                        emphasis: {
-                            show: true,
-                            textStyle: {
-                                fontSize: '30',
-                                fontWeight: 'bold'
+                        tooltip: {
+                            trigger: 'item',
+                            formatter: "{a} <br/>{b}: {c} ({d}%)"
+                        },
+                        legend: {
+                            orient: 'vertical',
+                            x: 'left',
+                            data:data2
+                        },
+                        series: [
+                            {
+                                name:'收银情况',
+                                type:'pie',
+                                radius: ['50%', '70%'],
+                                avoidLabelOverlap: false,
+                                label: {
+                                    normal: {
+                                        show: false,
+                                        position: 'center'
+                                    },
+                                    emphasis: {
+                                        show: true,
+                                        textStyle: {
+                                            fontSize: '30',
+                                            fontWeight: 'bold'
+                                        }
+                                    }
+                                },
+                                labelLine: {
+                                    normal: {
+                                        show: false
+                                    }
+                                },
+                                data:data
                             }
-                        }
-                    },
-                    labelLine: {
-                        normal: {
-                            show: false
-                        }
-                    },
-                    data:data
+                        ]
+
+                    };
+                    myChart2.setOption(option1);
+
+                },
+                error:function () {
+                    console.log("出现异常");
                 }
-            ]
-        };
-        myChart.setOption(option);
-        myChart2.setOption(option1);
+
+            });
+
+            $.ajax({
+                url: path+"statisticsHandle/mothcount.action?cid="+cid,
+                type: "post",
+                dataType:"json",
+
+                success: function (redata) {
+                    var data=[];
+                    var data2=[];
+                    var mcount2=0;
+                    $.each(redata,function (i,u) {
+                        data.push(u.week);
+                        data2.push(u.count1);
+                    mcount2+=u.count1;
+                    })
+                    option = {
+                        title: {
+                            text: '本月收银周统计',
+                            subtext:'总计：'+mcount2,
+                            x:'center'
+                        },
+                        tooltip: {
+                            text:'总计：'
+                        },
+                        xAxis: {
+                            type: 'category',
+                            data: data
+                        },
+                        yAxis: {
+                            type: 'value'
+                        },
+                        series: [{
+                            data: data2,
+                            type: 'bar'
+                        }]
+                    };
+
+
+                    myChart.setOption(option);
+
+                },
+                error:function () {
+                    console.log("出现异常");
+                }
+
+            });
+
+
         }
     });
 });

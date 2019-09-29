@@ -51,10 +51,7 @@ public class SiteHandle
     public @ResponseBody
     Map stationlist(String city, Integer page, String station, Integer limit)
     {
-
-
         stationlist=StationBizImp.station_list(city,station,page,limit);
-
         Integer pagecount=StationBizImp.station_listpage(city,station,page);
         stationmap.put("code",0);
         stationmap.put("data",stationlist);

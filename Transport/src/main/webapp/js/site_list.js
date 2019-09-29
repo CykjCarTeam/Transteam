@@ -157,6 +157,7 @@ layui.use(['table','form'], function () {
                     btn.find('.layui-layer-btn0').attr({
                         target: '_blank'
                     });
+
                 }
             });
         }
