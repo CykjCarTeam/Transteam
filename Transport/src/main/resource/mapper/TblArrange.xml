@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!--绑定动态sql映射接口-->
+<mapper namespace="cn.bus.mapper.ArrangeMapper">
+
+
+    <!--	车辆排班表-->
+    <select id="scheduling" parameterType="java.util.Map" resultMap="map1">
+        select b.*,a.bid from tb_bus_time a,tb_time b where a.tid=b.tid and b.lid=#{lid} and b.toback=#{toback}
+    </select>
+    <resultMap type="cn.bus.entity.Time" id="map1">
+        <id property="tid" column="tid" />
+        <result property="times" column="times" />
+        <result property="state" column="state" />
+        <result property="tid" column="tid" />
+        <association property="bus" column="bid" javaType="cn.bus.entity.Bus">
+            <id property="bid" column="bid" />
+        </association>
+    </resultMap>
+<!--    //排班，排版替换-->
+    <select id="state" parameterType="java.util.Map" resultType="cn.bus.entity.Bus">
+     update tb_bus_time set bid=#{bid}  where tid=#{tid}
+	</select>
+
+    <!--	实时停站车辆查询总条数-->
+    <select id="removeall" parameterType="java.util.Map" resultType="cn.bus.entity.Time">
+select v.* from
+        (select q.*,e.city,e.province from
+        (select n.* ,m.times from
+        (select k.*,l.origin,l.terminal from
+        (select c.lid ,c.tid ,d.* from
+        (select a.* ,b.times ,b.lid from tb_bus_time a,tb_time b where b.tid=a.tid and b.times  &gt; #{time} group by bid) c
+        right JOIN
+        (select j.* from (select a.* ,u.sid ,p.station from tb_bus_station u ,tb_station p ,tb_bus a where a.bid=u.bid and u.sid=p.sid  ) j
+        where j.status='停站' and j.online='是' and j.bid  not in
+        (select f.bid from tb_time z,tb_bus_time f where z.state='1' and f.bid!='' and z.tid=f.tid)) d
+        on c.bid=d.bid) k left JOIN tb_line l on k.lid = l.lid )n LEFT JOIN tb_time m
+        on m.tid=n.tid) q ,tb_station_city w,tb_city e where q.sid = w.sid and w.cid=e.cid) v where 1=1
+        <if test="bid!=null and bid neq ''">
+            and v.bid like concat ('%',#{bid},'%')
+        </if>
+        <if test="station!=null and station neq ''">
+            and v.station like concat ('%',#{station},'%')
+        </if>
+        <if test="province!=null and province neq ''">
+            and v.province = #{province}
+        </if><if test="city!=null and city neq ''">
+        and v.city = #{city}
+    </if>
+
+    </select>
+    <!--	实时停站车辆查询-->
+    <select id="remove" parameterType="java.util.Map" resultMap="map2">
+        select v.* from
+        (select q.*,e.city,e.province from
+        (select n.* ,m.times from
+        (select k.*,l.origin,l.terminal from
+        (select c.lid ,c.tid ,d.* from
+        (select a.* ,b.times ,b.lid from tb_bus_time a,tb_time b where b.tid=a.tid and b.times  &gt; #{time} group by bid) c
+        right JOIN
+        (select j.* from (select a.* ,u.sid ,p.station from tb_bus_station u ,tb_station p ,tb_bus a where a.bid=u.bid and u.sid=p.sid  ) j
+        where j.status='停站' and j.online='是' and j.bid  not in
+        (select f.bid from tb_time z,tb_bus_time f where z.state='1' and f.bid!='' and z.tid=f.tid)) d
+        on c.bid=d.bid) k left JOIN tb_line l on k.lid = l.lid )n LEFT JOIN tb_time m
+        on m.tid=n.tid) q ,tb_station_city w,tb_city e where q.sid = w.sid and w.cid=e.cid) v where 1=1
+        <if test="bid!=null and bid neq ''">
+            and v.bid like concat ('%',#{bid},'%')
+        </if>
+        <if test="station!=null and station neq ''">
+            and v.station like concat ('%',#{station},'%')
+        </if>
+        <if test="province!=null and province neq ''">
+            and v.province = #{province}
+        </if><if test="city!=null and city neq ''">
+        and v.city = #{city}
+    </if>
+ limit #{page},#{limit}
+    </select>
+    <resultMap type="cn.bus.entity.Time" id="map2">
+        <id property="tid" column="tid"/>
+        <result property="times" column="times"/>
+<!--         //times为Bus里的私有化属性Time times-->
+        <association property="bus" column="bid" javaType="cn.bus.entity.Bus">
+            <result property="bid" column="bid"/>
+            <result property="intotime" column="intotime"/>
+            <association property="station" column="sid" javaType="cn.bus.entity.Station">
+                <result property="station" column="station"/>
+            </association>
+        </association>
+
+    </resultMap>
+    <!--	省份查询-->
+    <select id="province"  resultType="cn.bus.entity.City">
+        select distinct province from tb_city
+    </select>
+    <!--	城市查询-->
+    <select id="city" parameterType="java.lang.String" resultType="cn.bus.entity.City">
+        select * from tb_city where province=#{province}
+    </select>
+
+</mapper>
+

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!--绑定动态sql映射接口-->
+<mapper namespace="cn.bus.mapper.IDriverMapper">
+
+<!--    司机列表语句-->
+    <select id="findall"  resultType="cn.bus.entity.Driver" >
+
+--         select ad.aid,ad.anum,ad.aname,ad.phone,ad.rid,tbl.line as line from tb_admin ad,tb_line tbl where rid=3 and ad.lid=tbl.lid
+        select  ad.aid,ad.anum,ad.aname,ad.phone,ad.rid,tbl.line as line from tb_admin ad,tb_line tbl,tb_driver_line  where rid=3 and ad.aid=tb_driver_line.aid and tbl.lid=tb_driver_line.lid
+        <if test="dphone!=null and dphone neq ''">
+           and ad.phone = #{dphone}
+        </if>
+        <if test="dsite!=null and dsite neq ''">
+            and tbl.line = #{dsite}
+        </if>
+        <if test="dname!=null and dname neq ''">
+            and ad.aname like concat('%',#{dname},'%')
+        </if>
+        limit #{page},#{limit}
+
+    </select>
+<!--    查询总条数-->
+    <select id="count"  resultType="cn.bus.entity.Driver">
+
+--         select ad.aid,ad.anum,ad.aname,ad.phone,ad.rid,tbl.line as line from tb_admin ad,tb_line tbl where rid=3 and ad.lid=tbl.lid
+        select  ad.aid,ad.anum,ad.aname,ad.phone,ad.rid,tbl.line as line from tb_admin ad,tb_line tbl,tb_driver_line  where rid=3 and ad.aid=tb_driver_line.aid and tbl.lid=tb_driver_line.lid
+        <if test="dphone!=null and dphone neq ''">
+            and ad.phone = #{dphone}
+        </if>
+        <if test="dsite!=null and dsite neq ''">
+            and tbl.line = #{dsite}
+        </if>
+        <if test="dname!=null and dname neq ''">
+            and ad.aname like concat('%',#{dname},'%')
+        </if>
+    </select>
+<!--    <resultMap id="driverMap" type="cn.bus.entity.Driver">-->
+<!--        <id property="aid" column="aid"/>-->
+<!--        <result property="anum" column="anum"/>-->
+<!--        <result property="aname" column="aname"/>-->
+<!--        <result property="phone" column="phone"/>-->
+<!--        <result property="rid" column="rid"/>-->
+<!--        <result property="lid" column="lid"/>-->
+<!--  <association property="lin" column="lid" javaType="cn.bus.entity.Driver">-->
+<!--      <id property="lid" column="lid"/>-->
+<!--      <result property="line" column="line"/>-->
+<!--  </association>-->
+<!--    </resultMap>-->
+
+    <update id="upadriver" parameterType="java.lang.String">
+         update tb_driver_line set lid= #{xianglu} where aid=#{name}
+
+
+	</update>
+
+</mapper>
