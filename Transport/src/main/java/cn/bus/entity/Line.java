@@ -17,6 +17,7 @@ public class Line {
     private Station terminal;//终点
     private List<Station> allStations; //线路对应的站点
     private List<Bus> allBus;//对应的车辆
+    private Bus bus;
 
     public Line() {
 
@@ -89,5 +90,13 @@ public class Line {
 
     public void setAllBus(List<Bus> allBus) {
         this.allBus = allBus;
+    }
+
+    public Bus getBus() {
+        return bus;
+    }
+
+    public void setBus(Bus bus) {
+        this.bus = bus;
     }
 }

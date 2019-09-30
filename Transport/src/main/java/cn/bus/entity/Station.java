@@ -1,6 +1,5 @@
 package cn.bus.entity;
 
-
 public class Station
 {
     private Integer sid;
@@ -11,6 +10,9 @@ public class Station
     private String line;
     private Integer cid;
     private String city;
+    private Bus bus;
+    private Time times;
+
     public Station()
     {
     }
@@ -105,5 +107,21 @@ public class Station
     public void setLine(String line)
     {
         this.line = line;
+    }
+
+    public Bus getBus() {
+        return bus;
+    }
+
+    public void setBus(Bus bus) {
+        this.bus = bus;
+    }
+
+    public Time getTimes() {
+        return times;
+    }
+
+    public void setTimes(Time times) {
+        this.times = times;
     }
 }

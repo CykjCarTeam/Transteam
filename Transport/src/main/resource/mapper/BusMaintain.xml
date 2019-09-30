@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!--绑定动态sql映射接口-->
+<mapper namespace="cn.bus.mapper.BusFixMapper">
+<!--    正在维修的车辆-->
+
+    <resultMap id="map1" type="cn.bus.entity.BusFix">
+        <id column="bid" property="bid"></id>
+        <result column="reason" property="reason"></result>
+        <result column="maintain" property="maintain"></result>
+        <result column="cost" property="cost"></result>
+        <association property="bus" javaType="cn.bus.entity.Bus">
+            <id column="bid" property="bid"></id>
+            <result column="protector" property="protector"></result>
+        </association>
+    </resultMap>
+    <select id="findBusOnFix" parameterType="java.util.Map" resultMap="map1">
+        select bm.*,b.protector from tb_bus_maintain bm ,tb_bus b where bm.reason ='检修' and b.cid=#{cid} limit #{page},#{limit}
+    </select>
+    <!-- 在修总数-->
+    <select id="countFix" parameterType="java.util.Map" resultType="java.lang.Integer">
+        select count(*) from
+        (select bm.*,b.protector from tb_bus_maintain bm ,tb_bus b where bm.reason ='检修' and b.cid=#{cid})t1
+    </select>
+    <!--  维修记录-->
+    <sql id="sql1">
+        select distinct bm.*,b.protector from tb_bus_maintain bm ,tb_bus b where b.bid= bm.bid and b.cid=#{cid}
+        <if test="null!=bid and bid!=''"> and bm.bid=#{bid}</if><!-- 指定车牌-->
+    </sql>
+    <!--  维修记录-->
+    <select id="fixRecord" parameterType="java.util.Map" resultType="cn.bus.entity.BusFix">
+        <include refid="sql1"></include>
+        <if test="page!=null"> limit #{page},#{limit}</if>
+    </select>
+    <!--  维修记录总数-->
+    <select id="countRecord" parameterType="java.util.Map" resultType="java.lang.Integer">
+        select count(*) from (<include refid="sql1"></include>)t2
+    </select>
+</mapper>
