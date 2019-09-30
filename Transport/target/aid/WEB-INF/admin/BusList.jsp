@@ -5,6 +5,7 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 	<title>公交系统</title>
     <link href="${path}/layui/css/layui.css" rel="stylesheet"  media="all"/>
 	<script type="text/javascript" src="${path}/js/jquery.min.js"></script>
@@ -166,7 +167,7 @@
 		<div class="layui-inline">
 			<label class="layui-form-label">是否固定线路</label>
 			<div class="layui-input-inline">
-				<select name="online-1" id="online-find">
+				<select name="online" id="online-find">
                     <option value="">所有</option>
 					<option value="是">是</option>
 					<option value="否">否</option>
@@ -176,7 +177,7 @@
 		<div class="layui-inline">
 			<label class="layui-form-label">车辆状态</label>
 			<div class="layui-input-inline">
-				<select name="state" id="state-find">//循环添加
+				<select name="status" id="state-find">//循环添加
                     <option value="">所有</option>
 				<c:forEach items="${stateList}" var="s"><%--来自参数表--%>
 					<option value="${s.param}">${s.param}</option>
@@ -187,7 +188,7 @@
 		<div class="layui-inline">
 			<label class="layui-form-label">线路</label>
 			<div class="layui-input-inline">
-				<select name="line" id="line-find">//循环添加下拉框所有线路
+				<select name="lid" id="line-find">//循环添加下拉框所有线路
                     <option value="">所有</option>
 					<c:forEach items="${lineList}" var="s"><%--来自参数表--%>
 						<option value="${s.lid}">${s.line}</option>

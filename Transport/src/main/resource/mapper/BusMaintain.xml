@@ -17,24 +17,17 @@
         </association>
     </resultMap>
     <select id="findBusOnFix" parameterType="java.util.Map" resultMap="map1">
-        select m.*,t.* from tb_bus_maintain m,tb_bus t where m.bid=t.bid and m.reason ='检修' and t.bid in
-        (select bid from (<include refid="sql1"></include>)t) limit #{page},#{limit}
+        select bm.*,b.protector from tb_bus_maintain bm ,tb_bus b where bm.reason ='检修' and b.cid=#{cid} limit #{page},#{limit}
     </select>
     <!-- 在修总数-->
     <select id="countFix" parameterType="java.util.Map" resultType="java.lang.Integer">
         select count(*) from
-        (select distinct m.*,t.protector from tb_bus_maintain m,tb_bus t where m.bid=t.bid and m.reason ='检修' and t.bid in
-        (select bid from (<include refid="sql1"></include>)t))t1
+        (select bm.*,b.protector from tb_bus_maintain bm ,tb_bus b where bm.reason ='检修' and b.cid=#{cid})t1
     </select>
     <!--  维修记录-->
     <sql id="sql1">
-        SELECT distinct * from tb_bus_maintain WHERE 1=1
-        <if test="null!=bid and bid!=''"> and bid=#{bid}</if><!-- 指定车牌-->
-        <if test="null==bid or bid==''"><!-- 所有车牌-->
-            and bid in
-            (SELECT bid from tb_bus_line WHERE lid in
-            (SELECT lid FROM tb_city_line WHERE cid=#{cid}))
-            </if><!-- 所有车牌-->
+        select distinct bm.*,b.protector from tb_bus_maintain bm ,tb_bus b where b.bid= bm.bid b.cid=#{cid}
+        <if test="null!=bid and bid!=''"> and bm.bid=#{bid}</if><!-- 指定车牌-->
     </sql>
     <!--  维修记录-->
     <select id="fixRecord" parameterType="java.util.Map" resultType="cn.bus.entity.BusFix">

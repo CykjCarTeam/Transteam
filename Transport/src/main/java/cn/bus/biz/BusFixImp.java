@@ -40,4 +40,6 @@ public class BusFixImp implements BusFixBiz {
         List list= busFixMapper.fixRecord(map);
         model.addObject("allBus",list);
     }
+
+
 }

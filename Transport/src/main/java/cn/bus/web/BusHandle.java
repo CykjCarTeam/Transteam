@@ -52,18 +52,16 @@ public class BusHandle {
     //
     @RequestMapping("findBus")
     @ResponseBody
-    public Map findBus(Integer cid,String bid,String bus,String busyear,String online,String protector,Integer page,Integer limit){
+    public Map findBus(Integer cid,String bid,String bus,String status,Integer lid,String online,String protector,Integer page,Integer limit){
         Map map=new HashMap();
         map.put("cid",cid);//
         map.put("bid",bid);
         map.put("bus",bus);//车名
-        if(null!=busyear){
-            busyear=PageUtil.getYear(busyear);
-        }
-        map.put("busyear",busyear);//上牌年份
+        map.put("status",status);
+        map.put("lid",lid);//
         map.put("online",online);//是否固定线路
         map.put("protector",protector);
-        System.out.println(page);
+        System.out.println(bid+bus+online+protector);
         map.put("page",limit*(page-1));
         map.put("limit",limit);
 

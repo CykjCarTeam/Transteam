@@ -14,7 +14,7 @@ import javax.annotation.Resource;
 * @Date:上午 9:53 2019/9/19 0019
 */
 @Controller
-@RequestMapping("/adminHandle/")
+@RequestMapping("/admin/")
 public class AdminHandle {
 
     @Resource
@@ -27,7 +27,16 @@ public class AdminHandle {
         System.out.println("anum" + admin.getAnum());
         Admin admins = iAdminBiz.login(admin.getAnum(), admin.getApwd());
 
-
         return new ModelAndView("admin/success");
     }
+    @RequestMapping("userInfo")
+    public ModelAndView userInfo(Admin admin){
+
+        System.out.println("进来了");
+        System.out.println("anum" + admin.getAnum());
+        Admin admins = iAdminBiz.login(admin.getAnum(), admin.getApwd());
+//        new PrintWriter().write("<script>location.href='要跳的页面';alert('提示');</script>");
+        return new ModelAndView("user/UserInfo");
+    }
+
 }

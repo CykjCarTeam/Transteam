@@ -18,11 +18,9 @@ input:focus{ }
 /* CSS 活动的公共样式 */
 
 
-
-
-.course{ height:162px; background:#FFF;}
-.course_nr{height:162px;}
-.course_nr li{ float:left; padding-top:30px; width:140px; text-align:center; position:relative; margin-top:65px;}
+.course{ height:80px; background:#FFF;}
+.course_nr{height:80px;}
+.course_nr li{ float:left; padding-top:10px; width:100px; text-align:center; position:relative; margin-top:20px;}
 .shiji{ position:absolute; width:100%; left:0; top:-20px; }
 .shiji h1{ height:67px; line-height:67px; color:#518dbb; font-weight:bold;  margin-bottom:8px;}
 .shiji p{ line-height:14px; color:#999;}

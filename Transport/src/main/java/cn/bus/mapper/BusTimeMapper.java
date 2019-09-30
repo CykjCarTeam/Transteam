@@ -1,9 +1,10 @@
 package cn.bus.mapper;
 
-import cn.bus.entity.Admin;
+import cn.bus.entity.Bus;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Map;
 
 /**
 * @Author:小星
@@ -13,5 +14,7 @@ import java.util.List;
 @Repository
 public interface BusTimeMapper {
 
-    List findBusTimeByBid(Admin user);
+    Bus findAllTime(Map map);
+
+    List findBusTimeByBid();
 }

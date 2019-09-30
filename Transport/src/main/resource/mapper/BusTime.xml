@@ -4,6 +4,28 @@
 
 <!--绑定动态sql映射接口-->
 <mapper namespace="cn.bus.mapper.BusTimeMapper">
+
+    <resultMap id="map1" type="cn.bus.entity.Bus">
+        <id column="bid" property="bid"/>
+        <result column="bus" property="bus"/>
+        <collection property="time" ofType="cn.bus.entity.Time">
+            <id column="tid" property="tid"></id>
+            <result column="times" property="times"></result>
+            <association property="line" javaType="cn.bus.entity.Line">
+                <id column="lid" property="lid"/>
+                <result column="line" property="line"/>
+                <result column="duration" property="duration"/>
+            </association>
+        </collection>
+
+    </resultMap>
+    <!-- 查询 某条线路 所有时间-->
+    <select id="findAllTime" resultMap="map1">
+        select b.bid,b.bus,s.times,l.line,l.duration from
+        tb_bus b,tb_bus_time t,tb_time s,tb_line l
+        WHERE b.bid=t.bid and s.tid=t.tid and s.lid=l.lid and b.bid=#{bid} order by s.tid asc
+    </select>
+
 <!--    根据bid查询 排班时段-->
     <select id="findBusTimeByBid" parameterType="java.util.Map" resultType="cn.bus.entity.Time">
         select times from tb_time where tid in

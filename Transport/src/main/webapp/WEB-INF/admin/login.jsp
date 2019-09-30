@@ -1,5 +1,8 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%String path = request.getContextPath() + "/";%>
+<%pageContext.setAttribute("path",request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+request.getContextPath()); %>
+
+<%pageContext.setAttribute("basePath",request.getContextPath()); %>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
@@ -20,6 +23,7 @@
    <form action="<%=path%>adminHandle/login.action" method="get">
    	用户名：<input type="text" name="anum" /><br/>
    	密码：<input type="password" name="apwd" /><br/>
+	   <img src="${path}/image/image.action" alt="">
    	<input type="submit" value="登录" />
    </form>
   </body>

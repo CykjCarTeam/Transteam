@@ -8,27 +8,55 @@
   <component name="ChangeListManager">
     <list default="true" id="04081e18-4139-4bc6-ad35-ae111b48f4e3" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cn/bus/biz/BusBiz.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/bus/biz/BusBiz.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cn/bus/biz/BusBizImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/bus/biz/BusBizImp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/bus/biz/BusFixImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/bus/biz/BusFixImp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/bus/biz/TimeBiz.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/bus/biz/TimeBiz.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/bus/biz/TimeBizImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/bus/biz/TimeBizImp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/bus/entity/Admin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/bus/entity/Admin.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/cn/bus/entity/Bus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/bus/entity/Bus.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cn/bus/mapper/BusMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/bus/mapper/BusMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/bus/entity/Time.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/bus/entity/Time.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/bus/mapper/BusTimeMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/bus/mapper/BusTimeMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/bus/web/AdminHandle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/bus/web/AdminHandle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/bus/web/BusFixHandle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/bus/web/BusFixHandle.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/cn/bus/web/BusHandle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/bus/web/BusHandle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resource/mapper/BusMaintain.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resource/mapper/BusMaintain.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resource/mapper/BusTime.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resource/mapper/BusTime.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resource/mapper/TblBus.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resource/mapper/TblBus.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resource/springmvc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resource/springmvc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/admin/BusList.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/admin/BusList.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/admin/Main.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/admin/BusMain.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/admin/BusTime.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/admin/BusTime.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/admin/login.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/admin/login.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/css.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/css.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/aid/WEB-INF/admin/BusList.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/aid/WEB-INF/admin/BusList.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/aid/WEB-INF/classes/cn/bus/biz/BusBiz.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/aid/WEB-INF/classes/cn/bus/biz/BusBiz.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/aid/WEB-INF/classes/cn/bus/biz/BusBizImp.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/aid/WEB-INF/classes/cn/bus/biz/BusBizImp.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/aid/WEB-INF/admin/BusTime.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/aid/WEB-INF/admin/BusTime.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/aid/WEB-INF/admin/login.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/aid/WEB-INF/admin/login.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/aid/WEB-INF/classes/cn/bus/biz/TimeBiz.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/aid/WEB-INF/classes/cn/bus/biz/TimeBiz.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/aid/WEB-INF/classes/cn/bus/biz/TimeBizImp.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/aid/WEB-INF/classes/cn/bus/biz/TimeBizImp.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/aid/WEB-INF/classes/cn/bus/entity/Admin.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/aid/WEB-INF/classes/cn/bus/entity/Admin.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/aid/WEB-INF/classes/cn/bus/entity/Bus.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/aid/WEB-INF/classes/cn/bus/entity/Bus.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/aid/WEB-INF/classes/cn/bus/mapper/BusMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/aid/WEB-INF/classes/cn/bus/mapper/BusMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/aid/WEB-INF/classes/cn/bus/entity/Time.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/aid/WEB-INF/classes/cn/bus/entity/Time.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/aid/WEB-INF/classes/cn/bus/mapper/BusTimeMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/aid/WEB-INF/classes/cn/bus/mapper/BusTimeMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/aid/WEB-INF/classes/cn/bus/web/AdminHandle.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/aid/WEB-INF/classes/cn/bus/web/AdminHandle.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/aid/WEB-INF/classes/cn/bus/web/BusFixHandle.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/aid/WEB-INF/classes/cn/bus/web/BusFixHandle.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/aid/WEB-INF/classes/cn/bus/web/BusHandle.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/aid/WEB-INF/classes/cn/bus/web/BusHandle.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/aid/WEB-INF/classes/mapper/BusMaintain.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/aid/WEB-INF/classes/mapper/BusMaintain.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/aid/WEB-INF/classes/mapper/BusTime.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/aid/WEB-INF/classes/mapper/BusTime.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/aid/WEB-INF/classes/mapper/TblBus.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/aid/WEB-INF/classes/mapper/TblBus.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/cn/bus/biz/BusBiz.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/cn/bus/biz/BusBiz.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/cn/bus/biz/BusBizImp.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/cn/bus/biz/BusBizImp.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/aid/WEB-INF/classes/springmvc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/aid/WEB-INF/classes/springmvc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/aid.kotlin_module" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cn/bus/biz/TimeBiz.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/cn/bus/biz/TimeBiz.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cn/bus/biz/TimeBizImp.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/cn/bus/biz/TimeBizImp.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cn/bus/entity/Admin.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/cn/bus/entity/Admin.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/cn/bus/entity/Bus.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/cn/bus/entity/Bus.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/cn/bus/mapper/BusMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/cn/bus/mapper/BusMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cn/bus/entity/Time.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/cn/bus/entity/Time.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cn/bus/mapper/BusTimeMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/cn/bus/mapper/BusTimeMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cn/bus/web/AdminHandle.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/cn/bus/web/AdminHandle.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cn/bus/web/BusFixHandle.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/cn/bus/web/BusFixHandle.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/cn/bus/web/BusHandle.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/cn/bus/web/BusHandle.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/mapper/BusMaintain.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mapper/BusMaintain.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/mapper/BusTime.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mapper/BusTime.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/mapper/TblBus.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mapper/TblBus.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/springmvc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/springmvc.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -41,62 +69,65 @@
   <component name="CodeInsightWorkspaceSettings">
     <option name="optimizeImportsOnTheFly" value="true" />
   </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
+  </component>
   <component name="DefaultGradleProjectSettings">
     <option name="isMigrated" value="true" />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/cn/bus/web/BusFixHandle.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/cn/bus/mapper/UserMapper.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1495">
-              <caret line="74" column="36" selection-start-line="74" selection-start-column="36" selection-end-line="74" selection-end-column="36" />
+            <state relative-caret-position="299">
+              <caret line="16" column="44" selection-start-line="16" selection-start-column="44" selection-end-line="16" selection-end-column="44" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resource/mapper/TblBus.xml">
+        <entry file="file://$PROJECT_DIR$/src/main/java/cn/bus/web/UserHandle.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="222">
-              <caret line="81" column="50" lean-forward="true" selection-start-line="81" selection-start-column="50" selection-end-line="81" selection-end-column="50" />
+            <state relative-caret-position="1357">
+              <caret line="73" column="50" selection-start-line="73" selection-start-column="50" selection-end-line="73" selection-end-column="50" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/admin/BusTime.jsp">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/cn/bus/biz/UserBizImp.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="128">
-              <caret line="28" column="28" selection-start-line="28" selection-start-column="28" selection-end-line="28" selection-end-column="28" />
+            <state relative-caret-position="529">
+              <caret line="30" column="22" selection-start-line="30" selection-start-column="22" selection-end-line="30" selection-end-column="22" />
               <folding>
-                <element signature="n#style#0;n#ul#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#li#1;n#ul#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#li#2;n#ul#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#li#3;n#ul#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#li#4;n#ul#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#li#5;n#ul#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#li#6;n#ul#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="e#662#663#0" expanded="true" />
+                <element signature="e#701#702#0" expanded="true" />
+                <element signature="e#753#754#0" expanded="true" />
+                <element signature="e#794#795#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/css/css.css">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/user/UserInfo.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="621">
-              <caret line="27" column="40" lean-forward="true" selection-start-line="27" selection-start-column="40" selection-end-line="27" selection-end-column="40" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/js/jquery1.10.2.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
+            <state relative-caret-position="312">
+              <caret line="92" column="15" lean-forward="true" selection-start-line="92" selection-start-column="15" selection-end-line="92" selection-end-column="15" />
               <folding>
-                <element signature="n#!!doc" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -106,7 +137,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/cn/bus/web/BusHandle.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="161">
-              <caret line="114" column="31" lean-forward="true" selection-start-line="114" selection-start-column="31" selection-end-line="114" selection-end-column="31" />
+              <caret line="31" column="31" selection-start-line="31" selection-start-column="31" selection-end-line="31" selection-end-column="31" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -115,40 +146,19 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resource/mapper/BusTime.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="230">
-              <caret line="10" column="13" lean-forward="true" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/admin/BusFix.jsp">
+        <entry file="file://$PROJECT_DIR$/src/main/java/cn/bus/web/BusFixHandle.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="115">
-              <caret line="44" lean-forward="true" selection-start-line="44" selection-end-line="44" />
-              <folding>
-                <element signature="n#style#0;n#label#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-              </folding>
+              <caret line="26" selection-start-line="26" selection-end-line="26" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resource/mapper/BusMaintain.xml">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/admin/BusList.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="113">
-              <caret line="25" column="25" selection-start-line="25" selection-start-column="25" selection-end-line="25" selection-end-column="25" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/cn/bus/biz/BusFixImp.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="353">
-              <caret line="36" lean-forward="true" selection-start-line="36" selection-end-line="36" />
+            <state relative-caret-position="6808">
+              <caret line="296" column="40" selection-start-line="296" selection-start-column="24" selection-end-line="296" selection-end-column="40" />
             </state>
           </provider>
         </entry>
@@ -169,6 +179,9 @@
       <find>bid</find>
       <find>change</find>
       <find>int</find>
+      <find>see</find>
+      <find>centerCity</find>
+      <find>display</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -177,57 +190,57 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/cn/bus/mapper/IUserMapper.java" />
-        <option value="$PROJECT_DIR$/src/main/java/cn/bus/entity/User.java" />
-        <option value="$PROJECT_DIR$/src/main/java/cn/bus/biz/UserBizImp.java" />
-        <option value="$PROJECT_DIR$/src/main/xml/mapper/TblUser.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/cn/bus/mapper/IAdminMapper.java" />
-        <option value="$PROJECT_DIR$/src/main/java/cn/bus/biz/IAdminBiz.java" />
-        <option value="$PROJECT_DIR$/src/main/java/cn/bus/biz/AdminBizImp.java" />
-        <option value="$PROJECT_DIR$/src/main/xml/springmvc.xml" />
-        <option value="$PROJECT_DIR$/src/main/webapp/index.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/admin/success.jsp" />
-        <option value="$PROJECT_DIR$/src/main/xml/mapper/TblAdmin.xml" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/admin/login.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/cn/bus/web/AdminHandle.java" />
-        <option value="$PROJECT_DIR$/target/classes/springmvc.xml" />
-        <option value="$PROJECT_DIR$/target/aid/WEB-INF/classes/mapper/TblBus.xml" />
-        <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/admin/UserList.jsp" />
-        <option value="$PROJECT_DIR$/src/main/java/cn/bus/PageUtil.java" />
-        <option value="$PROJECT_DIR$/src/main/resource/applicationContext.xml" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/admin/Main.jsp" />
-        <option value="$PROJECT_DIR$/src/main/java/cn/bus/resolver/MyExceptionResolver.java" />
-        <option value="$PROJECT_DIR$/src/main/resource/springmvc.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/cn/bus/entity/City.java" />
-        <option value="$PROJECT_DIR$/src/main/resource/mapper/TblAdmin.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/cn/bus/entity/Params.java" />
-        <option value="$PROJECT_DIR$/src/main/java/cn/bus/entity/Line.java" />
-        <option value="$PROJECT_DIR$/src/main/java/cn/bus/entity/Admin.java" />
-        <option value="$PROJECT_DIR$/src/main/java/cn/bus/tool/PageUtil.java" />
-        <option value="$PROJECT_DIR$/src/main/java/cn/bus/entity/Bus.java" />
-        <option value="$PROJECT_DIR$/src/main/java/cn/bus/mapper/BusMapper.java" />
-        <option value="$PROJECT_DIR$/src/main/java/cn/bus/biz/BusBiz.java" />
-        <option value="$PROJECT_DIR$/src/main/java/cn/bus/biz/BusBizImp.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/admin/BusFixMain.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/cn/bus/entity/BusFix.java" />
         <option value="$PROJECT_DIR$/src/main/java/cn/bus/biz/BusFixBiz.java" />
         <option value="$PROJECT_DIR$/src/main/java/cn/bus/mapper/BusFixMapper.java" />
-        <option value="$PROJECT_DIR$/src/main/java/cn/bus/biz/BusFixImp.java" />
-        <option value="$PROJECT_DIR$/src/main/resource/mapper/TblBus.xml" />
-        <option value="$PROJECT_DIR$/src/main/resource/mapper/BusMaintain.xml" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/admin/BusFix.jsp" />
-        <option value="$PROJECT_DIR$/src/main/java/cn/bus/entity/Time.java" />
+        <option value="$PROJECT_DIR$/src/main/resource/mapper/TblBus.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/bus/biz/BusFixImp.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/bus/entity/LineTime.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/admin/login.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/bus/web/BusHandle.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/bus/tool/CodeUtil.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/alipay.trade.query.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/alipay.trade.page.pay.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/alipay.trade.close.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/alipay.trade.fastpay.refund.query.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/alipay.trade.refund.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/notify_url.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/bus/entity/Admin.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/user/Reg.jsp" />
+        <option value="$PROJECT_DIR$/src/main/resource/springmvc.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/bus/entity/BusUser.java" />
+        <option value="$PROJECT_DIR$/src/main/resource/mapper/BusMaintain.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/bus/web/AdminHandle.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/user/TakeBusQrcode.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/cn/bus/biz/TimeBiz.java" />
-        <option value="$PROJECT_DIR$/src/main/java/cn/bus/biz/TimeBizImp.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/bus/web/BusTimeHandle.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/index.jsp" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/bus/web/CodeImageHandle.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/alipay/index.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/bus/entity/PayInfo.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/bus/biz/UserBiz.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/bus/biz/UserBizImp.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/alipay/index.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/user/UserMoney.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/bus/web/AlipayConfig.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/bus/entity/Bus.java" />
         <option value="$PROJECT_DIR$/src/main/java/cn/bus/mapper/BusTimeMapper.java" />
         <option value="$PROJECT_DIR$/src/main/resource/mapper/BusTime.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/cn/bus/web/BusFixHandle.java" />
-        <option value="$PROJECT_DIR$/src/main/java/cn/bus/web/BusHandle.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/admin/BusList.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/css/css.css" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/bus/entity/Time.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/bus/biz/TimeBizImp.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/admin/BusTime.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/css/css.css" />
+        <option value="$PROJECT_DIR$/src/main/webapp/return_url.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/bus/mapper/UserMapper.java" />
+        <option value="$PROJECT_DIR$/src/main/resource/mapper/TblUser.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/bus/web/UserHandle.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/admin/BusList.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/user/cityline.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/user/map.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/bus/web/BusFixHandle.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/user/UserInfo.jsp" />
       </list>
     </option>
   </component>
@@ -252,11 +265,16 @@
           <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
           <item name="aid Maven Webapp" type="9519ce18:MavenProjectsStructure$ProjectNode" />
         </path>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="aid Maven Webapp" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+          <item name="Dependencies" type="f4be9f2a:MavenProjectsStructure$DependenciesNode" />
+        </path>
       </expand>
       <select />
     </treeState>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="1">
     <option name="x" value="5" />
     <option name="y" value="16" />
     <option name="width" value="1346" />
@@ -378,39 +396,6 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="webapp" type="462c0819:PsiDirectoryNode" />
-              <item name="css" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Transport" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Transport" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="webapp" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Transport" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Transport" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="webapp" type="462c0819:PsiDirectoryNode" />
-              <item name="layui" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Transport" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Transport" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="webapp" type="462c0819:PsiDirectoryNode" />
-              <item name="layui" type="462c0819:PsiDirectoryNode" />
-              <item name="css" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Transport" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Transport" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="webapp" type="462c0819:PsiDirectoryNode" />
               <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -421,6 +406,24 @@
               <item name="webapp" type="462c0819:PsiDirectoryNode" />
               <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
               <item name="admin" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Transport" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Transport" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
+              <item name="alipay" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Transport" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Transport" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
+              <item name="user" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -436,7 +439,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/webapp/js" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/webapp/WEB-INF/user" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -445,29 +448,33 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15365653" />
-    <property name="project.structure.side.proportion" value="0.6408776" />
+    <property name="project.structure.side.proportion" value="0.18591224" />
     <property name="settings.editor.selected.configurable" value="editor.preferences.import" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\github\Transteam\Transport\src\main\webapp\css" />
-      <recent name="D:\HomeWork\Transport\src\main\webapp\WEB-INF" />
+      <recent name="D:\github\Transteam\Transport\src\main\webapp\js" />
+      <recent name="D:\github\Transteam\Transport\src\main\webapp" />
+      <recent name="D:\github\Transteam\Transport\src\main\webapp\WEB-INF" />
+      <recent name="D:\github\Transteam\Transport\src\main\webapp\alipay" />
+      <recent name="D:\github\Transteam\Transport\lib" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="cn.bus.entity" />
+      <recent name="cn.bus.web" />
       <recent name="cn.bus.mapper" />
       <recent name="cn.bus.biz" />
-      <recent name="cn.bus.web" />
-      <recent name="cn.bus.entity" />
-      <recent name="cn.bus" />
+      <recent name="cn.bus.tool" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\github\Transteam\Transport\src\main\webapp\js" />
-      <recent name="D:\github\Transteam\Transport\src\main\webapp\WEB-INF\admin" />
+      <recent name="D:\github\Transteam\Transport\src\main\webapp\WEB-INF\user" />
       <recent name="D:\github\Transteam\Transport\src\main\resource\mapper" />
-      <recent name="D:\github\Transteam\Transport" />
-      <recent name="D:\github\Transteam\Transport\target\aid\WEB-INF\lib" />
+      <recent name="D:\github\Transteam\Transport\lib" />
+      <recent name="D:\github\Transteam\Transport\src\main\webapp\css" />
+      <recent name="D:\github\Transteam\Transport\src\main\webapp\WEB-INF\lib" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -489,6 +496,19 @@
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="cn.bus.biz.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CodeUtil" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="cn.bus.tool.CodeUtil" />
+      <module name="aid" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="cn.bus.tool.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -685,18 +705,21 @@
         <option name="Make" enabled="true" />
         <option name="BuildArtifacts" enabled="true">
           <artifact name="Transport:war exploded" />
+          <artifact name="aid:war exploded" />
         </option>
       </method>
     </configuration>
     <list>
       <item itemvalue="Application.Test" />
       <item itemvalue="Application.BusBizImp" />
+      <item itemvalue="Application.CodeUtil" />
       <item itemvalue="JUnit.BusBizImp.login" />
       <item itemvalue="JUnit.BusBizImp.check" />
       <item itemvalue="Tomcat Server.Tomcat 8.5.43" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.CodeUtil" />
         <item itemvalue="JUnit.BusBizImp.check" />
         <item itemvalue="Application.BusBizImp" />
         <item itemvalue="JUnit.BusBizImp.login" />
@@ -720,7 +743,14 @@
       <workItem from="1569132187860" duration="16624000" />
       <workItem from="1569199889947" duration="44427000" />
       <workItem from="1569286303979" duration="39183000" />
-      <workItem from="1569372701987" duration="35551000" />
+      <workItem from="1569372701987" duration="35991000" />
+      <workItem from="1569458470620" duration="11037000" />
+      <workItem from="1569479497907" duration="21459000" />
+      <workItem from="1569510048774" duration="4316000" />
+      <workItem from="1569544812023" duration="30958000" />
+      <workItem from="1569632134682" duration="30886000" />
+      <workItem from="1569717213280" duration="40491000" />
+      <workItem from="1569803664538" duration="2412000" />
     </task>
     <task id="LOCAL-00001" summary="9-21-下午9:00">
       <created>1569070851878</created>
@@ -767,7 +797,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="179526000" />
+    <option name="totallyTimeSpent" value="321525000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -779,10 +809,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <frame x="5" y="16" width="1346" height="689" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19288956" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26127526" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -792,12 +822,12 @@
       <window_info id="Web" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.18032786" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.14054054" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3295082" />
-      <window_info anchor="bottom" id="Application Servers" order="7" weight="0.40983605" />
+      <window_info anchor="bottom" id="Application Servers" order="7" weight="0.3229508" />
       <window_info anchor="bottom" id="Spring" order="8" />
       <window_info anchor="bottom" id="Terminal" order="9" />
       <window_info anchor="bottom" id="Docker" order="10" show_stripe_button="false" />
@@ -809,12 +839,12 @@
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.24962178" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Maven" order="3" />
+      <window_info anchor="right" id="Maven" order="3" weight="0.32223904" />
       <window_info anchor="right" id="Palette" order="4" />
       <window_info anchor="right" id="Capture Analysis" order="5" />
-      <window_info anchor="right" id="Database" order="6" />
-      <window_info anchor="right" id="Palette&#9;" order="7" />
-      <window_info anchor="right" id="Theme Preview" order="8" />
+      <window_info anchor="right" id="Palette&#9;" order="6" />
+      <window_info anchor="right" id="Theme Preview" order="7" />
+      <window_info anchor="right" id="Database" order="8" weight="0.32980332" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -842,437 +872,433 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/target/classes/springmvc.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="494">
-          <caret line="28" column="15" lean-forward="true" selection-start-line="28" selection-start-column="15" selection-end-line="28" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/bus/biz/AdminBizImp.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="104">
-          <caret line="16" column="34" selection-start-line="16" selection-start-column="34" selection-end-line="16" selection-end-column="34" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#420#421#0" expanded="true" />
-            <element signature="e#488#489#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/target/aid/WEB-INF/classes/mapper/TblAdmin.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/target/aid/WEB-INF/web.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="736">
-          <caret line="32" column="17" lean-forward="true" selection-start-line="32" selection-start-column="17" selection-end-line="32" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/target/aid/WEB-INF/classes/mapper/TblBus.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="118">
-          <caret line="16" column="71" lean-forward="true" selection-start-line="16" selection-start-column="71" selection-end-line="16" selection-end-column="71" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/bus/mapper/IAdminMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="9" column="11" selection-start-line="9" selection-start-column="11" selection-end-line="9" selection-end-column="11" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/target/aid/WEB-INF/classes/applicationContext.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="368">
-          <caret line="38" lean-forward="true" selection-start-line="38" selection-end-line="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/target/aid/WEB-INF/classes/springmvc.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-345" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/target/classes/applicationContext.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/4.3.9.RELEASE/spring-web-4.3.9.RELEASE-sources.jar!/org/springframework/web/context/ContextLoaderListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1430">
-          <caret line="40" column="13" selection-start-line="40" selection-start-column="13" selection-end-line="40" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/4.3.9.RELEASE/spring-web-4.3.9.RELEASE.jar!/org/springframework/web/context/ContextLoader.properties">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/bus/web/AdminHandle.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="30" column="42" selection-start-line="30" selection-start-column="42" selection-end-line="30" selection-end-column="42" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resource/applicationContext.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="161">
-          <caret line="25" column="50" selection-start-line="25" selection-start-column="50" selection-end-line="25" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/admin/login.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="74">
-          <caret line="19" column="65" selection-start-line="19" selection-start-column="65" selection-end-line="19" selection-end-column="65" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/admin/success.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="138">
-          <caret line="6" column="51" lean-forward="true" selection-start-line="6" selection-start-column="51" selection-end-line="6" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/lib/platform-impl.jar!/resources/html5-schema/html5/core-scripting.rnc">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="12" column="4" lean-forward="true" selection-start-line="12" selection-start-column="4" selection-end-line="12" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-90">
-          <caret line="25" column="20" lean-forward="true" selection-start-line="25" selection-start-column="20" selection-end-line="25" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/bus/resolver/MyExceptionResolver.java" />
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="326">
-          <caret line="129" column="38" lean-forward="true" selection-start-line="129" selection-start-column="38" selection-end-line="129" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resource/springmvc.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="621">
-          <caret line="27" column="15" selection-start-line="27" selection-start-column="15" selection-end-line="27" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resource/mapper/TblAdmin.xml">
+    <entry file="jar://$MAVEN_REPOSITORY$/com/github/jai-imageio/jai-imageio-core/1.3.1/jai-imageio-core-1.3.1.jar!/com/github/jaiimageio/impl/plugins/raw/RawImageReaderSpi.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="92">
-          <caret line="4" column="18" lean-forward="true" selection-start-line="4" selection-start-column="18" selection-end-line="4" selection-end-column="18" />
+          <caret line="39" selection-start-line="39" selection-end-line="39" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/bus/entity/Params.java">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/alipay/alipay.trade.query.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="217">
-          <caret line="30" column="29" selection-start-line="30" selection-start-column="29" selection-end-line="30" selection-end-column="29" />
-          <folding>
-            <element signature="e#393#394#0" expanded="true" />
-            <element signature="e#421#422#0" expanded="true" />
-            <element signature="e#463#464#0" expanded="true" />
-            <element signature="e#497#498#0" expanded="true" />
-            <element signature="e#531#532#0" expanded="true" />
-            <element signature="e#570#571#0" expanded="true" />
-            <element signature="e#600#601#0" expanded="true" />
-            <element signature="e#631#632#0" expanded="true" />
-            <element signature="e#657#658#0" expanded="true" />
-            <element signature="e#696#697#0" expanded="true" />
-            <element signature="e#726#727#0" expanded="true" />
-            <element signature="e#757#758#0" expanded="true" />
-            <element signature="e#783#784#0" expanded="true" />
-            <element signature="e#822#823#0" expanded="true" />
-            <element signature="e#852#853#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/bus/tool/PageUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="27" column="26" lean-forward="true" selection-start-line="27" selection-start-column="26" selection-end-line="27" selection-end-column="26" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/bus/entity/Bus.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-322">
-          <caret line="7" column="24" lean-forward="true" selection-start-line="7" selection-start-column="24" selection-end-line="7" selection-end-column="24" />
-          <folding>
-            <element signature="e#1338#1339#0" expanded="true" />
-            <element signature="e#1365#1366#0" expanded="true" />
-            <element signature="e#1403#1404#0" expanded="true" />
-            <element signature="e#1435#1436#0" expanded="true" />
-            <element signature="e#1464#1465#0" expanded="true" />
-            <element signature="e#1491#1492#0" expanded="true" />
-            <element signature="e#1529#1530#0" expanded="true" />
-            <element signature="e#1561#1562#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/bus/mapper/BusMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="233">
-          <caret line="29" column="29" selection-start-line="29" selection-start-column="29" selection-end-line="29" selection-end-column="29" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/bus/biz/BusBiz.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="139">
-          <caret line="18" column="46" selection-start-line="18" selection-start-column="46" selection-end-line="18" selection-end-column="46" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/bus/entity/Admin.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
-          <caret line="20" column="29" selection-start-line="20" selection-start-column="29" selection-end-line="20" selection-end-column="29" />
-          <folding>
-            <element signature="e#372#373#0" expanded="true" />
-            <element signature="e#411#412#0" expanded="true" />
-            <element signature="e#441#442#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/bus/entity/Line.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="14" column="29" selection-start-line="14" selection-start-column="29" selection-end-line="14" selection-end-column="29" />
-          <folding>
-            <element signature="e#287#288#0" expanded="true" />
-            <element signature="e#326#327#0" expanded="true" />
-            <element signature="e#356#357#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/bus/entity/City.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="230">
-          <caret line="10" column="29" selection-start-line="10" selection-start-column="29" selection-end-line="10" selection-end-column="29" />
-          <folding>
-            <element signature="e#205#206#0" expanded="true" />
-            <element signature="e#244#245#0" expanded="true" />
-            <element signature="e#274#275#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="155">
+          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" selection-end-column="32" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/admin/BusMain.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="253">
-          <caret line="44" column="76" selection-start-line="44" selection-start-column="76" selection-end-line="44" selection-end-column="76" />
+        <state relative-caret-position="138">
+          <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/bus/entity/BusFix.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/bus/tool/CodeUtil.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="69">
-          <caret line="12" column="28" selection-start-line="12" selection-start-column="28" selection-end-line="12" selection-end-column="28" />
-          <folding>
-            <element signature="e#275#276#0" expanded="true" />
-            <element signature="e#313#314#0" expanded="true" />
-            <element signature="e#343#344#0" expanded="true" />
-            <element signature="e#222#223#0" expanded="true" />
-            <element signature="e#248#249#0" expanded="true" />
-            <element signature="e#283#284#0" expanded="true" />
-            <element signature="e#313#314#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/admin/BusFixMain.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="44" column="62" selection-start-line="44" selection-start-column="62" selection-end-line="44" selection-end-column="62" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/bus/biz/BusBizImp.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="71" column="28" lean-forward="true" selection-start-line="71" selection-start-column="28" selection-end-line="71" selection-end-column="28" />
-          <folding>
-            <element signature="e#1900#1901#0" expanded="true" />
-            <element signature="e#1965#1966#0" expanded="true" />
-            <element signature="e#2040#2041#0" expanded="true" />
-            <element signature="e#2107#2108#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/bus/biz/BusFixBiz.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="253">
-          <caret line="13" column="39" selection-start-line="13" selection-start-column="39" selection-end-line="13" selection-end-column="39" />
+        <state relative-caret-position="-215">
+          <caret line="34" column="34" selection-start-line="34" selection-start-column="34" selection-end-line="34" selection-end-column="34" />
           <folding>
             <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/bus/mapper/BusFixMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="206">
-          <caret line="16" column="29" selection-start-line="16" selection-start-column="29" selection-end-line="16" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/bus/biz/BusFixImp.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="353">
-          <caret line="36" lean-forward="true" selection-start-line="36" selection-end-line="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resource/mapper/BusMaintain.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="113">
-          <caret line="25" column="25" selection-start-line="25" selection-start-column="25" selection-end-line="25" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/bus/entity/Time.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
-          <caret line="9" column="29" selection-start-line="9" selection-start-column="29" selection-end-line="9" selection-end-column="29" />
-          <folding>
-            <element signature="e#177#178#0" expanded="true" />
-            <element signature="e#216#217#0" expanded="true" />
-            <element signature="e#246#247#0" expanded="true" />
-            <element signature="e#278#279#0" expanded="true" />
-            <element signature="e#306#307#0" expanded="true" />
-            <element signature="e#348#349#0" expanded="true" />
-            <element signature="e#382#383#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/admin/BusFix.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="115">
-          <caret line="44" lean-forward="true" selection-start-line="44" selection-end-line="44" />
+        <state relative-caret-position="1012">
+          <caret line="44" selection-start-line="44" selection-end-line="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resource/applicationContext.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-630" />
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/4.3.9.RELEASE/spring-web-4.3.9.RELEASE-sources.jar!/org/springframework/web/multipart/commons/CommonsMultipartResolver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="62" column="59" lean-forward="true" selection-start-line="62" selection-start-column="59" selection-end-line="62" selection-end-column="59" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resource/springmvc.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="161">
+          <caret line="31" column="66" selection-start-line="31" selection-start-column="66" selection-end-line="31" selection-end-column="66" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/bus/entity/Admin.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="23">
+          <caret line="16" column="20" lean-forward="true" selection-start-line="16" selection-start-column="20" selection-end-line="16" selection-end-column="20" />
           <folding>
-            <element signature="n#style#0;n#label#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#447#448#0" expanded="true" />
+            <element signature="e#474#475#0" expanded="true" />
+            <element signature="e#521#522#0" expanded="true" />
+            <element signature="e#553#554#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/bus/web/AdminHandle.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="449">
+          <caret line="38" column="49" lean-forward="true" selection-start-line="38" selection-start-column="49" selection-end-line="38" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/bus/entity/BusTime.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="115">
+          <caret line="5" column="20" selection-start-line="5" selection-start-column="20" selection-end-line="5" selection-end-column="20" />
+          <folding>
+            <element signature="e#356#357#0" expanded="true" />
+            <element signature="e#381#382#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/bus/mapper/IAdminMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="10" column="17" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/lib/platform-impl.jar!/resources/html5-schema/html5/common.rnc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="158">
+          <caret line="121" column="18" selection-start-line="121" selection-start-column="18" selection-end-line="121" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resource/mapper/BusMaintain.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="39">
+          <caret line="10" column="46" selection-start-line="10" selection-start-column="46" selection-end-line="10" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/cn/bus/biz/TimeBiz.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/bus/biz/TimeBizImp.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="26" selection-start-line="26" selection-end-line="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/bus/mapper/BusTimeMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="276">
-          <caret line="15" column="25" selection-start-line="15" selection-start-column="9" selection-end-line="15" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resource/mapper/BusTime.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="230">
-          <caret line="10" column="13" lean-forward="true" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resource/mapper/TblBus.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="222">
-          <caret line="81" column="50" lean-forward="true" selection-start-line="81" selection-start-column="50" selection-end-line="81" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/bus/web/BusHandle.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="161">
-          <caret line="114" column="31" lean-forward="true" selection-start-line="114" selection-start-column="31" selection-end-line="114" selection-end-column="31" />
+        <state relative-caret-position="253">
+          <caret line="13" column="40" selection-start-line="13" selection-start-column="40" selection-end-line="13" selection-end-column="40" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/admin/BusList.jsp">
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/bus/entity/PayInfo.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="983">
-          <caret line="103" column="51" selection-start-line="103" selection-start-column="51" selection-end-line="103" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/bus/web/BusFixHandle.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1495">
-          <caret line="74" column="36" selection-start-line="74" selection-start-column="36" selection-end-line="74" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/layui/css/layui.css">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/js/jquery1.10.2.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
+        <state relative-caret-position="82">
+          <caret line="4" column="41" lean-forward="true" selection-start-line="4" selection-start-column="41" selection-end-line="4" selection-end-column="41" />
           <folding>
-            <element signature="n#!!doc" expanded="true" />
+            <element signature="e#273#274#0" expanded="true" />
+            <element signature="e#311#312#0" expanded="true" />
+            <element signature="e#373#374#0" expanded="true" />
+            <element signature="e#427#428#0" expanded="true" />
+            <element signature="e#469#470#0" expanded="true" />
+            <element signature="e#507#508#0" expanded="true" />
+            <element signature="e#569#570#0" expanded="true" />
+            <element signature="e#623#624#0" expanded="true" />
+            <element signature="e#660#661#0" expanded="true" />
+            <element signature="e#693#694#0" expanded="true" />
+            <element signature="e#745#746#0" expanded="true" />
+            <element signature="e#789#790#0" expanded="true" />
+            <element signature="e#823#824#0" expanded="true" />
+            <element signature="e#853#854#0" expanded="true" />
+            <element signature="e#899#900#0" expanded="true" />
+            <element signature="e#937#938#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/alipay/alipay.trade.close.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="23">
+          <caret line="7" column="32" selection-start-line="7" selection-start-column="32" selection-end-line="7" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/alipay/alipay.trade.fastpay.refund.query.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="161">
+          <caret line="7" column="32" selection-start-line="7" selection-start-column="32" selection-end-line="7" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/notify_url.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="788">
+          <caret line="52" column="4" lean-forward="true" selection-start-line="52" selection-start-column="4" selection-end-line="52" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/bus/entity/BusUser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="253">
+          <caret line="17" column="5" selection-start-line="17" selection-start-column="5" selection-end-line="17" selection-end-column="5" />
+          <folding>
+            <element signature="e#1413#1414#0" expanded="true" />
+            <element signature="e#1442#1443#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/bus/biz/UserBiz.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="205">
+          <caret line="17" column="14" selection-start-line="17" selection-start-column="14" selection-end-line="17" selection-end-column="14" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/alipay/alipay.trade.refund.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="92">
+          <caret line="7" column="32" selection-start-line="7" selection-start-column="32" selection-end-line="7" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/user/UserMoney.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="92">
+          <caret line="43" column="120" selection-start-line="43" selection-start-column="120" selection-end-line="43" selection-end-column="120" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/admin/login.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="506">
+          <caret line="22" column="21" selection-start-line="22" selection-start-column="21" selection-end-line="22" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resource/mapper/TblBus.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="23">
+          <caret line="28" column="82" selection-start-line="28" selection-start-column="82" selection-end-line="28" selection-end-column="82" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/bus/web/BusTimeHandle.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="483">
+          <caret line="28" column="23" selection-start-line="28" selection-start-column="23" selection-end-line="28" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/bus/mapper/BusTimeMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="253">
+          <caret line="15" selection-start-line="15" selection-end-line="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/bus/entity/Bus.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="273">
+          <caret line="16" column="25" selection-start-line="16" selection-start-column="25" selection-end-line="16" selection-end-column="25" />
+          <folding>
+            <element signature="e#533#534#0" expanded="true" />
+            <element signature="e#560#561#0" expanded="true" />
+            <element signature="e#604#605#0" expanded="true" />
+            <element signature="e#636#637#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/bus/entity/Time.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="137">
+          <caret line="19" column="32" selection-start-line="19" selection-start-column="32" selection-end-line="19" selection-end-column="32" />
+          <folding>
+            <element signature="e#449#450#0" expanded="true" />
+            <element signature="e#498#499#0" expanded="true" />
+            <element signature="e#542#543#0" expanded="true" />
+            <element signature="e#577#578#0" expanded="true" />
+            <element signature="e#611#612#0" expanded="true" />
+            <element signature="e#662#663#0" expanded="true" />
+            <element signature="e#708#709#0" expanded="true" />
+            <element signature="e#350#351#0" expanded="true" />
+            <element signature="e#383#384#0" expanded="true" />
+            <element signature="e#435#436#0" expanded="true" />
+            <element signature="e#479#480#0" expanded="true" />
+            <element signature="e#514#515#0" expanded="true" />
+            <element signature="e#545#546#0" expanded="true" />
+            <element signature="e#593#594#0" expanded="true" />
+            <element signature="e#633#634#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="310">
+          <caret line="153" lean-forward="true" selection-start-line="153" selection-end-line="153" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/bus/biz/TimeBizImp.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="142">
+          <caret line="62" column="29" selection-start-line="62" selection-start-column="29" selection-end-line="62" selection-end-column="29" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/css/css.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="621">
-          <caret line="27" column="40" lean-forward="true" selection-start-line="27" selection-start-column="40" selection-end-line="27" selection-end-column="40" />
+        <state relative-caret-position="163">
+          <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/admin/BusTime.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="128">
-          <caret line="28" column="28" selection-start-line="28" selection-start-column="28" selection-end-line="28" selection-end-column="28" />
+        <state relative-caret-position="53">
+          <caret line="38" column="47" lean-forward="true" selection-start-line="38" selection-start-column="47" selection-end-line="38" selection-end-column="47" />
           <folding>
             <element signature="n#style#0;n#ul#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#li#1;n#ul#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#li#2;n#ul#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#li#3;n#ul#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#li#4;n#ul#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#li#5;n#ul#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#li#6;n#ul#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#li#0;n#ul#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#1;n#li#0;n#ul#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#1;n#li#1;n#ul#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resource/mapper/BusTime.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="92">
+          <caret line="22" column="46" lean-forward="true" selection-start-line="22" selection-start-column="46" selection-end-line="22" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/bus/web/CodeImageHandle.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="230">
+          <caret line="40" column="17" lean-forward="true" selection-start-line="40" selection-start-column="17" selection-end-line="40" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/return_url.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="166">
+          <caret line="69" column="36" lean-forward="true" selection-start-line="69" selection-start-column="36" selection-end-line="69" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/alipay/index.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-391">
+          <caret line="207" column="53" selection-start-line="207" selection-start-column="53" selection-end-line="207" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/alipay/alipay.trade.page.pay.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="230">
+          <caret line="13" column="4" lean-forward="true" selection-start-line="13" selection-start-column="4" selection-end-line="13" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/bus/web/AlipayConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-322">
+          <caret line="23" column="37" lean-forward="true" selection-start-line="23" selection-start-column="37" selection-end-line="23" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resource/mapper/TblUser.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="116">
+          <caret line="14" column="13" lean-forward="true" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/user/TakeBusQrcode.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="94">
+          <caret line="17" column="79" selection-start-line="17" selection-start-column="79" selection-end-line="17" selection-end-column="79" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/user/map.jsp" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/bus/mapper/UserMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="299">
+          <caret line="16" column="44" selection-start-line="16" selection-start-column="44" selection-end-line="16" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/bus/web/UserHandle.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1357">
+          <caret line="73" column="50" selection-start-line="73" selection-start-column="50" selection-end-line="73" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/bus/biz/UserBizImp.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="529">
+          <caret line="30" column="22" selection-start-line="30" selection-start-column="22" selection-end-line="30" selection-end-column="22" />
+          <folding>
+            <element signature="e#662#663#0" expanded="true" />
+            <element signature="e#701#702#0" expanded="true" />
+            <element signature="e#753#754#0" expanded="true" />
+            <element signature="e#794#795#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/user/cityline.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="17" column="96" selection-start-line="17" selection-start-column="96" selection-end-line="17" selection-end-column="96" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/js/cityline.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4140">
+          <caret line="180" column="20" selection-start-line="180" selection-start-column="20" selection-end-line="180" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/admin/BusList.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="6808">
+          <caret line="296" column="40" selection-start-line="296" selection-start-column="24" selection-end-line="296" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/bus/web/BusHandle.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="161">
+          <caret line="31" column="31" selection-start-line="31" selection-start-column="31" selection-end-line="31" selection-end-column="31" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/bus/web/BusFixHandle.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="115">
+          <caret line="26" selection-start-line="26" selection-end-line="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/user/UserInfo.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="312">
+          <caret line="92" column="15" lean-forward="true" selection-start-line="92" selection-start-column="15" selection-end-line="92" selection-end-column="15" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1287,7 +1313,7 @@
           <splitter-proportions>
             <option name="proportions">
               <list>
-                <option value="0.6408776" />
+                <option value="0.18591224" />
                 <option value="0.5" />
               </list>
             </option>
@@ -1335,7 +1361,7 @@
           <splitter-proportions>
             <option name="proportions">
               <list>
-                <option value="0.115606934" />
+                <option value="0.46073902" />
               </list>
             </option>
           </splitter-proportions>
@@ -1355,11 +1381,11 @@
       </state>
       <state key="ProjectLibrariesConfigurable.UI">
         <settings>
-          <last-edited>Maven: com.fasterxml.jackson.core:jackson-annotations:2.9.0</last-edited>
+          <last-edited>bga-qrcode-zxing-1.3.6-sources</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
-                <option value="0.6408776" />
+                <option value="0.46073902" />
               </list>
             </option>
           </splitter-proportions>

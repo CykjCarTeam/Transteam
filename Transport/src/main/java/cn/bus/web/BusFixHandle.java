@@ -68,11 +68,5 @@ public class BusFixHandle {
         map.put("msg","");
         return map;
     }
-    //进入时间轴界面
-    @RequestMapping("time")
-    public ModelAndView time(ModelAndView model){
-        busBiz.findCity(model);
-        model.setViewName("admin/BusTime");
-        return model;
-    }
+
 }

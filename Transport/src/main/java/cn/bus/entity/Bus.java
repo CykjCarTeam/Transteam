@@ -1,5 +1,7 @@
 package cn.bus.entity;
 
+import java.util.List;
+
 public class Bus {
     private String bid;//车牌
     private String bus;//几路车
@@ -9,15 +11,29 @@ public class Bus {
     private String online;//是否固定线路
 
     private Line line;
-
     private Params params;
 
     private City city;
-
+    private List<Time> time;
 
     public Bus() {
     }
 
+    public Line getLine() {
+        return line;
+    }
+
+    public void setLine(Line line) {
+        this.line = line;
+    }
+
+    public List<Time> getTime() {
+        return time;
+    }
+
+    public void setTime(List<Time> time) {
+        this.time = time;
+    }
 
     public String getOnline() {
         return online;
@@ -76,13 +92,6 @@ public class Bus {
         this.params = params;
     }
 
-    public Line getLine() {
-        return line;
-    }
-
-    public void setLine(Line line) {
-        this.line = line;
-    }
 
     public City getCity() {
         return city;

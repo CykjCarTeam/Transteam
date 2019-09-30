@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="bga-qrcode-zxing-1.3.6-sources">
+    <CLASSES />
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/lib/bga-qrcode-zxing-1.3.6-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
