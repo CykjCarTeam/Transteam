@@ -1,5 +1,6 @@
 package cn.bus.entity;
 
+
 public class Station
 {
     private Integer sid;
@@ -105,5 +106,4 @@ public class Station
     {
         this.line = line;
     }
-
 }
