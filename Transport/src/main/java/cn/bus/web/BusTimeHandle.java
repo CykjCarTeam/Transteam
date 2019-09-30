@@ -6,8 +6,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
-import java.util.HashMap;
-import java.util.Map;
 
 /**
 * @Author:小星
@@ -24,10 +22,6 @@ public class BusTimeHandle {
     //进入时间轴界面
     @RequestMapping("time")
     public ModelAndView time(ModelAndView model){
-        Map map=new HashMap();
-        map.put("bid","闽5");
-        timeBiz.findAllTime(model,map);
-        model.setViewName("admin/BusTime");
         return model;
     }
 

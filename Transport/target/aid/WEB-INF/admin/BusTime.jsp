@@ -56,6 +56,7 @@
 						</p><p>${t.spareStart}-${t.spareEnd}</p>
 					</div>
 				</c:if>
+
                 </li>
             </c:forEach>
 		</ul>

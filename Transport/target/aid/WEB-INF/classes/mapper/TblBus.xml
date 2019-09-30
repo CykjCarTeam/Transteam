@@ -74,4 +74,13 @@
          insert into tb_bus values (#{bid},#{bus},
          (select param from tb_properties where pid=7),#{protector},#{busyear},'是',#{cid})
     </insert>
+<!---->
+    <!--    车次查询-->
+    <select id="findline" parameterType="java.util.Map" resultType="cn.bus.entity.Line">
+    select * from tb_line where 1=1 limit #{page},#{limit}
+</select>
+    <!--   车次查询总条数-->
+    <select id="findlineall"  resultType="cn.bus.entity.Line">
+       select * from tb_line
+    </select>
 </mapper>

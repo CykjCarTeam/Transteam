@@ -2,6 +2,7 @@ package cn.bus.biz;
 
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.Map;
 
 /**
@@ -11,7 +12,7 @@ import java.util.Map;
 */
 public interface TimeBiz {
 
-    void findAllTime(ModelAndView model,Map map);
+    void findAllTime(HttpServletRequest request, Map map);
     void findDuration(ModelAndView model);
     void findBusTimeByBid(ModelAndView model);
 }

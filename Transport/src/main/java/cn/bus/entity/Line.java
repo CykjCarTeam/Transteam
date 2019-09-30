@@ -9,6 +9,8 @@ public class Line {
     private String duration;
     private String cost;
 
+    private Bus bus;
+
     public Line() {
     }
 
@@ -58,5 +60,13 @@ public class Line {
 
     public void setCost(String cost) {
         this.cost = cost;
+    }
+
+    public Bus getBus() {
+        return bus;
+    }
+
+    public void setBus(Bus bus) {
+        this.bus = bus;
     }
 }

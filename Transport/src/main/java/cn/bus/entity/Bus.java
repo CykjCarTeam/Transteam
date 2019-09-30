@@ -10,6 +10,10 @@ public class Bus {
     private String busyear;
     private String online;//是否固定线路
 
+    private String intotime;
+    private Time times;
+    private Station station;
+
     private Line line;
     private Params params;
 
@@ -100,4 +104,30 @@ public class Bus {
     public void setCity(City city) {
         this.city = city;
     }
+
+    public String getIntotime() {
+        return intotime;
+    }
+
+    public void setIntotime(String intotime) {
+        this.intotime = intotime;
+    }
+
+    public Time getTimes() {
+        return times;
+    }
+
+    public void setTimes(Time times) {
+        this.times = times;
+    }
+
+    public Station getStation() {
+        return station;
+    }
+
+    public void setStation(Station station) {
+        this.station = station;
+    }
+
+
 }

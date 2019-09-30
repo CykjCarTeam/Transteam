@@ -6,6 +6,9 @@ public class Time {
     private Line line;
     private String state;
 
+    private Bus bus;
+    private int lid;
+
     private String start;//开始时间点
     private String end;//结束时间点
     private int workLength;//时长比例
@@ -95,5 +98,21 @@ public class Time {
 
     public void setTimes(String times) {
         this.times = times;
+    }
+
+    public Bus getBus() {
+        return bus;
+    }
+
+    public void setBus(Bus bus) {
+        this.bus = bus;
+    }
+
+    public int getLid() {
+        return lid;
+    }
+
+    public void setLid(int lid) {
+        this.lid = lid;
     }
 }

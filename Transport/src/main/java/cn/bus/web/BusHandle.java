@@ -2,6 +2,7 @@ package cn.bus.web;
 
 import cn.bus.biz.BusBiz;
 import cn.bus.entity.Bus;
+import cn.bus.entity.Line;
 import cn.bus.tool.PageUtil;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -11,6 +12,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -146,5 +148,17 @@ public class BusHandle {
             res="1";
         }
         return res;
+    }
+    //线路列表显示
+    @RequestMapping(value="/findline.action",method= RequestMethod.GET, produces="application/json;charset=utf-8")
+    public @ResponseBody Map findline(Integer page,Integer limit){
+        List<Line> list1 = busBiz.findlineall();
+        List<Line> list = busBiz.findline((page-1)*limit,limit);
+        Map<String, Object> map = new HashMap<String, Object>();
+        map.put("data",list);
+        map.put("code",0);
+        map.put("count",list1.size());
+
+        return map;
     }
 }

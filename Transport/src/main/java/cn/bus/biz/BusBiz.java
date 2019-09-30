@@ -1,8 +1,10 @@
 package cn.bus.biz;
 
 import cn.bus.entity.Bus;
+import cn.bus.entity.Line;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -26,4 +28,11 @@ public interface BusBiz {
 
     int delete(Bus bus);//删除
     int stop(Bus bus);//报废
+
+    //线路列表查询总条数
+    public List<Line> findlineall();
+    //线路列表查询
+    public List<Line> findline(Integer page, Integer limit);
+
+
 }

@@ -228,7 +228,7 @@
 	<input type="hidden" id="cid" value="${city.cid}">
 <%--显示数据的表格--%>
 
-        <script type="text/html" id="barDemo">
+        <script type="text/html" id="operation">
             <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
         </script>
 	<script type="text/html" id="status">
@@ -273,14 +273,20 @@
 					{field:'busyear',title:'使用年限',align:'center',width:120,sort:true},
 					{field:'change',title:'操作',templet:"#status", unresize: true,align:'center'}
                 ]]
-
             });
 
             table.on('tool(test)', function(obj){
                 var data = obj.data;//获取本行
                 if(obj.event === 'use'){
                     //排班
+					$("#to-bid").val(data.bid);
+                    layer.open({
+                        type: 1,
+                        title: "排班",
+                        area: ['500px', '500px'],
+                        content:$("#form-work")
 
+                    });
                 }
                 if(obj.event === 'change'){
                 	//修改
@@ -458,6 +464,50 @@
 
 <%--})--%>
 
+</div>
+<div style="display: none" id="form-work">
+	<input type="hidden" id="to-bid" name="bid">
+    <table class="layui-hide" id="LAY_table_user" lay-filter="user"></table>
+    <script>
+        layui.use('table', function(){
+            var table = layui.table;
+            table.render({
+                elem: '#LAY_table_user'
+                ,url: '${path}/bus/findline.action'
+                ,cols: [[
+                    {checkbox: true, fixed: true}
+                    ,{field:'lid', title: '序号', width:100, sort: true, fixed: true}
+                    ,{field:'line', title: '线路', width:150, sort: true, fixed: true}
+                    ,{field:'right',toolbar: '#barDemo', title: '操作',  width:150}
+                ]]
+                ,id: 'testReload'
+                ,page: true
+                // ,height: 310
+            });
+            //弹窗
+            table.on('tool(user)', function(obj){
+            	var bid=$("#to-bid").val();
+                var data = obj.data;
+                if(obj.event === 'paiban'){
+                    //弹出窗口
+                    layer.open({
+                        type: 2,
+                        title: "排班",
+                        area: ['1050px', '500px'],
+                        content:"${path}/arrangeHandle/arrange.action"+"?lid="+encodeURIComponent(data.lid)+"&bid="+encodeURIComponent(bid)
+                    });
+                }
+            });
+            $('.demoTable .layui-btn').on('click', function(){
+                var type = $(this).data('type');
+                active[type] ? active[type].call(this) : '';
+            });
+        });
+    </script>
+
+    <script type="text/html" id="barDemo">
+        <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="paiban" >排班</a>
+    </script>
 </div>
 </body>
 </html>

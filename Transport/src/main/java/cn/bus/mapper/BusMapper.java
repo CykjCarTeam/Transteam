@@ -2,6 +2,7 @@ package cn.bus.mapper;
 
 import cn.bus.entity.Bus;
 import cn.bus.entity.City;
+import cn.bus.entity.Line;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -37,4 +38,7 @@ public interface BusMapper {
     boolean addBus(Map map);
 
     int stop(Bus bus);
+
+    public List<Line> findlineall(Line line);
+    public List<Line> findline(Map map);
 }

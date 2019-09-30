@@ -2,6 +2,7 @@ package cn.bus.biz;
 
 import cn.bus.entity.Bus;
 import cn.bus.entity.City;
+import cn.bus.entity.Line;
 import cn.bus.mapper.BusMapper;
 import cn.bus.tool.PageUtil;
 import org.junit.jupiter.api.Test;
@@ -105,8 +106,22 @@ public class BusBizImp implements BusBiz {
         return busMapper.stop(bus);
     }
 
+    @Override
+    public List<Line> findline(Integer page, Integer limit) {
+        Map<String,Object> map = new HashMap<>();
+        map.put("page",page);
+        map.put("limit",limit);
+        return  busMapper.findline(map);
+    }
+
     @Test
     public void check(){
         System.out.println(PageUtil.getYear("2012"));
+    }
+
+    //线路列表查询总条数
+    @Override
+    public List<Line> findlineall() {
+        return  busMapper.findlineall(new Line());
     }
 }
