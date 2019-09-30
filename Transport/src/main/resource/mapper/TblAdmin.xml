@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!--绑定动态sql映射接口-->
+<mapper namespace="cn.bus.mapper.IAdminMapper">
+<!--    后台用户登录验证-->
+    <select id="queryUser" parameterType="cn.bus.entity.Admin" resultType="cn.bus.entity.Admin">
+        select * from tb_admin where anum = #{anum} and apwd = #{apwd}
+    </select>
+</mapper>
