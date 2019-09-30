@@ -6,31 +6,143 @@
 <mapper namespace="cn.bus.mapper.IAdminMapper">
 <!--    后台用户登录验证-->
     <select id="queryUser" parameterType="cn.bus.entity.Admin" resultType="cn.bus.entity.Admin">
-        select * from tb_admin where anum = #{anum} and apwd = #{apwd}
+        select * from tb_admin where anum = #{anum} and apwd = #{apwd} and state=2
     </select>
-    <select id="station_list" parameterType="java.util.Map" resultType="cn.bus.entity.Station">
-        select st1.*,st2.city from(SELECT t1.*,li.line from(select s.sid,s.station,s.coor_x,s.coor_y,ifnull(sl.lid,0) lid from tb_station s LEFT OUTER JOIN tb_station_line sl ON s.sid=sl.sid) t1 LEFT OUTER JOIN tb_line li ON t1.lid=li.lid) st1,(SELECT sc.*,ct.city from tb_station_city sc,tb_city ct where sc.cid=ct.cid) st2 
+
+<!--    登录ajax-->
+    <select id="loginjax" parameterType="java.lang.String" resultType="cn.bus.entity.Admin">
+		select * from tb_admin where anum=#{anum}
+	</select>
+
+    <!--活动菜单-->
+<!--    父类菜单-->
+    <select id="findfmenu" parameterType="java.lang.String" resultType="cn.bus.entity.Menu">
+      select a.anum,m.* from tb_admin a,tb_role_menu r1,tb_menu m where
+      a.anum=#{anum} and r1.rid=a.rid and r1.mid=m.mid and m.pid=0
+    </select>
+
+<!--    子类菜单-->
+    <select id="findcmenu" parameterType="java.lang.String" resultType="cn.bus.entity.Menu">
+      select a.anum,m.* from tb_admin a,tb_role_menu r1,tb_menu m where
+      a.anum=#{anum} and r1.rid=a.rid and r1.mid=m.mid
+    </select>
+
+<!--    查询角色-->
+    <select id="findrole" resultType="cn.bus.entity.Admin">
+     select * from tb_role
+    </select>
+<!--    用户表格数据-->
+    <select id="listajax" parameterType="java.util.Map" resultMap="admin">
+        select t.*,p.param from tb_admin t,tb_properties p
+      <where>
+          <if test="rid !=null and rid neq ''">
+              t.rid=#{rid}
+          </if>
+          <if test="aname !=null and aname neq ''">
+              and t.aname like '%${aname}%'
+          </if>
+          and t.state=p.pid
+      </where>
+        limit #{page},#{paging}
+    </select>
+    <resultMap type="cn.bus.entity.Admin" id="admin">
+        <result property="anum" column="anum" />
+        <result property="aname" column="aname" />
+        <result property="age" column="age" />
+        <result property="sex" column="sex" />
+        <result property="area" column="area" />
+        <result property="phone" column="phone" />
+        <result property="state" column="state"/>
+
+        <association property="parameter" column="state" javaType="cn.bus.entity.Parameter">
+            <id property="pid" column="pid" />
+            <result property="param" column="param" />
+        </association>
+    </resultMap>
+
+
+    
+    
+    
+<!--    查询总数-->
+    <select id="listcount" parameterType="java.util.Map" resultType="java.lang.Integer">
+        select count(*) from tb_admin
+         <where>
+             <if test="rid !=null and rid neq ''">
+                 rid=#{rid}
+             </if>
+             <if test="aname !=null and aname neq ''">
+                 and aname like '%${aname}%'
+             </if>
+         </where>
+    </select>
+
+<!--    编辑-->
+
+<!--    删除-->
+    <delete id="deleteanum" parameterType="java.util.Map">
+        delete from tb_admin
         <where>
-            st1.sid=st2.sid
-            <if test="city!=null and city neq ''">
-                and city like "%"#{city}"%"
+            <if test="rid !=null and rid neq ''">
+                rid=#{rid}
             </if>
-            <if test="station!=null and station neq ''">
-                and station like "%"#{station}"%"
+            <if test="anum !=null and anum neq ''">
+                and anum like '%${anum}%'
             </if>
         </where>
-        limit #{start},#{end}
+    </delete>
+
+<!--    修改状态-->
+    <update id="upstate" parameterType="java.util.Map">
+        update tb_admin set state=#{state} where anum=#{anum}
+    </update>
+
+<!--    重置密码-->
+    <select id="findpass" parameterType="java.lang.Integer" resultType="cn.bus.entity.Parameter">
+        select * from tb_properties where pid=#{pid}
     </select>
-    <select id="station_listpage" parameterType="java.util.Map" resultType="cn.bus.entity.Station">
-        select st1.*,st2.city from(SELECT t1.*,li.line from(select s.sid,s.station,s.coor_x,s.coor_y,ifnull(sl.lid,0) lid from tb_station s LEFT OUTER JOIN tb_station_line sl ON s.sid=sl.sid) t1 LEFT OUTER JOIN tb_line li ON t1.lid=li.lid) st1,(SELECT sc.*,ct.city from tb_station_city sc,tb_city ct where sc.cid=ct.cid) st2
-        <where>
-            st1.sid=st2.sid
-            <if test="city !=null and city neq ''">
-                and city like "%"#{city}"%"
-            </if>
-            <if test="station!=null and station neq ''">
-                and station like "%"#{station}"%"
-            </if>
-        </where>
+
+    <update id="uppass" parameterType="java.util.Map">
+        update tb_admin set apwd=#{apwd} where anum=#{anum}
+    </update>
+
+    <insert id="addAdmin" parameterType="cn.bus.entity.Admin">
+        insert into tb_admin (anum,apwd,aname,age,sex,phone,rid,area,state,image)
+        values(#{anum},#{apwd},#{aname},#{age},#{sex},#{phone},#{rid},#{area},#{state},#{image})
+    </insert>
+
+<!--    编辑角色-->
+
+<!--    判断角色是否存在-->
+    <select id="roleajax" parameterType="java.lang.String" resultType="cn.bus.entity.Role">
+		select * from tb_role where role=#{role}
+	</select>
+
+
+<update id="uprole" parameterType="java.util.Map" >
+     update tb_role set role=#{role} where rid=#{rid}
+</update>
+
+    <delete id="deleterole" parameterType="java.lang.Integer">
+        delete from tb_role where rid=#{rid}
+    </delete>
+
+    <insert id="addrole" parameterType="java.lang.String">
+        insert into tb_role (role)values(#{role})
+    </insert>
+
+<!--    权限配置-->
+
+    <select id="allpower" resultType="cn.bus.entity.Menu">
+    select * from tb_menu
     </select>
+
+<select id="power" parameterType="java.lang.Integer" resultType="cn.bus.entity.Menu">
+    select m.* from tb_role_menu tb,tb_menu m where tb.rid=#{rid} and m.mid=tb.mid
+</select>
+
+
+
+
+
 </mapper>

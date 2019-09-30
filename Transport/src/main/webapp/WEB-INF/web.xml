@@ -10,7 +10,7 @@
   <display-name>Archetype Created Web Application</display-name>
 
   <welcome-file-list>
-    <welcome-file>/WEB-INF/admin/index.jsp</welcome-file>
+    <welcome-file>/WEB-INF/admin/login.jsp</welcome-file>
   </welcome-file-list>
 
   <!--  加载applicationContext配置文件-->
