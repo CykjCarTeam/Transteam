@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!--绑定动态sql映射接口-->
+<mapper namespace="cn.bus.mapper.IDriverSchedulingMapper">
+
+<!--    司机工资语句-->
+    <select id="findallScheduling"  parameterType="java.util.Map" resultType="cn.bus.entity.DriverScheduling" >
+
+        select tds.*,ad.aname from tb_admin ad,tb_driver_scheduling tds where ad.rid=3 AND ad.aid=tds.aid
+        <if test="dname!=null and dname neq ''">
+            and aname like concat('%',#{dname},'%')
+        </if>
+        limit #{page},#{limit}
+
+    </select>
+<!--    查询总条数-->
+    <select id="countScheduling"  parameterType="java.util.Map"  resultType="cn.bus.entity.DriverScheduling">
+
+        select tds.*,ad.aname from tb_admin ad,tb_driver_scheduling tds where ad.rid=3 AND ad.aid=tds.aid
+        <if test="dname!=null and dname neq ''">
+            and aname like concat('%',#{dname},'%')
+        </if>
+    </select>
+
+
+<!--    <update id="upaccount" parameterType="java.lang.String">-->
+
+<!--		 update tb_admin set account=#{account} where aname=#{name}-->
+<!--	</update>-->
+
+</mapper>

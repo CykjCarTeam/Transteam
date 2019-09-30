@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!--绑定动态sql映射接口-->
+<mapper namespace="cn.bus.mapper.NewsMapper">
+
+<!--    新闻语句-->
+    <select id="findallNews"  parameterType="java.util.Map" resultType="cn.bus.entity.News" >
+
+        SELECT * FROM tb_news
+
+        limit #{page},#{limit}
+
+    </select>
+<!--    查询总条数-->
+    <select id="countNews"   resultType="cn.bus.entity.News">
+
+       SELECT * FROM tb_news
+
+
+    </select>
+
+
+    <update id="updateNews" parameterType="java.lang.String">
+
+		 update tb_news set daynews=#{daynews} where nid=#{nid}
+	</update>
+
+    <delete id="deleteNews" parameterType="java.lang.Integer">
+		delete  from  tb_news where nid=#{nid}
+	</delete>
+
+</mapper>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!--绑定动态sql映射接口-->
+<mapper namespace="cn.bus.mapper.IStationMapper">
+<!--站点查询显示-->
+    <select id="station_list" parameterType="java.util.Map" resultType="cn.bus.entity.Station">
+        select st1.*,st2.city,st2.cid from(SELECT t1.*,li.line from(select s.sid,s.station,s.coor_x,s.coor_y,ifnull(sl.lid,0) lid from tb_station s LEFT OUTER JOIN tb_station_line sl ON s.sid=sl.sid) t1 LEFT OUTER JOIN tb_line li ON t1.lid=li.lid) st1,(SELECT sc.*,ct.city from tb_station_city sc,tb_city ct where sc.cid=ct.cid) st2
+        <where>
+            st1.sid=st2.sid
+            <if test="city!=null and city neq ''">
+                and cid=#{city}
+            </if>
+            <if test="station!=null and station neq ''">
+                and station like "%"#{station}"%"
+            </if>
+        </where>
+        limit #{start},#{end}
+    </select>
+<!--    站点对应页码-->
+    <select id="station_listpage" parameterType="java.util.Map" resultType="cn.bus.entity.Station">
+        select st1.*,st2.city,st2.cid from(SELECT t1.*,li.line from(select s.sid,s.station,s.coor_x,s.coor_y,ifnull(sl.lid,0) lid from tb_station s LEFT OUTER JOIN tb_station_line sl ON s.sid=sl.sid) t1 LEFT OUTER JOIN tb_line li ON t1.lid=li.lid) st1,(SELECT sc.*,ct.city from tb_station_city sc,tb_city ct where sc.cid=ct.cid) st2
+        <where>
+            st1.sid=st2.sid
+            <if test="city !=null and city neq ''">
+                and cid=#{city}
+            </if>
+            <if test="station!=null and station neq ''">
+                and station like "%"#{station}"%"
+            </if>
+        </where>
+    </select>
+<!--    城市选择-->
+    <select id="station_city" parameterType="java.lang.String" resultType="cn.bus.entity.City">
+        select * from tb_city
+    </select>
+<!--    添加站点-->
+    <insert id="station_add" parameterType="java.util.Map" >
+        insert into tb_station (station,coor_x,coor_y) values (#{station},#{coor_x},#{coor_y})
+        <selectKey resultType="java.lang.Integer" keyProperty="sid" order="AFTER">
+            select LAST_INSERT_ID()
+        </selectKey>
+    </insert>
+<!--添加站点-城市-->
+    <insert id="station_city_add" parameterType="java.util.Map">
+        insert into tb_station_city (sid,cid) values (#{sid},#{cid})
+    </insert>
+<!--删除站点-城市-->
+    <delete id="station_city_del" parameterType="java.lang.String">
+        delete from tb_station_city where sid=#{sid} and cid=#{cid}
+    </delete>
+<!--删除站点-->
+    <delete id="station_del" parameterType="java.lang.String">
+        delete from tb_station where sid=#{sid}
+    </delete>
+<!--    修改站点-->
+    <update id="stationupdate" parameterType="java.util.Map">
+        update tb_station set station=#{station},coor_x=#{coor_x},coor_y=#{coor_y} where sid=#{sid}
+    </update>
+</mapper>

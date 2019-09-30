@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!--绑定动态sql映射接口-->
+<mapper namespace="cn.bus.mapper.IDriverWorkloadMapper">
+
+<!--    司机列表语句-->
+    <select id="findalldriverscheduling"  resultType="cn.bus.entity.DriverWorkload" >
+        SELECT tbds.id,tbds.dates,tbds.states,tbl.line line FROM tb_driver_scheduling tbds,tb_admin tba,tb_line tbl,tb_driver_line tdrl WHERE tbds.aid=tba.aid AND tba.aid=tdrl.aid AND tdrl.lid=tbl.lid
+--         SELECT tbds.id,tbds.dates,tbds.states,tbl.line line FROM tb_driver_scheduling tbds,tb_admin tba,tb_line tbl WHERE tbds.aid=tba.aid AND tba.lid=tbl.lid
+        <if test="begindates!=null and begindates neq ''and enddates!=null and enddates neq '' ">
+
+            AND tbds.dates between #{begindates} and #{enddates}
+        </if>
+
+
+        limit #{page},#{limit}
+
+    </select>
+<!--    查询总条数-->
+    <select id="countdriverscheduling"  resultType="cn.bus.entity.DriverWorkload">
+
+--
+--         SELECT tbds.id,tbds.dates,tbds.states,tbl.line line FROM tb_driver_scheduling tbds,tb_admin tba,tb_line tbl WHERE tbds.aid=tba.aid AND tba.lid=tbl.lid
+        SELECT tbds.id,tbds.dates,tbds.states,tbl.line line FROM tb_driver_scheduling tbds,tb_admin tba,tb_line tbl,tb_driver_line tdrl WHERE tbds.aid=tba.aid AND tba.aid=tdrl.aid AND tdrl.lid=tbl.lid
+        <if test="begindates!=null and begindates neq ''and enddates!=null and enddates neq '' ">
+            AND tbds.dates between #{begindates} and #{enddates}
+
+
+        </if>
+
+
+    </select>
+
+
+</mapper>

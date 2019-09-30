@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!--绑定动态sql映射接口-->
+<mapper namespace="cn.bus.mapper.AdvertisingMapper">
+
+<!--    -->
+    <select id="findallAdvertising"  parameterType="java.util.Map" resultType="cn.bus.entity.Advertising" >
+
+        SELECT * FROM tb_adv_match
+<!--        <if test="dname!=null and dname neq ''">-->
+<!--            and aname like concat('%',#{dname},'%')-->
+<!--        </if>-->
+        limit #{page},#{limit}
+
+    </select>
+<!--    查询总条数-->
+    <select id="countAdvertising"  parameterType="java.util.Map"  resultType="cn.bus.entity.Advertising">
+
+        SELECT * FROM tb_adv_match
+<!--        <if test="dname!=null and dname neq ''">-->
+<!--            and aname like concat('%',#{dname},'%')-->
+<!--        </if>-->
+    </select>
+
+
+<!--    <update id="updatePartners" parameterType="java.lang.String">-->
+
+<!--		  update tb_merchant set mname=#{mnane},msite=#{msite}  where  mid=#{mid}-->
+<!--	</update>-->
+
+<!--    <delete id="deletePartners" parameterType="java.lang.Integer">-->
+<!--		delete  from  tb_merchant where mid=#{mid}-->
+<!--	</delete>-->
+
+</mapper>

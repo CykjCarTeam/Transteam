@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!--绑定动态sql映射接口-->
+<mapper namespace="cn.bus.mapper.DriverLineMapper">
+
+<!--   站点-->
+    <select id="findallline"  resultType="cn.bus.entity.Line" >
+           select tb_line.lid,tb_line.line  from tb_line
+
+    </select>
+
+
+</mapper>
