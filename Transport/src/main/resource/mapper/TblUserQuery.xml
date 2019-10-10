@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!--绑定动态sql映射接口-->
+<mapper namespace="cn.bus.mapper.UQuerylineMapper">
+    <!--    用户线路查询-->
+    <select id="uqueryline" parameterType="java.lang.String" resultType="cn.bus.entity.Uqueryline">
+    SELECT li.*,bl.bid from (SELECT l2.*,st2.station lstation from(select l.*,st.station fstation from tb_line l,tb_station st WHERE l.line LIKE "%"#{line}"%" and l.origin=st.sid) l2,tb_station st2 where l2.terminal=st2.sid) li LEFT OUTER JOIN tb_bus_line bl on li.lid=bl.lid
+</select>
+    <!--线路发车时刻表-->
+    <select id="uquerytime" parameterType="java.lang.String" resultType="cn.bus.entity.Uquerylinetime">
+        SELECT bt.bid,t.times from tb_bus_time bt,tb_time t where bt.tid=t.tid and bt.bid=#{bid} ORDER BY times
+    </select>
+    <!--    获取站点名称-->
+    <select id="uquerystation" resultType="cn.bus.entity.Station">
+        select * from tb_station
+    </select>
+    <select id="uquerystation2" parameterType="java.lang.String" resultType="cn.bus.entity.Station">
+        select st.*,sl.lid,li.line from tb_station st,tb_station_line sl,tb_line li where st.sid=sl.sid and sl.lid=li.lid and station=#{station}
+    </select>
+
+    <!--    获取线路起终点站名称-->
+    <select id="linestationname" parameterType="java.lang.Integer" resultType="cn.bus.entity.Uqueryline">
+    select t1.*,t2.terminal,t2.lstation from (SELECT li.lid,li.origin,st.station as fstation from tb_line li,tb_station st where li.origin=st.sid) t1,(SELECT li.lid,li.terminal,st.station as lstation from tb_line li,tb_station st where li.terminal=st.sid) t2 where t1.lid=t2.lid and t1.lid=#{lid}
+    </select>
+<!--    对比换乘线路-->
+    <select id="roleline" parameterType="java.lang.Integer" resultType="cn.bus.entity.Station">
+        select t1.*,li.line from (SELECT sl.lid,sl.sid,st.station from tb_station_line sl,tb_station st where sl.sid=st.sid and lid=#{lid}) t1,tb_line li where t1.lid=li.lid
+    </select>
+<!--    线路沿途站点查询-->
+    <select id="ualongstation" parameterType="java.lang.String" resultType="cn.bus.entity.Station">
+        select st.* from tb_station_line sl,tb_station st where sl.sid=st.sid and sl.lid=#{lid}
+    </select>
+</mapper>

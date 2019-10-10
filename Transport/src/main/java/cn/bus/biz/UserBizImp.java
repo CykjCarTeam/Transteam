@@ -8,11 +8,6 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.annotation.Resource;
 import java.util.Map;
 
-/**
-* @Author:小星
-* @Description: 后台用户业务接口实现类
-* @Date:上午 9:52 2019/9/19 0019
-*/
 @Service
 public class UserBizImp implements UserBiz {
 
